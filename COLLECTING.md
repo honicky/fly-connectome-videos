@@ -3,11 +3,15 @@
 This is the procedure the scheduled task follows. It exists in the repo so the
 scheduled task prompt can stay short and this logic stays version-controlled.
 
-Everything runs on RJ's Mac: the browser work uses Claude's **browser pane**
-(`Claude_Browser__*` tools), which has persistent logged-in sessions. The shell
-work uses `device_bash`, where the repo is at `$HOME/mnt/fly-connectome-videos`.
-(The connected folder mounts by **basename**, so there is no `personal/` segment
-inside the sandbox even though the Mac path is `/Users/rj/personal/...`.)
+Everything runs on RJ's Mac, in a **Claude Code Desktop scheduled task** with the
+working folder `/Users/rj/personal/fly-connectome-videos` (since 2026-11-22; before
+that it ran in a Cowork sandbox, which could not push to GitHub). It is a normal
+local session: a real shell, real git, RJ's own credentials. All paths below are
+relative to that folder.
+
+Browser work goes through **Claude in Chrome** (`mcp__claude-in-chrome__*`): RJ's
+real Chrome is signed in to X and LinkedIn. YouTube needs no browser at all
+(section 1).
 
 **Never** re-type `data/items.json` from memory. Always read it, mutate it with a
 script, and write it back.
@@ -16,8 +20,19 @@ script, and write it back.
 
 ## 1. YouTube
 
-Open any YouTube page in the browser pane, then run the in-page search API. This
-is far more reliable than scraping the DOM, which changes constantly.
+Run the search script; it needs no browser and no login:
+
+```bash
+python3 tools/yt_search.py > /tmp/fly-yt.jsonl   # one JSON object per video
+```
+
+Same fields as below (`id, q, title, ch, chUrl, pub, views, len, desc`). It parses
+the `ytInitialData` JSON embedded in YouTube's public search page. **Untested
+against live YouTube as of 2026-11-22** (written from a sandbox that could not
+reach YouTube) — check the first run's output. If it prints `error` lines for every
+query, fall back to the in-page innertube API in Chrome: open youtube.com, run the
+block below with `.then(r=>{window.__yt=JSON.stringify(r)}); 'started'` appended
+(javascript_tool cannot await a promise), then read `window.__yt` in a second call.
 
 ```js
 (async()=>{
@@ -113,7 +128,7 @@ The status URL is the identity — `x:<status_id>`.
 
 Two steps, because LinkedIn strips post permalinks out of search results entirely.
 
-**Discovery** — browser pane, read the rendered text:
+**Discovery** — Claude in Chrome: `navigate`, then `get_page_text`:
 
 ```
 https://www.linkedin.com/search/results/content/?keywords=fly%20connectome&datePosted=%22past-week%22
@@ -131,7 +146,7 @@ https://www.linkedin.com/in/<slug>/recent-activity/all/
 ```
 
 ```js
-(async()=>{await new Promise(r=>setTimeout(r,3500));
+(()=>{
 const out=[],seen=new Set();
 document.querySelectorAll('*').forEach(el=>{let hit=null;
  for(const a of el.attributes||[]){
@@ -140,8 +155,11 @@ document.querySelectorAll('*').forEach(el=>{let hit=null;
  if(!hit||seen.has(hit))return;let n=el,txt='';
  for(let i=0;i<8&&n;i++){const t=(n.innerText||'').trim();if(t.length>120){txt=t;break}n=n.parentElement}
  seen.add(hit);out.push({urn:hit,text:(txt||el.innerText||'').replace(/\s+/g,' ').slice(0,420)})});
-return out.slice(0,6);})()
+return JSON.stringify(out.slice(0,6));})()
 ```
+
+Synchronous, because javascript_tool cannot await: after `navigate`, wait ~4 s for
+the feed to render (`computer` → `wait`), then run it.
 
 Match by text prefix, then build:
 
@@ -195,44 +213,25 @@ links to the other.
 
 ## 6. Build and publish
 
-Git **cannot** run inside `$HOME/mnt/fly-connectome-videos`. The sandbox
-blocks file deletion there, so git's lock files survive and the second commit ever
-made dies with `cannot lock ref 'HEAD': File exists`. Delete permission does not
-fix this — that grant needs a fresh human approval on every run, which a scheduled
-job cannot get. So GitHub is the source of truth and all git work happens in the
-VM's scratch space.
+One command builds, checks, commits and pushes:
 
 ```bash
-cd $HOME/mnt/fly-connectome-videos
-./publish.sh pull            # clones GitHub -> $HOME/fly-work
-# ... edit $HOME/fly-work/data/items.json with a script ...
-$HOME/fly-work/publish.sh push   # builds, commits, pushes, mirrors back
+bash tools/publish-local.sh
 ```
 
-Always edit `$HOME/fly-work/data/items.json` — the copy in the mounted folder is a
-mirror, and anything written only there is overwritten on the next push.
+It runs `build.py`, and refuses to publish if `data/items.json` is invalid, if the
+build reports any `WARN duplicate`, if the site would shrink (fewer clusters than the
+last commit), or if GitHub has commits the folder lacks. Then it commits, pushes to
+`github.com/honicky/fly-connectome-videos` `main`, and turns GitHub Pages on if it
+is off. Every outcome is appended to `publish.log` (`OK ...`, `WARN ...`,
+`ERROR ...`). On an `ERROR`, fix the cause if it is in the data (duplicates, bad
+JSON); otherwise report it and stop. Never force-push, never rewrite history.
 
-`publish.sh` resolves the GitHub token in this order, taking the first that exists:
-
-1. `$FLY_TOKEN_FILE`, if set
-2. `<connected folder>/.fly-connectome-gh-token`  ← **preferred**
-3. `$(dirname <connected folder>)/.fly-connectome-gh-token`  (legacy; **unreachable
-   from the sandbox** when only the repo folder is attached)
-
-Keep the token at option 2 — inside the repo folder, where `.gitignore` already
-covers it. Option 3 was the old default and is why 12 runs could not publish: it
-resolves outside every mounted folder. The token is never written to git config,
-the remote URL, or the reflog.
-
-If no token file exists the script exits non-zero with the list of paths it tried —
-report that and stop rather than improvising another way to publish.
-
-`pull` and `push` are implemented as of 2026-10-10 (`publish.sh` with no argument
-keeps the old in-place build-and-push, which only works outside the sandbox where
-git is not restricted). `push` refuses to publish if `build.py` reports any
-duplicate warnings, and mirrors **only** `index.html` and `data/items.json` back to
-the connected folder — deliberately narrow, so a clone of an empty repo can never
-overwrite `data/pending-merge.json`.
+The folder *is* the git clone (the first run of the script made it one, adopting
+the history in `first-publish.bundle`). Auth: the token in
+`.fly-connectome-gh-token` if present, else RJ's normal git credentials (gh).
+`.gitignore` keeps the token, the bundle, `publish.log` and `_stale/git-abandoned/`
+out of git.
 
 ### Merging new findings
 
@@ -247,3 +246,9 @@ by_id = {c["id"]: c for c in d["clusters"]}
 d["updated"] = datetime.datetime.now(datetime.timezone.utc).isoformat(timespec="seconds")
 json.dump(d, open(p, "w"), indent=2, ensure_ascii=False)
 ```
+
+`data/pending-merge.json` and `data/pending-2026-09-22.json` were merged on
+2026-11-22 (first publish: 150 clusters / 183 posts). Never merge them again.
+
+`publish.sh` is obsolete (its pull/push modes were a workaround for the Cowork
+sandbox). Use `tools/publish-local.sh`.

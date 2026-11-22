@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-22T13:44:15+00:00",
+  "updated": "2026-11-22T14:13:06+00:00",
   "clusters": [
     {
       "id": "bad-apple-fly-brain",
@@ -3153,6 +3153,305 @@
           "author": "Varun Reddy",
           "text": "A fruit fly's visual system has been mapped synapse by synapse, and the model built on it is open source. I ran 617 fabric patterns and 240 trap designs through it. It reproduced three results from live-fly experiments it was never given — and pointed at a gap: nobody appears to have tested how wide the stripes on a fly trap should be.",
           "published": "2026-10-05"
+        }
+      ]
+    },
+    {
+      "id": "odyssey3-world-model-fly",
+      "track": "viral",
+      "title": "A fly brain flying through a generated world (Odyssey-3)",
+      "commentary": "Odyssey says it placed the fruit fly brain inside Odyssey-3, its world model, and the clip shows the fly flying through imagined scenes on its own. The post does not say which connectome, which neurons are driven, or how the world model's frames reach the fly and its outputs reach the camera, so how much of the flight the wiring is responsible for is not shown. At 6.3 million views it is the most-watched item in the index.",
+      "first_seen": "2026-11-22",
+      "items": [
+        {
+          "platform": "x",
+          "url": "https://x.com/odysseyml/status/2111589148146749616",
+          "author": "@odysseyml",
+          "text": "We placed the fruit fly brain inside Odyssey-3, a frontier world model. The lil’ guy is now flying around totally imagined, simulated worlds all by itself",
+          "published": "2026-10-17",
+          "views": "6,287,816 views",
+          "likes": "20,317 likes"
+        }
+      ]
+    },
+    {
+      "id": "sus-bench-fly-player",
+      "track": "viral",
+      "title": "A fly brain as one player in an AI social-deduction game (SUS-Bench)",
+      "commentary": "A large social-deduction game in which AI models and humans play with and against each other; one player is controlled by a simulated fly brain whose neurons, per the author, decide only when to walk and when to turn. The author reports that 17 AI models rank below the fly on SUS-Bench. A player that only wanders cannot lie or accuse anyone, so that ranking says more about how the benchmark scores the models than about the fly.",
+      "first_seen": "2026-11-22",
+      "items": [
+        {
+          "platform": "x",
+          "url": "https://x.com/imodarressi/status/2121280682810888609",
+          "author": "@imodarressi",
+          "text": "4/ yes, there is a fly in the game a simulated fly brain controls 1 player and its neurons decide when to walk and when to turn 17 AI models rank below it on SUS-Bench",
+          "published": "2026-11-13",
+          "views": "12,519 views",
+          "likes": "138 likes"
+        },
+        {
+          "platform": "x",
+          "url": "https://x.com/imodarressi/status/2121280505786110176",
+          "author": "@imodarressi",
+          "text": "we built the biggest mafia-like game ever > 250.000 humans playing with/against AI ... we also added a flybrain ;)",
+          "published": "2026-11-13",
+          "views": "1,340,600 views",
+          "likes": "720 likes"
+        }
+      ]
+    },
+    {
+      "id": "risc-v-cpu-in-fly-brain",
+      "track": "viral",
+      "title": "A RISC-V CPU and GPU built into the FlyWire connectome",
+      "commentary": "Bodo Wirth, building with @flappingdodo, says he built a 32-bit RISC-V CPU and a GPU out of neurons, wired them into the 138k-neuron FlyWire connectome, and had the fly render a 3D shooter onto its own eyes and play it. The post does not say whether the CPU's neurons belong to the fly or were added alongside it, which is the difference between computing with the fly's circuits and attaching a computer to them.",
+      "first_seen": "2026-11-22",
+      "items": [
+        {
+          "platform": "x",
+          "url": "https://x.com/12bow34/status/2118471810715189283",
+          "author": "@12bow34",
+          "text": "We put a computer inside a fruit fly’s brain. A 32-bit RISC-V CPU and a GPU, built from neurons and wired into the 138k-neuron FlyWire connectome. The fly renders a 3D shooter onto its own eyes, and plays it.",
+          "published": "2026-11-05",
+          "views": "19,581 views",
+          "likes": "98 likes"
+        }
+      ]
+    },
+    {
+      "id": "fly-inside-qwen",
+      "track": "viral",
+      "title": "Fly neurons as three extra layers inside Qwen3.5-4B",
+      "commentary": "The fly is put inside a language model rather than a game: per the author, the fly's neurons run as three extra layers in Qwen3.5-4B, each neuron is a token that fires when the model predicts that token, and what Qwen reads about the fly's senses drives the fly's command neurons. It is an architecture demo; the post reports no measurement of what the fly layers change in the model's output.",
+      "first_seen": "2026-11-22",
+      "items": [
+        {
+          "platform": "x",
+          "url": "https://x.com/treetowntree/status/2117262959990722871",
+          "author": "@treetowntree",
+          "text": "I put a fly inside of Qwen3.5-4b. The fly neurons run as 3 extra layers inside of Qwen. Each neuron is a token that fires when the model predicts that token.",
+          "published": "2026-11-02",
+          "views": "2,019 views",
+          "likes": "31 likes"
+        }
+      ]
+    },
+    {
+      "id": "aail-crab-robot",
+      "track": "viral",
+      "title": "A red crab robot given the fly brain",
+      "commentary": "A small crab robot whose behaviour is linked to a simulated fly brain, posted as a sequel to the creator's 'please nobody give this crab the fly brain'. In the replies the creator accepts the correction that the crab's moves are preprogrammed and the fly's signals are mapped onto them, so the connectome chooses among existing behaviours rather than driving the motors.",
+      "first_seen": "2026-11-22",
+      "items": [
+        {
+          "platform": "x",
+          "url": "https://x.com/archa1ngel/status/2109212778766491814",
+          "author": "@archa1ngel",
+          "text": "the fly brain needed 10 seconds to get it",
+          "published": "2026-10-11",
+          "views": "42,032 views",
+          "likes": "2,088 likes"
+        }
+      ]
+    },
+    {
+      "id": "dzuma-fly-brain-hacking",
+      "track": "viral",
+      "title": "Can a fly brain learn to hack? (dzuma)",
+      "commentary": "A 45-minute video whose description cites the FlyWire connectome, the Brian 2 spiking simulator, the classic odour-shock and odour-sugar conditioning papers, and two deliberately vulnerable training targets (DVWA and Kioptrix), so the 'hacking' is against practice boxes. The word 'conscious' in the title is the creator's framing; nothing in a connectome simulation establishes it.",
+      "first_seen": "2026-11-22",
+      "items": [
+        {
+          "platform": "youtube",
+          "url": "https://www.youtube.com/watch?v=m5Q_aIO_K8o",
+          "video_id": "m5Q_aIO_K8o",
+          "title": "Can A Conscious Fly Brain Learn how to Hack?",
+          "author": "dzuma",
+          "author_url": "https://www.youtube.com/@dzumq",
+          "published": "2026-10-07",
+          "views": "97,417 views",
+          "duration": "44:46"
+        }
+      ]
+    },
+    {
+      "id": "gta-vice-city-fly",
+      "track": "viral",
+      "title": "The FlyBrain GoldSrc code ported to GTA Vice City",
+      "commentary": "Huguito adapted Yusuf Temel's open-source FlyBrain Half-Life code to drive GTA Vice City, and says it works in any game. It is a port of an existing bridge rather than a new model, and is listed separately from the Half-Life entry because it is a different person's build.",
+      "first_seen": "2026-11-22",
+      "items": [
+        {
+          "platform": "youtube",
+          "url": "https://www.youtube.com/watch?v=1byTwAmipWw",
+          "video_id": "1byTwAmipWw",
+          "title": "Fruit Fly playing GTA Vice City ... - Flybrain MaleCNS v1.0",
+          "author": "Huguito ✔",
+          "author_url": "https://www.youtube.com/@Huguito",
+          "published": "2026-09-17",
+          "views": "1,416 views",
+          "duration": "17:27"
+        }
+      ]
+    },
+    {
+      "id": "gothamchess-plays-the-fly",
+      "track": "viral",
+      "title": "GothamChess plays a fly-brain chess engine",
+      "commentary": "Chess YouTuber Levy Rozman plays a browser chess opponent described as a fly (flychess-hq.vercel.app); '700 Elo' is the video title's claim. It is a reaction and play video, so it shows how the engine plays, not how the fly's wiring is turned into moves.",
+      "first_seen": "2026-11-22",
+      "items": [
+        {
+          "platform": "youtube",
+          "url": "https://www.youtube.com/watch?v=YH6sERVbSsI",
+          "video_id": "YH6sERVbSsI",
+          "title": "A Fly Just Learned Chess (It's 700 Elo)",
+          "author": "GothamChess",
+          "author_url": "https://www.youtube.com/@GothamChess",
+          "published": "2026-09-13",
+          "views": "898,079 views",
+          "duration": "10:14"
+        }
+      ]
+    },
+    {
+      "id": "unreal-humanoid-malecns-vnc",
+      "track": "viral",
+      "title": "A humanoid body in Unreal Engine walked by the fly's nerve cord",
+      "commentary": "Part 7 of a Japanese build series: a humanoid physics body in Unreal Engine is driven through 29,995 neurons from MaleCNS v1.0, from descending neurons through the ventral nerve cord to motor neurons that feed added human motor-neuron pools. The author made one wiring change, mirroring contralateral inputs to the motor neurons (0.6% of synapses), and reports that a placeholder controller, not an LLM, issues the commands; so far the body stands and takes one wobbly step.",
+      "first_seen": "2026-11-22",
+      "items": [
+        {
+          "platform": "x",
+          "url": "https://x.com/L_ARCH_01/status/2118397452730707972",
+          "author": "@L_ARCH_01",
+          "text": "Unreal EngineでLLMにボディを与えてみよう・その7 〜人型世界モデルと神経接続〜",
+          "published": "2026-11-05",
+          "views": "5,831 views",
+          "likes": "115 likes"
+        }
+      ]
+    },
+    {
+      "id": "geometry-dash-giant-fiber",
+      "track": "viral",
+      "title": "The fly's escape reflex playing Geometry Dash",
+      "commentary": "A FlyWire-based leaky integrate-and-fire model presses jump whenever its Giant Fiber escape neuron fires in response to a computed looming signal. The author reports 96% of 90 levels in his own clone, and 7 of 9 attempts past the opening spikes of the real Stereo Madness, against 0% with the Giant Fiber silenced or the wiring scrambled. He is specific about the limits: the input is a computed looming signal rather than pixels, and the obstacle layout comes from the level file.",
+      "first_seen": "2026-11-22",
+      "items": [
+        {
+          "platform": "linkedin",
+          "url": "https://www.linkedin.com/feed/update/urn:li:activity:7522664575549476864/",
+          "author": "Adithya CB",
+          "text": "I wired one to Geometry Dash. It played without any training. Then I found exactly where a reflex stops being enough.",
+          "published": "2026-11-01"
+        }
+      ]
+    },
+    {
+      "id": "swat-the-fly-shuffled-wiring",
+      "track": "viral",
+      "title": "Swat the fly: a browser game with a shuffled-wiring control",
+      "commentary": "A playable browser game where you try to swat a fly whose brain is 5,555 neurons from the MaleCNS connectome; looming detectors drive the escape neuron, and a replay shows the spikes on real neuron shapes. The author's experiment is the more useful part: shuffled wiring first looked dramatically different (about 120 spikes/s per neuron versus 2.7), but a stricter shuffle that preserves each neuron's total input brought it to 4.4, which he reports as not significant.",
+      "first_seen": "2026-11-22",
+      "items": [
+        {
+          "platform": "linkedin",
+          "url": "https://www.linkedin.com/feed/update/urn:li:activity:7521087078525198336/",
+          "author": "Alpar Arman",
+          "text": "I made 499 copies of the brain where every neuron keeps the same number of connections, but the partners are shuffled.",
+          "published": "2026-10-28"
+        }
+      ]
+    },
+    {
+      "id": "fly-robot-arm-greenhouse",
+      "track": "viral",
+      "title": "A fly-wired controller for a simulated robot arm in a greenhouse",
+      "commentary": "4,476 FlyWire neurons used as the controller for a simulated Panda arm in MuJoCo, trained with PPO. The author reports about 98% on single-step tasks such as harvesting a ripe tomato, falling to 67-72% on multi-step truss clearing against 98% for a scripted teacher, and says the video shows solved attempts only.",
+      "first_seen": "2026-11-22",
+      "items": [
+        {
+          "platform": "linkedin",
+          "url": "https://www.linkedin.com/feed/update/urn:li:activity:7522369292202409984/",
+          "author": "S. M. Nihal Ahmed",
+          "text": "Can a fruit fly's brain run a robot arm? I took the wiring of a real fruit fly brain (the FlyWire connectome, 4,476 neurons) and used it as the controller for a simulated Panda robot arm in MuJoCo.",
+          "published": "2026-10-31"
+        }
+      ]
+    },
+    {
+      "id": "student-fly-robot-escape",
+      "track": "viral",
+      "title": "A student robot that backs away from looming objects using fly escape neurons",
+      "commentary": "A university module project: a model of the fly's visual lobe is mapped neuron by neuron onto the MaleCNS connectome, and walking, steering and escape neuron activity is translated into motor commands every 20 ms. The team reports their motion-detecting neurons are a median 9 degrees off what the wiring predicts, and that the robot retreats from dark looming objects with no object detection in the code.",
+      "first_seen": "2026-11-22",
+      "items": [
+        {
+          "platform": "linkedin",
+          "url": "https://www.linkedin.com/feed/update/urn:li:activity:7524215778703769601/",
+          "author": "Ilia Mirzaali",
+          "text": "For our module project we gave a fly's brain its own physical body",
+          "published": "2026-11-05"
+        }
+      ]
+    },
+    {
+      "id": "10physics-virtual-fly-brain-overstated",
+      "track": "science",
+      "title": "They lied to you about the virtual fly brain (10 Physics)",
+      "commentary": "A short corrective explainer aimed at the viral wave: the creator argues that many online claims about the fruit fly connectome are exaggerated, and points viewers to Virtual Fly Brain and the 2024 FlyWire Nature papers. At about 419,000 views it is one of the few widely watched pushbacks in this index.",
+      "first_seen": "2026-11-22",
+      "items": [
+        {
+          "platform": "youtube",
+          "url": "https://www.youtube.com/watch?v=3n3YHf4_Qtk",
+          "video_id": "3n3YHf4_Qtk",
+          "title": "They Lied to you about the Virtual Fly Brain",
+          "author": "10 Physics",
+          "author_url": "https://www.youtube.com/@10Physics",
+          "published": "2026-10-16",
+          "views": "419,038 views",
+          "duration": "3:41"
+        }
+      ]
+    },
+    {
+      "id": "liu-biophysical-visual-system",
+      "track": "science",
+      "title": "A biophysical simulation of the fly's visual system",
+      "commentary": "Liu Ziyin and colleagues biophysically simulated the visual system from the Drosophila connectome and report that it detects small objects moving against a noisy background through subcellular interactions between one large inhibitory cell and a pool of small cells (bioRxiv preprint). The clip is a simplified visualisation of that simulation, not the full model.",
+      "first_seen": "2026-11-22",
+      "items": [
+        {
+          "platform": "x",
+          "url": "https://x.com/LiuZiyin10/status/2115800796063559843",
+          "author": "@LiuZiyin10",
+          "text": "How to model a brain given its full anatomy? We took the Drosophila connectome and biophysically simulated its visual system.",
+          "published": "2026-10-29",
+          "views": "1,975 views",
+          "likes": "43 likes"
+        }
+      ]
+    },
+    {
+      "id": "janelia-dimorphic-aotu012",
+      "track": "science",
+      "title": "One sexually dimorphic neuron type, male versus female (Janelia)",
+      "commentary": "A 56-second Janelia visualisation of AOTU012, a neuron type present in both sexes that connects to different partners in each, comparing male CNS data with the female FlyWire data. It illustrates the male-versus-female comparison that the MaleCNS release made possible; it predates the September viral wave by about a year.",
+      "first_seen": "2026-11-22",
+      "items": [
+        {
+          "platform": "youtube",
+          "url": "https://www.youtube.com/watch?v=mNV_ypFXKwg",
+          "video_id": "mNV_ypFXKwg",
+          "title": "Sexual dimorphism in the fruit fly central nervous system",
+          "author": "HHMI's Janelia Research Campus",
+          "author_url": "https://www.youtube.com/@HHMIJanelia",
+          "published": "2025-10-06",
+          "views": "3,736 views",
+          "duration": "0:56"
         }
       ]
     }
