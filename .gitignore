@@ -11,3 +11,6 @@ __pycache__/
 _stale/git-abandoned/
 *.bundle
 publish.log
+
+# Claude Code Kanban session links (dangling symlinks break the Pages build)
+.kanban/
