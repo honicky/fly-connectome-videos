@@ -1,0 +1,136 @@
+# Pipeline blocked — needs RJ (30 minutes of your time, once)
+
+**Status 2026-10-09 (12th run):** collection works on all three platforms.
+Publishing has never worked, not once, in 12 runs over 24 days. There are
+**150 finished entries that have never been published anywhere.**
+
+All three blockers below re-verified independently this run; none has changed.
+The merge itself is **known-good**: dry-run on the Mac and again in the cloud
+container both give 150 clusters / 183 unique posts / 0 dup warnings, build exit 0.
+The moment the token is reachable, the merge is a solved problem.
+
+Full per-run diagnostic history (21KB, ten runs saying this at length) moved to
+`_stale/PIPELINE-BLOCKED-full-history-to-2026-10-06.md`. This file is now just the ask.
+
+---
+
+## Do these two things and the next run publishes everything
+
+### 1. Make the token reachable (30 seconds)
+
+`publish.sh` resolves the PAT to `$(dirname REPO_DIR)/.fly-connectome-gh-token`.
+Only `/Users/rj/personal/fly-connectome-videos` is attached to the task, so inside the
+sandbox that resolves to `$HOME/mnt/.fly-connectome-gh-token` — outside every mounted
+folder. If the token exists at `/Users/rj/personal/.fly-connectome-gh-token`, the
+session cannot see it and never will.
+
+On your Mac:
+
+```bash
+cd /Users/rj/personal/fly-connectome-videos
+mv ../.fly-connectome-gh-token .fly-connectome-gh-token   # already in .gitignore
+```
+
+Then add `FLY_TOKEN_FILE="$REPO_DIR/.fly-connectome-gh-token"` as the default in
+`publish.sh`, or attach `/Users/rj/personal` to the scheduled task as a second folder.
+
+### 2. Confirm the GitHub repo and Pages
+
+`github.com/honicky/fly-connectome-videos` → **404 unauthenticated.** That is what a
+*private* repo returns too, so this is **not** proof it is missing. Earlier notes in the
+history file overclaimed here; it is genuinely undecidable without a credential, and a
+scheduled run has none.
+
+`https://honicky.github.io/fly-connectome-videos/` → **404**, confirmed 2026-10-08 from
+the cloud container (working egress, not the proxy-refused curl earlier runs tried).
+So Pages is not serving. If the site is meant to be public, the repo must be public —
+private-repo Pages requires a paid plan and serves privately.
+
+So: create the repo if it does not exist, enable Pages on `main`, and note here which it was.
+
+### 3. Then write `publish.sh pull` / `push` — it does not exist
+
+`COLLECTING.md` section 6 and the task prompt both call `publish.sh pull` and
+`publish.sh push`. **The script takes no arguments.** `grep -E '\$1|case|getopts'` finds
+nothing; the only `push` in it is the `git push` on line 44. It runs `build.py` then
+`git status` in its own directory — the mounted mirror, which has no `.git` — and dies
+under `set -e` even with a valid token. The `$HOME/fly-work` flow the runbook documents
+was never implemented.
+
+Left unwritten deliberately, in 11 runs: it cannot be tested from a scheduled session
+(no repo to clone, no token to push with), and shipping an untested `git push` into an
+unattended daily job is how a backlog becomes a clobbered repo. ~10 minutes once 1 and 2
+are done. Git genuinely cannot run inside the mounted folder — the sandbox blocks file
+deletion, so git's lock files survive and every commit after the first dies with
+`cannot lock ref 'HEAD': File exists`. That part of the runbook is correct.
+
+> **Clobber hazard — read before writing the mirror-back step.**
+> `data/pending-merge.json` is the only copy of the entire backlog, is **not** gitignored,
+> and GitHub currently holds nothing. If `pull`/`push` mirror a clone of an empty repo back
+> over the mounted folder, **the whole backlog is destroyed in one run.** Either commit it
+> in the very first push, or make mirror-back copy only `index.html` and `data/items.json`.
+
+---
+
+## The backlog
+
+`data/pending-merge.json` — the **only** file to merge. It supersedes
+`data/pending-2026-09-22.json` and carries that run's clusters forward verbatim; merging
+both duplicates them. Merge procedure is in the file's own `merge_instructions`.
+
+| | |
+|---|---|
+| New clusters | 98 (112 posts) |
+| Appends to existing clusters | 10 |
+| Result when merged | **150 clusters / 183 unique posts / 0 dup warnings** |
+| Current `items.json` | 52 clusters, untouched since 2026-09-15 |
+| Span | 2026-09-22 → 2026-10-06 |
+| Track split | 67 viral / 31 science |
+
+`first_seen` is already set per collection date and **must not be rewritten** —
+back-dating is correct here, it keeps three-week-old items off the top of the page.
+
+An off-Mac copy was delivered into the 2026-10-08 chat session, since this file exists
+in exactly one place and in no git history.
+
+---
+
+## Run history
+
+| Date | Collected? | Published? | Note |
+|---|---|---|---|
+| 09-15 | — | — | repo created locally, 52 clusters, one local commit, never pushed |
+| 09-22 | yes | no | first `pending-*.json` |
+| 09-25 | yes | no | superseded 09-22 file |
+| 09-27 | no | no | diagnosed publish path end to end |
+| 09-29 | no | no | re-verified; stopped at token check |
+| 09-30 | yes | no | resumed collecting into `pending-merge.json`, no new supersedes hop |
+| 10-01 | yes | no | |
+| 10-03 | yes | no | found X listing dates unreliable |
+| 10-04 | yes | no | found innertube + `min_faves` bugs below |
+| 10-05 | yes | no | found the clobber hazard above |
+| 10-06 | yes | no | |
+| 10-08 | **no** | no | stopped per prompt's STOP-on-missing-token; condensed this file; backed up backlog |
+| 10-09 | **no** | no | same STOP; re-verified all 3 blockers; merge dry-run reproduced on two machines (150/183/0); backlog + rendered index delivered off-Mac |
+
+---
+
+## Runbook corrections for RJ
+
+Left for you rather than edited, since `COLLECTING.md` is the authority. All three break
+or degrade a run as written:
+
+1. **Wrong repo path, sections 1 and 6.** Says `$HOME/mnt/personal/fly-connectome-videos`.
+   The connected folder mounts by **basename**, so the real path is
+   `$HOME/mnt/fly-connectome-videos`. Every one of 11 runs has worked around this.
+2. **Section 1, the innertube extractor crashes.** `chUrl` reads
+   `ownerText.runs[0].navigationEndpoint.commandMetadata.webCommandMetadata.url` unguarded;
+   some `videoRenderer`s have `ownerText` with no `commandMetadata`, and the whole query
+   loop dies with `TypeError: Cannot read properties of undefined (reading 'url')` before
+   returning anything. Needs a try/catch with a `browseEndpoint.browseId` fallback.
+3. **Section 2, `min_faves:` is silently ignored with `f=live`.** Both documented X URLs use
+   `f=live`; only `f=top` honours `min_faves`. Since the task prompt asks for engagement
+   ranking rather than recency, section 2 should drop `f=live` for that pass.
+4. **Section 2 should warn that X search-listing dates are unreliable.** The 10-03 run saw a
+   listing claim 2026-10-03 for posts whose own status pages read 09-28 and 09-13. Read every
+   date off the post's own page.

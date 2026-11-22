@@ -1,0 +1,471 @@
+{
+  "generated": "2026-09-22T14:17:39+00:00",
+  "run_date": "2026-09-22",
+  "status": "MERGED into data/items.json on 2026-11-22 (first publish). Do not merge again.",
+  "why": "publish.sh could not be run this session: the sandbox auto-mode classifier denied the command as credential exploration because the script reads the GitHub PAT at ../.fly-connectome-gh-token. Nothing was pushed and data/items.json in this mirror was deliberately left untouched.",
+  "merge_instructions": [
+    "1. Run publish.sh pull to clone GitHub into $HOME/fly-work (GitHub is source of truth).",
+    "2. Append every object in new_clusters to fly-work/data/items.json clusters (first_seen already set to 2026-09-22; do not rewrite it).",
+    "3. For each entry in append_to_existing, append .item to the named cluster's items list. Do not touch that cluster's commentary or first_seen.",
+    "4. Set updated, run build.py, confirm 0 dup warnings, then publish.sh push.",
+    "Verified on 2026-09-22 against the 52-cluster Sep-15 snapshot: merges to 74 clusters / 86 unique posts / 0 duplicate warnings."
+  ],
+  "new_clusters": [
+    {
+      "id": "fly-roblox",
+      "track": "viral",
+      "title": "A fly brain connected to Roblox",
+      "commentary": "Another platform port in the same mould as the Minecraft and Doom builds, with FlyWire connectivity driving game input. The channel states 139,255 neurons and roughly 50 million synapses; the 45-second clip shows the result rather than the wiring, so how much of the control comes from the connectome and how much from the glue code is not visible.",
+      "items": [
+        {
+          "platform": "youtube",
+          "url": "https://www.youtube.com/watch?v=6H4SBXHSZig",
+          "video_id": "6H4SBXHSZig",
+          "title": "I connected a simulated fruit fly brain to Roblox",
+          "author": "FarrenXel",
+          "author_url": "https://www.youtube.com/@FarrenXel",
+          "published": "18 hours ago",
+          "views": "170 views",
+          "duration": "0:45"
+        }
+      ],
+      "first_seen": "2026-09-22"
+    },
+    {
+      "id": "fly-super-mario-bros",
+      "track": "viral",
+      "title": "A fruit fly brain playing New Super Mario Bros",
+      "commentary": "A small, candid port: the creator says he aimed at Mario Kart DS first and settled for New Super Mario Bros after seeing how much the fly struggled. Useful mainly as a datapoint on how badly these setups handle anything needing sustained timing.",
+      "items": [
+        {
+          "platform": "youtube",
+          "url": "https://www.youtube.com/watch?v=NA1MDLc6cDA",
+          "video_id": "NA1MDLc6cDA",
+          "title": "Fruit fly brain plays New Super Mario Bros",
+          "author": "sans",
+          "author_url": "https://www.youtube.com/@c0smicsans1",
+          "published": "7 days ago",
+          "views": "1,443 views",
+          "duration": "1:13"
+        }
+      ],
+      "first_seen": "2026-09-22"
+    },
+    {
+      "id": "fly-osu",
+      "track": "viral",
+      "title": "A fruit fly brain playing osu!",
+      "commentary": "MaleCNS wired to osu!, a rhythm game that makes failure legible because misses show up frame by frame rather than hidden behind a survival metric. The description gives no implementation detail.",
+      "items": [
+        {
+          "platform": "youtube",
+          "url": "https://www.youtube.com/watch?v=0dqlew8CLdY",
+          "video_id": "0dqlew8CLdY",
+          "title": "Fruit fly brain (MaleCNS) plays osu!",
+          "author": "Kaitlyn",
+          "author_url": "https://www.youtube.com/@BunniKaitlyn",
+          "published": "12 days ago",
+          "views": "680 views",
+          "duration": "3:07"
+        }
+      ],
+      "first_seen": "2026-09-22"
+    },
+    {
+      "id": "fly-furry-week2",
+      "track": "viral",
+      "title": "Making the fruit fly brain think it's a furry (week 2)",
+      "commentary": "Week two of Kallswell's running bit, following the week-one video already indexed here. The description's 'current IQ range: 5-25' is a joke rather than a measurement; no IQ test is being administered to a connectome simulation.",
+      "items": [
+        {
+          "platform": "youtube",
+          "url": "https://www.youtube.com/watch?v=-0bZyr3dwgY",
+          "video_id": "-0bZyr3dwgY",
+          "title": "I Made the Fruit Fly Brain Think It's a Furry (Week 2)",
+          "author": "Professor. Kallswell",
+          "author_url": "https://www.youtube.com/@KallsWell",
+          "published": "2 days ago",
+          "views": "10,282 views",
+          "duration": "0:39"
+        }
+      ],
+      "first_seen": "2026-09-22"
+    },
+    {
+      "id": "mochis-fly-doom",
+      "track": "viral",
+      "title": "A fruit fly playing Doom, as a CS project",
+      "commentary": "A separate Doom build from the ones already indexed, submitted as a computer-science course project with the repository linked from the description. The coursework framing makes it one of the few where the implementation is meant to be read rather than just watched.",
+      "items": [
+        {
+          "platform": "youtube",
+          "url": "https://www.youtube.com/watch?v=lhIwH6ymfLs",
+          "video_id": "lhIwH6ymfLs",
+          "title": "Fruit fly plays DOOM",
+          "author": "MochisRice",
+          "author_url": "https://www.youtube.com/@AurisMochi",
+          "published": "6 days ago",
+          "views": "22,865 views",
+          "duration": "1:14"
+        }
+      ],
+      "first_seen": "2026-09-22"
+    },
+    {
+      "id": "fly-fnaf",
+      "track": "viral",
+      "title": "A fruit fly brain playing Five Nights at Freddy's",
+      "commentary": "FNAF added to the list of games driven from FlyWire connectivity, with the creator stating 138,639 neurons. The game is largely a camera-watching loop, so it asks for far less continuous control than the platformer and shooter ports.",
+      "items": [
+        {
+          "platform": "youtube",
+          "url": "https://www.youtube.com/watch?v=4UNPlA-YJtw",
+          "video_id": "4UNPlA-YJtw",
+          "title": "Fruit Fly Brain Plays Five Nights at Freddy's 1",
+          "author": "Artur Arruda",
+          "author_url": "https://www.youtube.com/@arturarruda7475",
+          "published": "2 days ago",
+          "views": "494 views",
+          "duration": "0:57"
+        }
+      ],
+      "first_seen": "2026-09-22"
+    },
+    {
+      "id": "fly-geometry-dash",
+      "track": "viral",
+      "title": "A fruit fly brain beating Geometry Dash",
+      "commentary": "Geometry Dash's first level, with the creator using the Geode mod loader to pull hitboxes straight out of the game and feed them to the MaleCNS connectome. Reading hitboxes rather than pixels bypasses the vision problem entirely, which is worth knowing before reading 'the fly beat Stereo Madness'.",
+      "items": [
+        {
+          "platform": "youtube",
+          "url": "https://www.youtube.com/watch?v=-A-hr3AxER0",
+          "video_id": "-A-hr3AxER0",
+          "title": "Fruit Fly Brain Beats Geometry Dash (Stereo Madness)",
+          "author": "LBlazen",
+          "author_url": "https://www.youtube.com/@LBlazen",
+          "published": "10 days ago",
+          "views": "25,533 views",
+          "duration": "1:36"
+        }
+      ],
+      "first_seen": "2026-09-22"
+    },
+    {
+      "id": "icarus-doom-roundup",
+      "track": "viral",
+      "title": "A Doom modding channel's roundup of the fly builds",
+      "commentary": "A Doom modding channel surveying the fruit-fly-into-Doom builds for an audience that knows Doom mods rather than connectomics. Reaction coverage, not a build.",
+      "items": [
+        {
+          "platform": "youtube",
+          "url": "https://www.youtube.com/watch?v=NdMRlID-HTA",
+          "video_id": "NdMRlID-HTA",
+          "title": "They Plugged A Fruit Fly Into DOOM - Mod Roundup",
+          "author": "IcarusLIVES",
+          "author_url": "https://www.youtube.com/@ICARUSLIV3S",
+          "published": "4 days ago",
+          "views": "17,856 views",
+          "duration": "11:15"
+        }
+      ],
+      "first_seen": "2026-09-22"
+    },
+    {
+      "id": "connectome-piano-stream",
+      "track": "viral",
+      "title": "A 24/7 piano stream billed as played by a fly connectome",
+      "commentary": "A continuous livestream that the channel says is generated in real time from the synaptic firings of a fly connectome. The claim cannot be checked from the stream itself, and endless ambient piano is a format where a decorative generative label is common, so treat the attribution as the channel's own.",
+      "items": [
+        {
+          "platform": "youtube",
+          "url": "https://www.youtube.com/watch?v=JdDSTSqsZnA",
+          "video_id": "JdDSTSqsZnA",
+          "title": "24/7 Relaxing Piano Played by a Real Fly Brain Connectome",
+          "author": "Synaptic Symphony",
+          "author_url": "https://www.youtube.com/@SynapticSymphonyy",
+          "published": "live",
+          "views": ""
+        }
+      ],
+      "first_seen": "2026-09-22"
+    },
+    {
+      "id": "thresherx-bad-apple-animation",
+      "track": "viral",
+      "title": "A Blender animation of the Bad Apple fly",
+      "commentary": "A Blender animation riffing on the Bad Apple clip rather than a simulation of anything; the creator tags it as a shitpost. Included as a marker of where the wave moved from builds into ordinary meme production.",
+      "items": [
+        {
+          "platform": "youtube",
+          "url": "https://www.youtube.com/watch?v=pd5b5Pl4SM4",
+          "video_id": "pd5b5Pl4SM4",
+          "title": "Stupid Fly Listens to Bad Apple in its Brain [Blender]",
+          "author": "ThresherX",
+          "author_url": "https://www.youtube.com/@thresherx",
+          "published": "9 days ago",
+          "views": "8,698 views",
+          "duration": "0:38"
+        }
+      ],
+      "first_seen": "2026-09-22"
+    },
+    {
+      "id": "banc-connectome",
+      "track": "science",
+      "title": "Exploring the BANC brain-and-nerve-cord connectome",
+      "commentary": "A tour of BANC, the brain and nerve cord of a female fly, from the FlyWire group. It is a distinct dataset from the MaleCNS release that drove the September wave, and this is the official channel's own account of what a combined brain-plus-cord map shows about organisation.",
+      "items": [
+        {
+          "platform": "youtube",
+          "url": "https://www.youtube.com/watch?v=k-HQA3eoEgQ",
+          "video_id": "k-HQA3eoEgQ",
+          "title": "Explore the fly BANC (Brain and Nerve Cord) Connectome",
+          "author": "FlyWire Princeton",
+          "author_url": "https://www.youtube.com/@flywireprinceton4189",
+          "published": "2 months ago",
+          "views": "414 views",
+          "duration": "1:49"
+        }
+      ],
+      "first_seen": "2026-09-22"
+    },
+    {
+      "id": "shalev-viral-fly-explainer",
+      "track": "science",
+      "title": "Do flies really trade crypto?",
+      "commentary": "A neuroscientist walking through why the connectome clips went viral and what the underlying dataset actually is, posted as the wave crested. Corrective rather than promotional, and barely viewed at the time it was indexed.",
+      "items": [
+        {
+          "platform": "youtube",
+          "url": "https://www.youtube.com/watch?v=gCG_51UAmnE",
+          "video_id": "gCG_51UAmnE",
+          "title": "Do flies really trade crypto??",
+          "author": "Omer Shalev",
+          "author_url": "https://www.youtube.com/@OmerShalevNeuro",
+          "published": "19 hours ago",
+          "views": "3 views",
+          "duration": "9:06"
+        }
+      ],
+      "first_seen": "2026-09-22"
+    },
+    {
+      "id": "fly-wifi-sensing",
+      "track": "viral",
+      "title": "A fly connectome running a wifi motion detector",
+      "commentary": "A build pairing wifi-based motion sensing with a fly connectome running the detector, plus a fly-controlled file browser. Posted hours before it was indexed with almost no views, so nothing about it has been vetted by anyone yet.",
+      "items": [
+        {
+          "platform": "youtube",
+          "url": "https://www.youtube.com/watch?v=3aTu1EkrrDY",
+          "video_id": "3aTu1EkrrDY",
+          "title": "My Fruit Fly Sees Through Walls 'Games And More'",
+          "author": "everythingdigital1",
+          "author_url": "https://www.youtube.com/@everythingdigital1",
+          "published": "7 hours ago",
+          "views": "16 views",
+          "duration": "5:03"
+        }
+      ],
+      "first_seen": "2026-09-22"
+    },
+    {
+      "id": "fly-apex-legends",
+      "track": "viral",
+      "title": "A fly brain playing Apex Legends",
+      "commentary": "The largest new build since the Minecraft video, at roughly 18,000 likes. The author says all 166,700 MaleCNS v1.0 neurons drive the character, with YOLOv5 and video pretraining supplying vision, which means a trained modern vision model sits in front of the connectome and does the perception.",
+      "items": [
+        {
+          "platform": "x",
+          "url": "https://x.com/pablominceraft/status/2100308403629294009",
+          "author": "@pablominceraft",
+          "text": "The Fruit Fly can play axle on controller. I trained all 166,700 neurons in the MaleCNS v1.0 fruit fly connectome to play Axle in Apex Legends, using YOLOv5 plus video pretraining.",
+          "published": "16 Sep 2026",
+          "views": "17,991 likes"
+        }
+      ],
+      "first_seen": "2026-09-22"
+    },
+    {
+      "id": "fly-onlyfans",
+      "track": "viral",
+      "title": "A fly brain given an OnlyFans account",
+      "commentary": "A gag build: a downloaded fly brain given an OnlyFans account, with its twenty subscribers simulated as well. No technical claim is made and none should be read into it.",
+      "items": [
+        {
+          "platform": "x",
+          "url": "https://x.com/yungcontent/status/2099195369293070727",
+          "author": "@yungcontent",
+          "text": "onlyflies - i downloaded a fly brain and made it an onlyfans then i simulated all 20 subscribers too",
+          "published": "13 Sep 2026",
+          "views": "1,689 likes"
+        }
+      ],
+      "first_seen": "2026-09-22"
+    },
+    {
+      "id": "kiru-fly-robot",
+      "track": "viral",
+      "title": "A fly connectome driving a physical robot",
+      "commentary": "Connectome output wired to a physical robot, in the same family as the Strandbeest build already indexed here. The post states 166,700 neurons and 25.6 million synapses.",
+      "items": [
+        {
+          "platform": "x",
+          "url": "https://x.com/kiruwaaaaaa/status/2099831579900043769",
+          "author": "@kiruwaaaaaa",
+          "text": "A DEAD FLY IS DRIVING MY ROBOT RIGHT NOW. Not a metaphor. A reconstructed neural map of a fruit fly - 166,700 neurons, 25.6 million synapses - is now driving it.",
+          "published": "15 Sep 2026",
+          "views": "1,015 likes"
+        }
+      ],
+      "first_seen": "2026-09-22"
+    },
+    {
+      "id": "kiru-vector-robot",
+      "track": "viral",
+      "title": "A fly brain and an LLM sharing a Vector desk robot",
+      "commentary": "The same creator's second robot, an eBay Vector desk pet running a fly connectome alongside a language model. Pairing the two makes it impossible to attribute any particular behaviour to the fly wiring rather than to the LLM.",
+      "items": [
+        {
+          "platform": "x",
+          "url": "https://x.com/kiruwaaaaaa/status/2100922642286960663",
+          "author": "@kiruwaaaaaa",
+          "text": "I uploaded a fly brain and GPT-6 Astra into a Vector robot I bought on eBay. Vector was supposed to be a desk pet. Now it has a reconstructed fruit fly nervous system.",
+          "published": "18 Sep 2026",
+          "views": "915 likes"
+        }
+      ],
+      "first_seen": "2026-09-22"
+    },
+    {
+      "id": "zentrix-robot-cat",
+      "track": "viral",
+      "title": "A robot cat walked by fly neurons",
+      "commentary": "A desk-sized robot cat walked from MaleCNS output. The post follows a template this account reuses across several connectome builds, so its specific claims are worth checking against the video before repeating them.",
+      "items": [
+        {
+          "platform": "x",
+          "url": "https://x.com/ZentrixHQ/status/2099820536947749162",
+          "author": "@ZentrixHQ",
+          "text": "166,700 fruit fly neurons are walking a robot cat across a desk right now. In September 2026, Google Research and HHMI Janelia mapped every neuron and connection.",
+          "published": "15 Sep 2026",
+          "views": "1,406 likes"
+        }
+      ],
+      "first_seen": "2026-09-22"
+    },
+    {
+      "id": "fly-bicycle-balance",
+      "track": "viral",
+      "title": "A fly brain learning to balance a bicycle",
+      "commentary": "A fly connectome given a bicycle-balancing task, which the author says it failed 1,238 times before something changed, with no hand-written balance code. The improvement is the load-bearing claim and the thread does not show the learning rule that produced it.",
+      "items": [
+        {
+          "platform": "x",
+          "url": "https://x.com/adamgrag/status/2100676636010279243",
+          "author": "@adamgrag",
+          "text": "I GAVE A FLY BRAIN ONE TASK: LEARN TO BALANCE ON A BICYCLE. IT FELL 1,238 TIMES. THEN SOMETHING CHANGED. No instructions. No balance code.",
+          "published": "17 Sep 2026",
+          "views": "586 likes"
+        }
+      ],
+      "first_seen": "2026-09-22"
+    },
+    {
+      "id": "fly-pokemon-red",
+      "track": "viral",
+      "title": "A fly wandering through Pokemon Red",
+      "commentary": "A fly connectome wired into Pokemon Red as a rate-based leaky-integrator network, with screen motion, Game Boy audio and wall collisions stimulating real visual, auditory and touch neurons, and button presses read off descending and motor activity. The author's framing is unusually careful: he notes that many builds plug a fine-tuned model into the fly rather than using the fly's own circuitry, and says plainly that his fly has no idea it is playing Pokemon.",
+      "items": [
+        {
+          "platform": "linkedin",
+          "url": "https://www.linkedin.com/feed/update/urn:li:activity:7506777057679261696/",
+          "urn": "urn:li:activity:7506777057679261696",
+          "title": "I made a fly play Pokemon Red",
+          "author": "Alex Xiao Cai",
+          "author_url": "https://www.linkedin.com/in/axiaocai/",
+          "author_title": "Software Engineer",
+          "published": "3d ago",
+          "text": "Inspired by Twitch Plays Pokemon, I made a fly play Pokemon Red. It uses the actual connectivity of a real fly connectome, simulated as a rate-based leaky-integrator network."
+        }
+      ],
+      "first_seen": "2026-09-22"
+    },
+    {
+      "id": "fly-chess-selfplay",
+      "track": "viral",
+      "title": "Two fly brains playing chess against each other",
+      "commentary": "Two flies, each with a full copy of a 127,400-neuron connectome, playing chess with reward implemented as activating random parts of the brain and punishment as deactivating them. The author says the first version moved randomly and only began producing checkmates once a heuristic was added to nudge decisions, so the chess ability is substantially the heuristic's rather than the connectome's.",
+      "items": [
+        {
+          "platform": "linkedin",
+          "url": "https://www.linkedin.com/feed/update/urn:li:activity:7504578012986912768/",
+          "urn": "urn:li:activity:7504578012986912768",
+          "title": "I made two virtual flies play chess with each other",
+          "author": "Alex Xiao Cai",
+          "author_url": "https://www.linkedin.com/in/axiaocai/",
+          "author_title": "Software Engineer",
+          "published": "1w ago",
+          "text": "I decided to make two virtual flies play chess with each other. Each has its own full copy of the real 127,400-neuron connectome, its own memory of wins and losses, its own personality."
+        }
+      ],
+      "first_seen": "2026-09-22"
+    },
+    {
+      "id": "petkov-connectome-audio",
+      "track": "science",
+      "title": "Music through the fly connectome, and a retraction",
+      "commentary": "Audio pushed through the Janelia male CNS connectome as a leaky integrate-and-fire network, entering at 86 Johnston's organ afferents and leaving as MIDI from 56 descending neurons, with a companion video showing every neuron firing at its real anatomical position. Petkov then retracted half of his own headline result: the claim that signal is at chance two synapses in came from a single run, and across ten seeds the second-hop layer carries roughly 1-2% of the first hop's signal, detectable over ten runs but invisible in any one of them. The correction, not the music, is the most methodologically useful thing in this index.",
+      "items": [
+        {
+          "platform": "linkedin",
+          "url": "https://www.linkedin.com/feed/update/urn:li:activity:7506390747378659328/",
+          "urn": "urn:li:activity:7506390747378659328",
+          "title": "Twenty seconds of music pushed through a fruit fly's connectome",
+          "author": "Radoslav Petkov",
+          "author_url": "https://www.linkedin.com/in/radoslavpetkovv/",
+          "author_title": "Frontend Developer",
+          "published": "4d ago",
+          "text": "The Janelia male CNS connectome, 165,122 neurons, 15 million synapses, simulated as a leaky integrate-and-fire network. Audio enters through 86 Johnston's organ afferents. Descending neuron firing rates come out as MIDI."
+        },
+        {
+          "platform": "linkedin",
+          "url": "https://www.linkedin.com/feed/update/urn:li:activity:7506674548759625728/",
+          "urn": "urn:li:activity:7506674548759625728",
+          "title": "You can now watch it happen",
+          "author": "Radoslav Petkov",
+          "author_url": "https://www.linkedin.com/in/radoslavpetkovv/",
+          "author_title": "Frontend Developer",
+          "published": "4d ago",
+          "text": "Every dot in this video is a real neuron at its real position in the imaged animal, from Janelia's male Drosophila CNS volume: 165,122 traced neurons and roughly 15 million synaptic connections."
+        },
+        {
+          "platform": "linkedin",
+          "url": "https://www.linkedin.com/feed/update/urn:li:activity:7506987969233240064/",
+          "urn": "urn:li:activity:7506987969233240064",
+          "title": "Half of it was wrong",
+          "author": "Radoslav Petkov",
+          "author_url": "https://www.linkedin.com/in/radoslavpetkovv/",
+          "author_title": "Frontend Developer",
+          "published": "3d ago",
+          "text": "The claim was that sound reaches the descending neurons across a single synapse, and that two synapses in the signal is at chance. That measurement ran once. Across ten seeds the two-synapse layer cleared significance in half the runs and missed in the other half."
+        }
+      ],
+      "first_seen": "2026-09-22"
+    }
+  ],
+  "append_to_existing": [
+    {
+      "cluster_id": "fast-weight-navigation",
+      "item": {
+        "platform": "x",
+        "url": "https://x.com/nicochristie/status/2099562328849338402",
+        "author": "@nicochristie",
+        "text": "What started off as trying to turn the fly gay might have led to the first meaningful scientific finding from the connectome release",
+        "published": "14 Sep 2026",
+        "views": "2,389 likes"
+      }
+    }
+  ]
+}

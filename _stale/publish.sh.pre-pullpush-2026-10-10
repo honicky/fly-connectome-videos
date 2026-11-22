@@ -1,0 +1,46 @@
+#!/usr/bin/env bash
+# Rebuild index.html and push to GitHub Pages.
+# Token is read from a file OUTSIDE the repo and never written to git config,
+# the remote URL, or the reflog.
+set -euo pipefail
+
+REPO_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+TOKEN_FILE="${FLY_TOKEN_FILE:-$(dirname "$REPO_DIR")/.fly-connectome-gh-token}"
+REMOTE_URL="https://github.com/honicky/fly-connectome-videos.git"
+BRANCH="main"
+
+cd "$REPO_DIR"
+
+if [ ! -f "$TOKEN_FILE" ]; then
+  echo "ERROR: no GitHub token at $TOKEN_FILE" >&2
+  echo "Create a fine-grained PAT (Contents + Pages: read/write on this repo) and save it there." >&2
+  exit 1
+fi
+TOKEN="$(tr -d '[:space:]' < "$TOKEN_FILE")"
+if [ -z "$TOKEN" ]; then
+  echo "ERROR: token file $TOKEN_FILE is empty" >&2
+  exit 1
+fi
+
+python3 build.py
+
+if [ -z "$(git status --porcelain)" ]; then
+  echo "nothing changed; not pushing"
+  exit 0
+fi
+
+COUNT="$(python3 -c "import json;d=json.load(open('data/items.json'));print(len(d['clusters']))")"
+git add -A
+git \
+  -c user.name="fly-connectome-bot" \
+  -c user.email="rj@honicky.ai" \
+  commit -q -m "Daily update $(date -u +%Y-%m-%d): ${COUNT} entries"
+
+# Feed the token through a one-shot credential helper so it never lands on disk,
+# in git config, or in the remote URL.
+GH_TOKEN="$TOKEN" git \
+  -c credential.helper= \
+  -c credential.helper='!f(){ echo username=x-access-token; echo "password=${GH_TOKEN}"; };f' \
+  push "$REMOTE_URL" "HEAD:${BRANCH}"
+
+echo "pushed ${COUNT} entries to ${BRANCH}"
