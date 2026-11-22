@@ -135,6 +135,24 @@
   .facade.nothumb { background: linear-gradient(135deg,#16202a,#0e1216); }
   .facade.nothumb img { display: none; }
 
+  /* X / LinkedIn native video: poster letterboxed (many clips are vertical),
+     click swaps in a <video> playing the platform's own MP4. */
+  .facade-vid { background: #000; }
+  .facade-vid img { object-fit: contain; }
+  .facade-vid:hover .play { background: var(--accent); }
+  .facade-vid iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; background: #000; }
+  .facade .vplat {
+    position: absolute; left: 10px; top: 10px; padding: 4px 7px; border-radius: 6px;
+    font: 600 10.5px/1 ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: .04em;
+    color: #fff; background: rgba(12,15,18,.74); border: 1px solid rgba(255,255,255,.18);
+  }
+  .facade-vid.loaded .vplat { display: none; }
+  .vfail-msg {
+    position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+    padding: 16px; text-align: center; font-size: 13px; color: var(--fg-faint);
+  }
+  .vfail-msg a { color: var(--accent-2); text-decoration: none; font-weight: 500; }
+
   /* Text facade for X / LinkedIn: the post itself is readable immediately,
      the rich embed loads on click. A blocked frame never leaves a blank box. */
   .facade-text {
@@ -268,7 +286,7 @@
     </div>
     <div class="grid">
     <article class="card" data-platforms="x" data-track="viral">
-      <div class="media"><div class="facade facade-text" data-x="2111589148146749616" data-url="https://x.com/odysseyml/status/2111589148146749616" data-plat="X" role="button" tabindex="0" aria-label="Load post from X"><div class="fq"><div class="fwho">@odysseyml</div><p>We placed the fruit fly brain inside Odyssey-3, a frontier world model. The lil’ guy is now flying around totally imagined, simulated worlds all by itself</p><div class="fsub">2026-10-17 · 6,287,816 views</div></div><span class="floadbar">Load post from X</span></div></div>
+      <div class="media"><div class="facade facade-vid" data-vsrc="[&quot;https://video.twimg.com/amplify_video/2111589052428500992/vid/avc1/1280x720/SIQRinxd5ZChXYlN.mp4&quot;, &quot;https://video.twimg.com/amplify_video/2111589052428500992/vid/avc1/640x360/4KmMwEafHtDEgZ3P.mp4&quot;, &quot;https://video.twimg.com/amplify_video/2111589052428500992/vid/avc1/480x270/G-JP2vrsJ315T79K.mp4&quot;]" data-poster="https://pbs.twimg.com/amplify_video_thumb/2111589052428500992/img/CH3YgAYosD6Iyh_Y.jpg" data-gif="0" data-url="https://x.com/odysseyml/status/2111589148146749616" data-plat="X" role="button" tabindex="0" aria-label="Play video from X"><img src="https://pbs.twimg.com/amplify_video_thumb/2111589052428500992/img/CH3YgAYosD6Iyh_Y.jpg" alt="" loading="lazy" decoding="async" onerror="this.closest('.facade').classList.add('nothumb')"><span class="play" aria-hidden="true"></span><span class="vplat p-x">X</span></div></div>
       <div class="body">
         <div class="chips"><span class="chip p-x">X</span></div>
         <h3><a href="https://x.com/odysseyml/status/2111589148146749616" target="_blank" rel="noopener">A fly brain flying through a generated world (Odyssey-3)</a></h3>
@@ -278,7 +296,7 @@
       </div>
     </article>
     <article class="card" data-platforms="x" data-track="viral">
-      <div class="media"><div class="facade facade-text" data-x="2121280682810888609" data-url="https://x.com/imodarressi/status/2121280682810888609" data-plat="X" role="button" tabindex="0" aria-label="Load post from X"><div class="fq"><div class="fwho">@imodarressi</div><p>4/ yes, there is a fly in the game a simulated fly brain controls 1 player and its neurons decide when to walk and when to turn 17 AI models rank below it on SUS-Bench</p><div class="fsub">2026-11-13 · 12,519 views</div></div><span class="floadbar">Load post from X</span></div></div>
+      <div class="media"><div class="facade facade-vid" data-vsrc="[&quot;https://video.twimg.com/amplify_video/2121280650074345473/vid/avc1/1280x720/ldqkuSL8s-c2ZXx5.mp4&quot;, &quot;https://video.twimg.com/amplify_video/2121280650074345473/vid/avc1/640x360/OVQHtOXHmE_kvw3Z.mp4&quot;, &quot;https://video.twimg.com/amplify_video/2121280650074345473/vid/avc1/480x270/Fq4iMyXECxACVTc5.mp4&quot;]" data-poster="https://pbs.twimg.com/amplify_video_thumb/2121280650074345473/img/TXKTQVtwBzGVmLRQ.jpg" data-gif="0" data-url="https://x.com/imodarressi/status/2121280682810888609" data-plat="X" role="button" tabindex="0" aria-label="Play video from X"><img src="https://pbs.twimg.com/amplify_video_thumb/2121280650074345473/img/TXKTQVtwBzGVmLRQ.jpg" alt="" loading="lazy" decoding="async" onerror="this.closest('.facade').classList.add('nothumb')"><span class="play" aria-hidden="true"></span><span class="vplat p-x">X</span></div></div>
       <div class="body">
         <div class="chips"><span class="chip p-x">X</span></div>
         <h3><a href="https://x.com/imodarressi/status/2121280682810888609" target="_blank" rel="noopener">A fly brain as one player in an AI social-deduction game (SUS-Bench)</a></h3>
@@ -288,7 +306,7 @@
       </div>
     </article>
     <article class="card" data-platforms="x" data-track="viral">
-      <div class="media"><div class="facade facade-text" data-x="2118471810715189283" data-url="https://x.com/12bow34/status/2118471810715189283" data-plat="X" role="button" tabindex="0" aria-label="Load post from X"><div class="fq"><div class="fwho">@12bow34</div><p>We put a computer inside a fruit fly’s brain. A 32-bit RISC-V CPU and a GPU, built from neurons and wired into the 138k-neuron FlyWire connectome. The fly renders a 3D shooter onto its own eyes, and plays it.</p><div class="fsub">2026-11-05 · 19,581 views</div></div><span class="floadbar">Load post from X</span></div></div>
+      <div class="media"><div class="facade facade-vid" data-vsrc="[&quot;https://video.twimg.com/amplify_video/2118470377215234048/vid/avc1/1280x720/PmzsRFlZtmaYkCWh.mp4&quot;, &quot;https://video.twimg.com/amplify_video/2118470377215234048/vid/avc1/640x360/P0ikN541g-Sfkldd.mp4&quot;, &quot;https://video.twimg.com/amplify_video/2118470377215234048/vid/avc1/480x270/ij0h3ggMUR4IVkGt.mp4&quot;]" data-poster="https://pbs.twimg.com/amplify_video_thumb/2118470377215234048/img/sMveTZ_xlEpnF8Xp.jpg" data-gif="0" data-url="https://x.com/12bow34/status/2118471810715189283" data-plat="X" role="button" tabindex="0" aria-label="Play video from X"><img src="https://pbs.twimg.com/amplify_video_thumb/2118470377215234048/img/sMveTZ_xlEpnF8Xp.jpg" alt="" loading="lazy" decoding="async" onerror="this.closest('.facade').classList.add('nothumb')"><span class="play" aria-hidden="true"></span><span class="vplat p-x">X</span></div></div>
       <div class="body">
         <div class="chips"><span class="chip p-x">X</span></div>
         <h3><a href="https://x.com/12bow34/status/2118471810715189283" target="_blank" rel="noopener">A RISC-V CPU and GPU built into the FlyWire connectome</a></h3>
@@ -298,7 +316,7 @@
       </div>
     </article>
     <article class="card" data-platforms="x" data-track="viral">
-      <div class="media"><div class="facade facade-text" data-x="2117262959990722871" data-url="https://x.com/treetowntree/status/2117262959990722871" data-plat="X" role="button" tabindex="0" aria-label="Load post from X"><div class="fq"><div class="fwho">@treetowntree</div><p>I put a fly inside of Qwen3.5-4b. The fly neurons run as 3 extra layers inside of Qwen. Each neuron is a token that fires when the model predicts that token.</p><div class="fsub">2026-11-02 · 2,019 views</div></div><span class="floadbar">Load post from X</span></div></div>
+      <div class="media"><div class="facade facade-vid" data-vsrc="[&quot;https://video.twimg.com/amplify_video/2117066635777318912/vid/avc1/1280x720/Wdq884-1a87ohLXZ.mp4&quot;, &quot;https://video.twimg.com/amplify_video/2117066635777318912/vid/avc1/640x360/HDmO15UgHddSd8y5.mp4&quot;, &quot;https://video.twimg.com/amplify_video/2117066635777318912/vid/avc1/480x270/dyGrqLJTdGjhl60R.mp4&quot;]" data-poster="https://pbs.twimg.com/amplify_video_thumb/2117066635777318912/img/JZRenXnqE5YLPyf2.jpg" data-gif="0" data-url="https://x.com/treetowntree/status/2117262959990722871" data-plat="X" role="button" tabindex="0" aria-label="Play video from X"><img src="https://pbs.twimg.com/amplify_video_thumb/2117066635777318912/img/JZRenXnqE5YLPyf2.jpg" alt="" loading="lazy" decoding="async" onerror="this.closest('.facade').classList.add('nothumb')"><span class="play" aria-hidden="true"></span><span class="vplat p-x">X</span></div></div>
       <div class="body">
         <div class="chips"><span class="chip p-x">X</span></div>
         <h3><a href="https://x.com/treetowntree/status/2117262959990722871" target="_blank" rel="noopener">Fly neurons as three extra layers inside Qwen3.5-4B</a></h3>
@@ -308,7 +326,7 @@
       </div>
     </article>
     <article class="card" data-platforms="x" data-track="viral">
-      <div class="media"><div class="facade facade-text" data-x="2109212778766491814" data-url="https://x.com/archa1ngel/status/2109212778766491814" data-plat="X" role="button" tabindex="0" aria-label="Load post from X"><div class="fq"><div class="fwho">@archa1ngel</div><p>the fly brain needed 10 seconds to get it</p><div class="fsub">2026-10-11 · 42,032 views</div></div><span class="floadbar">Load post from X</span></div></div>
+      <div class="media"><div class="facade facade-vid" data-vsrc="[&quot;https://video.twimg.com/amplify_video/2109210923168624640/vid/avc1/720x1282/z5c8CVcyQ1CCjmNp.mp4&quot;, &quot;https://video.twimg.com/amplify_video/2109210923168624640/vid/avc1/480x854/qXSUenwDyQnd29e8.mp4&quot;, &quot;https://video.twimg.com/amplify_video/2109210923168624640/vid/avc1/320x568/y4DO-v0zlWMsu8yr.mp4&quot;]" data-poster="https://pbs.twimg.com/amplify_video_thumb/2109210923168624640/img/yIq8-p-jmGL42ymp.jpg" data-gif="0" data-url="https://x.com/archa1ngel/status/2109212778766491814" data-plat="X" role="button" tabindex="0" aria-label="Play video from X"><img src="https://pbs.twimg.com/amplify_video_thumb/2109210923168624640/img/yIq8-p-jmGL42ymp.jpg" alt="" loading="lazy" decoding="async" onerror="this.closest('.facade').classList.add('nothumb')"><span class="play" aria-hidden="true"></span><span class="vplat p-x">X</span></div></div>
       <div class="body">
         <div class="chips"><span class="chip p-x">X</span></div>
         <h3><a href="https://x.com/archa1ngel/status/2109212778766491814" target="_blank" rel="noopener">A red crab robot given the fly brain</a></h3>
@@ -348,7 +366,7 @@
       </div>
     </article>
     <article class="card" data-platforms="x" data-track="viral">
-      <div class="media"><div class="facade facade-text" data-x="2118397452730707972" data-url="https://x.com/L_ARCH_01/status/2118397452730707972" data-plat="X" role="button" tabindex="0" aria-label="Load post from X"><div class="fq"><div class="fwho">@L_ARCH_01</div><p>Unreal EngineでLLMにボディを与えてみよう・その7 〜人型世界モデルと神経接続〜</p><div class="fsub">2026-11-05 · 5,831 views</div></div><span class="floadbar">Load post from X</span></div></div>
+      <div class="media"><div class="facade facade-vid" data-vsrc="[&quot;https://video.twimg.com/amplify_video/2118397093966692352/vid/avc1/720x1280/GSFE4pj_Ai3bFveg.mp4&quot;, &quot;https://video.twimg.com/amplify_video/2118397093966692352/vid/avc1/480x852/nfDXpvFD_HjlNa3B.mp4&quot;, &quot;https://video.twimg.com/amplify_video/2118397093966692352/vid/avc1/320x568/w0ZwvmceLxZKTSg2.mp4&quot;]" data-poster="https://pbs.twimg.com/amplify_video_thumb/2118397093966692352/img/CuXXv_X1Oey0RnMC.jpg" data-gif="0" data-url="https://x.com/L_ARCH_01/status/2118397452730707972" data-plat="X" role="button" tabindex="0" aria-label="Play video from X"><img src="https://pbs.twimg.com/amplify_video_thumb/2118397093966692352/img/CuXXv_X1Oey0RnMC.jpg" alt="" loading="lazy" decoding="async" onerror="this.closest('.facade').classList.add('nothumb')"><span class="play" aria-hidden="true"></span><span class="vplat p-x">X</span></div></div>
       <div class="body">
         <div class="chips"><span class="chip p-x">X</span></div>
         <h3><a href="https://x.com/L_ARCH_01/status/2118397452730707972" target="_blank" rel="noopener">A humanoid body in Unreal Engine walked by the fly&#x27;s nerve cord</a></h3>
@@ -358,7 +376,7 @@
       </div>
     </article>
     <article class="card" data-platforms="linkedin" data-track="viral">
-      <div class="media"><div class="facade facade-text" data-li="urn:li:activity:7522664575549476864" data-url="https://www.linkedin.com/feed/update/urn:li:activity:7522664575549476864/" data-plat="LinkedIn" role="button" tabindex="0" aria-label="Load post from LinkedIn"><div class="fq"><div class="fwho">Adithya CB</div><p>I wired one to Geometry Dash. It played without any training. Then I found exactly where a reflex stops being enough.</p><div class="fsub">2026-11-01</div></div><span class="floadbar">Load post from LinkedIn</span></div></div>
+      <div class="media"><div class="facade facade-vid" data-vsrc="[&quot;https://dms.licdn.com/playlist/vid/v2/D4D05AQFVpZx4kcrFxg/mp4-720p-30fp-crf28/B4DaGXfjC2KgCE-/0/1793542994785?e=2147483647&amp;v=beta&amp;t=Cp-xFy4VinK8dEzVVH4gkUsjMgYShNrqbgrXQzWzD80&quot;, &quot;https://dms.licdn.com/playlist/vid/v2/D4D05AQFVpZx4kcrFxg/mp4-640p-30fp-crf28/B4DaGXfjC2KgBs-/0/1793542994563?e=2147483647&amp;v=beta&amp;t=eoqCQ2LiJFOAiGMyok6CFmZ_DHXklIU0BGNXA-IUdK8&quot;]" data-poster="https://media.licdn.com/dms/image/v2/D4D05AQFVpZx4kcrFxg/videocover-high/B4DaGXfjC2KgBU-/0/1793542993324?e=2147483647&amp;v=beta&amp;t=hoMQxocsDh3thWqj3sYfAWyQukWcojRB2ScS4nde2pc" data-gif="0" data-url="https://www.linkedin.com/feed/update/urn:li:activity:7522664575549476864/" data-plat="LinkedIn" role="button" tabindex="0" aria-label="Play video from LinkedIn"><img src="https://media.licdn.com/dms/image/v2/D4D05AQFVpZx4kcrFxg/videocover-high/B4DaGXfjC2KgBU-/0/1793542993324?e=2147483647&amp;v=beta&amp;t=hoMQxocsDh3thWqj3sYfAWyQukWcojRB2ScS4nde2pc" alt="" loading="lazy" decoding="async" onerror="this.closest('.facade').classList.add('nothumb')"><span class="play" aria-hidden="true"></span><span class="vplat p-linkedin">LinkedIn</span></div></div>
       <div class="body">
         <div class="chips"><span class="chip p-linkedin">LinkedIn</span></div>
         <h3><a href="https://www.linkedin.com/feed/update/urn:li:activity:7522664575549476864/" target="_blank" rel="noopener">The fly&#x27;s escape reflex playing Geometry Dash</a></h3>
@@ -368,7 +386,7 @@
       </div>
     </article>
     <article class="card" data-platforms="linkedin" data-track="viral">
-      <div class="media"><div class="facade facade-text" data-li="urn:li:activity:7521087078525198336" data-url="https://www.linkedin.com/feed/update/urn:li:activity:7521087078525198336/" data-plat="LinkedIn" role="button" tabindex="0" aria-label="Load post from LinkedIn"><div class="fq"><div class="fwho">Alpar Arman</div><p>I made 499 copies of the brain where every neuron keeps the same number of connections, but the partners are shuffled.</p><div class="fsub">2026-10-28</div></div><span class="floadbar">Load post from LinkedIn</span></div></div>
+      <div class="media"><div class="facade facade-vid" data-vsrc="[&quot;https://dms.licdn.com/playlist/vid/v2/D4D05AQGTj-w0WLtsaQ/mp4-720p-30fp-crf28/B4DaGBE0qEJ4B4-/0/1793166889425?e=2147483647&amp;v=beta&amp;t=Xb5rio0uEzBT2RpFCuntRhqc_z4IiQd8XvL1fwi5vVo&quot;, &quot;https://dms.licdn.com/playlist/vid/v2/D4D05AQGTj-w0WLtsaQ/mp4-640p-30fp-crf28/B4DaGBE0qEJ4Bg-/0/1793166889321?e=2147483647&amp;v=beta&amp;t=oYG397vEv6D7RXddqQBo8sfB5TUwThxOVIf0GAJ_Xfs&quot;]" data-poster="https://media.licdn.com/dms/image/v2/D4D05AQGTj-w0WLtsaQ/videocover-high/B4DaGBE0qEJ4BI-/0/1793166888755?e=2147483647&amp;v=beta&amp;t=dyEEqpRUD9f7d79ac5C60j9sscqFtNBvViKUiebFkoM" data-gif="0" data-url="https://www.linkedin.com/feed/update/urn:li:activity:7521087078525198336/" data-plat="LinkedIn" role="button" tabindex="0" aria-label="Play video from LinkedIn"><img src="https://media.licdn.com/dms/image/v2/D4D05AQGTj-w0WLtsaQ/videocover-high/B4DaGBE0qEJ4BI-/0/1793166888755?e=2147483647&amp;v=beta&amp;t=dyEEqpRUD9f7d79ac5C60j9sscqFtNBvViKUiebFkoM" alt="" loading="lazy" decoding="async" onerror="this.closest('.facade').classList.add('nothumb')"><span class="play" aria-hidden="true"></span><span class="vplat p-linkedin">LinkedIn</span></div></div>
       <div class="body">
         <div class="chips"><span class="chip p-linkedin">LinkedIn</span></div>
         <h3><a href="https://www.linkedin.com/feed/update/urn:li:activity:7521087078525198336/" target="_blank" rel="noopener">Swat the fly: a browser game with a shuffled-wiring control</a></h3>
@@ -378,7 +396,7 @@
       </div>
     </article>
     <article class="card" data-platforms="linkedin" data-track="viral">
-      <div class="media"><div class="facade facade-text" data-li="urn:li:activity:7522369292202409984" data-url="https://www.linkedin.com/feed/update/urn:li:activity:7522369292202409984/" data-plat="LinkedIn" role="button" tabindex="0" aria-label="Load post from LinkedIn"><div class="fq"><div class="fwho">S. M. Nihal Ahmed</div><p>Can a fruit fly&#x27;s brain run a robot arm? I took the wiring of a real fruit fly brain (the FlyWire connectome, 4,476 neurons) and used it as the controller for a simulated Panda robot arm in MuJoCo.</p><div class="fsub">2026-10-31</div></div><span class="floadbar">Load post from LinkedIn</span></div></div>
+      <div class="media"><div class="facade facade-vid" data-vsrc="[&quot;https://dms.licdn.com/playlist/vid/v2/D5605AQFuryQtSfS41Q/mp4-720p-30fp-crf28/B56aGTS9aiGsBc-/0/1793472590886?e=2147483647&amp;v=beta&amp;t=I7IEZVvqkPwZMCm8ss7yxscqvhopURNu2_PMQU2c1yg&quot;, &quot;https://dms.licdn.com/playlist/vid/v2/D5605AQFuryQtSfS41Q/mp4-640p-30fp-crf28/B56aGTS9aiGsBE-/0/1793472590106?e=2147483647&amp;v=beta&amp;t=JtGMWqlH7doRGue0Bhk3A-2wmyuz4bNEMJFVIu3HnlI&quot;]" data-poster="https://media.licdn.com/dms/image/v2/D5605AQFuryQtSfS41Q/videocover-high/B56aGTS9aiGsAs-/0/1793472586264?e=2147483647&amp;v=beta&amp;t=xUxwT5ef7UNEf8YsF3C8cGMAZjhbaB4S55_Pe8L8ii8" data-gif="0" data-url="https://www.linkedin.com/feed/update/urn:li:activity:7522369292202409984/" data-plat="LinkedIn" role="button" tabindex="0" aria-label="Play video from LinkedIn"><img src="https://media.licdn.com/dms/image/v2/D5605AQFuryQtSfS41Q/videocover-high/B56aGTS9aiGsAs-/0/1793472586264?e=2147483647&amp;v=beta&amp;t=xUxwT5ef7UNEf8YsF3C8cGMAZjhbaB4S55_Pe8L8ii8" alt="" loading="lazy" decoding="async" onerror="this.closest('.facade').classList.add('nothumb')"><span class="play" aria-hidden="true"></span><span class="vplat p-linkedin">LinkedIn</span></div></div>
       <div class="body">
         <div class="chips"><span class="chip p-linkedin">LinkedIn</span></div>
         <h3><a href="https://www.linkedin.com/feed/update/urn:li:activity:7522369292202409984/" target="_blank" rel="noopener">A fly-wired controller for a simulated robot arm in a greenhouse</a></h3>
@@ -388,7 +406,7 @@
       </div>
     </article>
     <article class="card" data-platforms="linkedin" data-track="viral">
-      <div class="media"><div class="facade facade-text" data-li="urn:li:activity:7524215778703769601" data-url="https://www.linkedin.com/feed/update/urn:li:activity:7524215778703769601/" data-plat="LinkedIn" role="button" tabindex="0" aria-label="Load post from LinkedIn"><div class="fq"><div class="fwho">Ilia Mirzaali</div><p>For our module project we gave a fly&#x27;s brain its own physical body</p><div class="fsub">2026-11-05</div></div><span class="floadbar">Load post from LinkedIn</span></div></div>
+      <div class="media"><div class="facade facade-vid" data-vsrc="[&quot;https://dms.licdn.com/playlist/vid/v2/D4E05AQHiolEvR45cxA/mp4-720p-30fp-crf28/B4EaGtiVsGJgB8-/0/1793912827664?e=2147483647&amp;v=beta&amp;t=JrLu6aJ3xKHtrWM2EFmNDVq9xnnvEOyxcsT03dffYXU&quot;, &quot;https://dms.licdn.com/playlist/vid/v2/D4E05AQHiolEvR45cxA/mp4-640p-30fp-crf28/B4EaGtiVsGJgB4-/0/1793912827663?e=2147483647&amp;v=beta&amp;t=wBhTjSXNJ73xTrtIzO6C3of2dfhTjpgp0IVLsv2abBg&quot;]" data-poster="https://media.licdn.com/dms/image/v2/D4E05AQHiolEvR45cxA/videocover-high/B4EaGtiVsGJgBM-/0/1793912825720?e=2147483647&amp;v=beta&amp;t=u8RVKFq7QUNW4Af6dyqe-ylAdlVfFNWqhBWtqj-sOXQ" data-gif="0" data-url="https://www.linkedin.com/feed/update/urn:li:activity:7524215778703769601/" data-plat="LinkedIn" role="button" tabindex="0" aria-label="Play video from LinkedIn"><img src="https://media.licdn.com/dms/image/v2/D4E05AQHiolEvR45cxA/videocover-high/B4EaGtiVsGJgBM-/0/1793912825720?e=2147483647&amp;v=beta&amp;t=u8RVKFq7QUNW4Af6dyqe-ylAdlVfFNWqhBWtqj-sOXQ" alt="" loading="lazy" decoding="async" onerror="this.closest('.facade').classList.add('nothumb')"><span class="play" aria-hidden="true"></span><span class="vplat p-linkedin">LinkedIn</span></div></div>
       <div class="body">
         <div class="chips"><span class="chip p-linkedin">LinkedIn</span></div>
         <h3><a href="https://www.linkedin.com/feed/update/urn:li:activity:7524215778703769601/" target="_blank" rel="noopener">A student robot that backs away from looming objects using fly escape neurons</a></h3>
@@ -398,7 +416,7 @@
       </div>
     </article>
     <article class="card" data-platforms="x" data-track="viral">
-      <div class="media"><div class="facade facade-text" data-x="2098531088196911175" data-url="https://x.com/slvDev/status/2098531088196911175" data-plat="X" role="button" tabindex="0" aria-label="Load post from X"><div class="fq"><div class="fwho">@slvDev</div><p>I trained a fly connectome model and made it play ping pong against itself !! Incredible, imagine this scene in your kitchen, lol! 91 returns in 100 seconds! each fly runs the MaleCNS graph: 166,700 neurons 25.6 million connections same trained weights, separate neural states</p><div class="fsub">2026-09-11 · 15,350 views</div></div><span class="floadbar">Load post from X</span></div></div>
+      <div class="media"><div class="facade facade-vid" data-vsrc="[&quot;https://video.twimg.com/amplify_video/2098528220672880641/vid/avc1/1508x720/98rqLiXGle-_0sl_.mp4&quot;, &quot;https://video.twimg.com/amplify_video/2098528220672880641/vid/avc1/754x360/fD4EmqPMdnGBEUaH.mp4&quot;, &quot;https://video.twimg.com/amplify_video/2098528220672880641/vid/avc1/564x270/1fzlhVJqp2h1SHi0.mp4&quot;]" data-poster="https://pbs.twimg.com/amplify_video_thumb/2098528220672880641/img/XYZouCbJU035Vdn_.jpg" data-gif="0" data-url="https://x.com/slvDev/status/2098531088196911175" data-plat="X" role="button" tabindex="0" aria-label="Play video from X"><img src="https://pbs.twimg.com/amplify_video_thumb/2098528220672880641/img/XYZouCbJU035Vdn_.jpg" alt="" loading="lazy" decoding="async" onerror="this.closest('.facade').classList.add('nothumb')"><span class="play" aria-hidden="true"></span><span class="vplat p-x">X</span></div></div>
       <div class="body">
         <div class="chips"><span class="chip p-x">X</span></div>
         <h3><a href="https://x.com/slvDev/status/2098531088196911175" target="_blank" rel="noopener">Two fly-connectome models playing ping pong against each other</a></h3>
@@ -448,7 +466,7 @@
       </div>
     </article>
     <article class="card" data-platforms="x" data-track="viral">
-      <div class="media"><div class="facade facade-text" data-x="2097349578572112280" data-url="https://x.com/nrol_ling/status/2097349578572112280" data-plat="X" role="button" tabindex="0" aria-label="Load post from X"><div class="fq"><div class="fwho">@nrol_ling</div><p>we trained a fruit fly to understand emotion. We created a neural network from the male drosophila connectome, then trained it on human emotions.</p><div class="fsub">8 Sep 2026 · 4,029 likes</div></div><span class="floadbar">Load post from X</span></div></div>
+      <div class="media"><div class="facade facade-vid" data-vsrc="[&quot;https://video.twimg.com/amplify_video/2097349329489145856/vid/avc1/1280x720/6p-DJNsJlG-93AxR.mp4&quot;, &quot;https://video.twimg.com/amplify_video/2097349329489145856/vid/avc1/640x360/09DzTY7xCXkSXPzP.mp4&quot;, &quot;https://video.twimg.com/amplify_video/2097349329489145856/vid/avc1/480x270/xV54jO6DUahNuoyx.mp4&quot;]" data-poster="https://pbs.twimg.com/amplify_video_thumb/2097349329489145856/img/BcWiEhyBpGR7Q2zh.jpg" data-gif="0" data-url="https://x.com/nrol_ling/status/2097349578572112280" data-plat="X" role="button" tabindex="0" aria-label="Play video from X"><img src="https://pbs.twimg.com/amplify_video_thumb/2097349329489145856/img/BcWiEhyBpGR7Q2zh.jpg" alt="" loading="lazy" decoding="async" onerror="this.closest('.facade').classList.add('nothumb')"><span class="play" aria-hidden="true"></span><span class="vplat p-x">X</span></div></div>
       <div class="body">
         <div class="chips"><span class="chip p-x">X</span></div>
         <h3><a href="https://x.com/nrol_ling/status/2097349578572112280" target="_blank" rel="noopener">A connectome network trained on human emotion, then lesioned</a></h3>
@@ -458,7 +476,7 @@
       </div>
     </article>
     <article class="card" data-platforms="x" data-track="viral">
-      <div class="media"><div class="facade facade-text" data-x="2098508012168290696" data-url="https://x.com/distributedkv/status/2098508012168290696" data-plat="X" role="button" tabindex="0" aria-label="Load post from X"><div class="fq"><div class="fwho">@distributedkv</div><p>i connected a fruit fly brain simulation to a tiny llm. 139,255 neurons, 2.7 million connections, and a 1b-parameter language model. your message becomes a sensory stimulus.</p><div class="fsub">11 Sep 2026 · 769 likes</div></div><span class="floadbar">Load post from X</span></div></div>
+      <div class="media"><div class="facade facade-vid" data-vsrc="[&quot;https://video.twimg.com/amplify_video/2098507493865566208/vid/avc1/1178x720/ZivUJc0LyArEloHw.mp4&quot;, &quot;https://video.twimg.com/amplify_video/2098507493865566208/vid/avc1/588x360/baHR0e38YuVT2fL2.mp4&quot;, &quot;https://video.twimg.com/amplify_video/2098507493865566208/vid/avc1/442x270/r714nOz1I2_Z1A2D.mp4&quot;]" data-poster="https://pbs.twimg.com/amplify_video_thumb/2098507493865566208/img/RpqXXjS7UGblXni0.jpg" data-gif="0" data-url="https://x.com/distributedkv/status/2098508012168290696" data-plat="X" role="button" tabindex="0" aria-label="Play video from X"><img src="https://pbs.twimg.com/amplify_video_thumb/2098507493865566208/img/RpqXXjS7UGblXni0.jpg" alt="" loading="lazy" decoding="async" onerror="this.closest('.facade').classList.add('nothumb')"><span class="play" aria-hidden="true"></span><span class="vplat p-x">X</span></div></div>
       <div class="body">
         <div class="chips"><span class="chip p-x">X</span></div>
         <h3><a href="https://x.com/distributedkv/status/2098508012168290696" target="_blank" rel="noopener">A fly brain simulation wired to a small language model</a></h3>
@@ -468,7 +486,7 @@
       </div>
     </article>
     <article class="card" data-platforms="x" data-track="viral">
-      <div class="media"><div class="facade facade-text" data-x="2097655248349278390" data-url="https://x.com/shamilbedru/status/2097655248349278390" data-plat="X" role="button" tabindex="0" aria-label="Load post from X"><div class="fq"><div class="fwho">@shamilbedru</div><p>just made fruit flies fall in love in the browser, but the brains are real. real neurons, real connections copied from the new fruit fly brain map (Janelia + Google Research)</p><div class="fsub">9 Sep 2026 · 390 likes</div></div><span class="floadbar">Load post from X</span></div></div>
+      <div class="media"><div class="facade facade-vid" data-vsrc="[&quot;https://video.twimg.com/amplify_video/2097654062087127040/vid/avc1/1308x720/NshJ7LMTR9yTe9Hv.mp4&quot;, &quot;https://video.twimg.com/amplify_video/2097654062087127040/vid/avc1/654x360/D8UKuvUlAMcZTxkE.mp4&quot;, &quot;https://video.twimg.com/amplify_video/2097654062087127040/vid/avc1/490x270/KRcc-Qg6GyAGJ5nq.mp4&quot;]" data-poster="https://pbs.twimg.com/amplify_video_thumb/2097654062087127040/img/9hmGsuaCk8osug7P.jpg" data-gif="0" data-url="https://x.com/shamilbedru/status/2097655248349278390" data-plat="X" role="button" tabindex="0" aria-label="Play video from X"><img src="https://pbs.twimg.com/amplify_video_thumb/2097654062087127040/img/9hmGsuaCk8osug7P.jpg" alt="" loading="lazy" decoding="async" onerror="this.closest('.facade').classList.add('nothumb')"><span class="play" aria-hidden="true"></span><span class="vplat p-x">X</span></div></div>
       <div class="body">
         <div class="chips"><span class="chip p-x">X</span></div>
         <h3><a href="https://x.com/shamilbedru/status/2097655248349278390" target="_blank" rel="noopener">Two connectome flies interacting in a browser</a></h3>
@@ -478,7 +496,7 @@
       </div>
     </article>
     <article class="card" data-platforms="x" data-track="viral">
-      <div class="media"><div class="facade facade-text" data-x="2098537685572858063" data-url="https://x.com/adrian_valentim/status/2098537685572858063" data-plat="X" role="button" tabindex="0" aria-label="Load post from X"><div class="fq"><div class="fwho">@adrian_valentim</div><p>I&#x27;m forcing the fly connectome to read classical books about the great conquerors of history and hitting its dopamine neurons every time it thinks about founding a vast empire</p><div class="fsub">11 Sep 2026 · 3,639 likes</div></div><span class="floadbar">Load post from X</span></div></div>
+      <div class="media"><div class="facade facade-vid" data-vsrc="[&quot;https://video.twimg.com/amplify_video/2098537426230865920/vid/avc1/798x720/myYpTb513z7xoqpC.mp4&quot;, &quot;https://video.twimg.com/amplify_video/2098537426230865920/vid/avc1/398x360/TeiUXMmJiLmRZCOJ.mp4&quot;, &quot;https://video.twimg.com/amplify_video/2098537426230865920/vid/avc1/298x270/0aL3jHbX3nKHbL87.mp4&quot;]" data-poster="https://pbs.twimg.com/amplify_video_thumb/2098537426230865920/img/fmcvdG6cbwq4FOP9.jpg" data-gif="0" data-url="https://x.com/adrian_valentim/status/2098537685572858063" data-plat="X" role="button" tabindex="0" aria-label="Play video from X"><img src="https://pbs.twimg.com/amplify_video_thumb/2098537426230865920/img/fmcvdG6cbwq4FOP9.jpg" alt="" loading="lazy" decoding="async" onerror="this.closest('.facade').classList.add('nothumb')"><span class="play" aria-hidden="true"></span><span class="vplat p-x">X</span></div></div>
       <div class="body">
         <div class="chips"><span class="chip p-x">X</span></div>
         <h3><a href="https://x.com/adrian_valentim/status/2098537685572858063" target="_blank" rel="noopener">Feeding the connectome conqueror biographies and hitting its dopamine neurons</a></h3>
@@ -488,7 +506,7 @@
       </div>
     </article>
     <article class="card" data-platforms="linkedin" data-track="viral">
-      <div class="media"><div class="facade facade-text" data-li="urn:li:activity:7510285446082400256" data-url="https://www.linkedin.com/feed/update/urn:li:activity:7510285446082400256/" data-plat="LinkedIn" role="button" tabindex="0" aria-label="Load post from LinkedIn"><div class="fq"><div class="fwho">Kushagra Agarwal<span class="frole">Computer Science Engineering Student at Manipal Institute of Technology</span></div><p>I&#x27;m running 106,000 of those real neurons and 5.2 million real synapses as a simulated brain, and training it to fight Great Shinobi Owl in Sekiro: Shadows Die Twice.</p><div class="fsub">28 Sep 2026</div></div><span class="floadbar">Load post from LinkedIn</span></div></div>
+      <div class="media"><div class="facade facade-vid" data-vsrc="[&quot;https://dms.licdn.com/playlist/vid/v2/D5605AQG9vR1sY-zxVg/mp4-720p-30fp-crf28/B56aDnkxK.G4B8-/0/1790591577990?e=2147483647&amp;v=beta&amp;t=9hdno5v1iOKi4eCWI6Q0JTNTmJQ61P1ityzcFM9YgRw&quot;, &quot;https://dms.licdn.com/playlist/vid/v2/D5605AQG9vR1sY-zxVg/mp4-640p-30fp-crf28/B56aDnkxK.G4Bk-/0/1790591577990?e=2147483647&amp;v=beta&amp;t=9LjdeH4Fc5o80UkYjZBoFogbKVxulLJCh4tJqzRxoXQ&quot;]" data-poster="https://media.licdn.com/dms/image/v2/D5605AQG9vR1sY-zxVg/videocover-high/B56aDnkxK.G4BM-/0/1790591574452?e=2147483647&amp;v=beta&amp;t=8IUOO-iJ2K9jI0rq2-KXXEHaOkiT9zoCFQso9T7J3XY" data-gif="0" data-url="https://www.linkedin.com/feed/update/urn:li:activity:7510285446082400256/" data-plat="LinkedIn" role="button" tabindex="0" aria-label="Play video from LinkedIn"><img src="https://media.licdn.com/dms/image/v2/D5605AQG9vR1sY-zxVg/videocover-high/B56aDnkxK.G4BM-/0/1790591574452?e=2147483647&amp;v=beta&amp;t=8IUOO-iJ2K9jI0rq2-KXXEHaOkiT9zoCFQso9T7J3XY" alt="" loading="lazy" decoding="async" onerror="this.closest('.facade').classList.add('nothumb')"><span class="play" aria-hidden="true"></span><span class="vplat p-linkedin">LinkedIn</span></div></div>
       <div class="body">
         <div class="chips"><span class="chip p-linkedin">LinkedIn</span></div>
         <h3><a href="https://www.linkedin.com/feed/update/urn:li:activity:7510285446082400256/" target="_blank" rel="noopener">A MaleCNS brain learning a Sekiro boss fight</a></h3>
@@ -508,7 +526,7 @@
       </div>
     </article>
     <article class="card" data-platforms="x" data-track="viral">
-      <div class="media"><div class="facade facade-text" data-x="2098066170960081321" data-url="https://x.com/timhwang/status/2098066170960081321" data-plat="X" role="button" tabindex="0" aria-label="Load post from X"><div class="fq"><div class="fwho">@timhwang</div><p>FetterFly is nearing its open source release. Our lab now has a streamlined pipeline that uses a frontier model to observe arbitrary threejs environments and control the movements of a richly rendered model of Senator John Fetterman through a biologically accurate fly connectome</p><div class="fsub">10 Sep 2026 · 4,862 likes</div></div><span class="floadbar">Load post from X</span></div></div>
+      <div class="media"><div class="facade facade-vid" data-vsrc="[&quot;https://video.twimg.com/amplify_video/2098065517202604032/vid/avc1/1280x720/wiu84S1s9uBfeH_a.mp4&quot;, &quot;https://video.twimg.com/amplify_video/2098065517202604032/vid/avc1/640x360/iv1ED3QNiN1jvg1o.mp4&quot;, &quot;https://video.twimg.com/amplify_video/2098065517202604032/vid/avc1/480x270/VwOwdmkvv-A7ADhc.mp4&quot;]" data-poster="https://pbs.twimg.com/amplify_video_thumb/2098065517202604032/img/zBoBhrbnasehIZQR.jpg" data-gif="0" data-url="https://x.com/timhwang/status/2098066170960081321" data-plat="X" role="button" tabindex="0" aria-label="Play video from X"><img src="https://pbs.twimg.com/amplify_video_thumb/2098065517202604032/img/zBoBhrbnasehIZQR.jpg" alt="" loading="lazy" decoding="async" onerror="this.closest('.facade').classList.add('nothumb')"><span class="play" aria-hidden="true"></span><span class="vplat p-x">X</span></div></div>
       <div class="body">
         <div class="chips"><span class="chip p-x">X</span></div>
         <h3><a href="https://x.com/timhwang/status/2098066170960081321" target="_blank" rel="noopener">FetterFly: a connectome in the movement path of a rendered politician</a></h3>
@@ -518,7 +536,7 @@
       </div>
     </article>
     <article class="card" data-platforms="x" data-track="viral">
-      <div class="media"><div class="facade facade-text" data-x="2098110234137096282" data-url="https://x.com/bnj/status/2098110234137096282" data-plat="X" role="button" tabindex="0" aria-label="Load post from X"><div class="fq"><div class="fwho">@bnj</div><p>The fly brain can design. His name is Flygma</p><div class="fsub">10 Sep 2026 · 2,070 likes</div></div><span class="floadbar">Load post from X</span></div></div>
+      <div class="media"><div class="facade facade-vid" data-vsrc="[&quot;https://video.twimg.com/amplify_video/2098109866296696832/vid/avc1/1100x720/jYL9UCjKDz3ok12u.mp4&quot;, &quot;https://video.twimg.com/amplify_video/2098109866296696832/vid/avc1/550x360/rHm43iJhMZ3HhdbS.mp4&quot;, &quot;https://video.twimg.com/amplify_video/2098109866296696832/vid/avc1/412x270/XeAk0obY45kpXrcK.mp4&quot;]" data-poster="https://pbs.twimg.com/amplify_video_thumb/2098109866296696832/img/yE4KEdhXkL0FfGXV.jpg" data-gif="0" data-url="https://x.com/bnj/status/2098110234137096282" data-plat="X" role="button" tabindex="0" aria-label="Play video from X"><img src="https://pbs.twimg.com/amplify_video_thumb/2098109866296696832/img/yE4KEdhXkL0FfGXV.jpg" alt="" loading="lazy" decoding="async" onerror="this.closest('.facade').classList.add('nothumb')"><span class="play" aria-hidden="true"></span><span class="vplat p-x">X</span></div></div>
       <div class="body">
         <div class="chips"><span class="chip p-x">X</span></div>
         <h3><a href="https://x.com/bnj/status/2098110234137096282" target="_blank" rel="noopener">Flygma: a fly brain given a design tool</a></h3>
@@ -528,7 +546,7 @@
       </div>
     </article>
     <article class="card" data-platforms="x" data-track="viral">
-      <div class="media"><div class="facade facade-text" data-x="2098528181699445189" data-url="https://x.com/grishahq/status/2098528181699445189" data-plat="X" role="button" tabindex="0" aria-label="Load post from X"><div class="fq"><div class="fwho">@grishahq</div><p>I made two fruit-fly connectome models play Gomoku (five-in-a-row). 138,639 neurons each. Fixed brain wiring, trained output heads. Running locally on an M3 Pro.</p><div class="fsub">11 Sep 2026 · 993 likes</div></div><span class="floadbar">Load post from X</span></div></div>
+      <div class="media"><div class="facade facade-vid" data-vsrc="[&quot;https://video.twimg.com/amplify_video/2098528065437507590/vid/avc1/720x720/krMJlU6LGK4_ucWZ.mp4&quot;, &quot;https://video.twimg.com/amplify_video/2098528065437507590/vid/avc1/540x540/f1En7fQzNbyGS1Eq.mp4&quot;, &quot;https://video.twimg.com/amplify_video/2098528065437507590/vid/avc1/320x320/18j26FWOV_P1rvVe.mp4&quot;]" data-poster="https://pbs.twimg.com/amplify_video_thumb/2098528065437507590/img/cgIiRuz1qi5Ukqsl.jpg" data-gif="0" data-url="https://x.com/grishahq/status/2098528181699445189" data-plat="X" role="button" tabindex="0" aria-label="Play video from X"><img src="https://pbs.twimg.com/amplify_video_thumb/2098528065437507590/img/cgIiRuz1qi5Ukqsl.jpg" alt="" loading="lazy" decoding="async" onerror="this.closest('.facade').classList.add('nothumb')"><span class="play" aria-hidden="true"></span><span class="vplat p-x">X</span></div></div>
       <div class="body">
         <div class="chips"><span class="chip p-x">X</span></div>
         <h3><a href="https://x.com/grishahq/status/2098528181699445189" target="_blank" rel="noopener">Two fly connectome models playing Gomoku</a></h3>
@@ -538,7 +556,7 @@
       </div>
     </article>
     <article class="card" data-platforms="x" data-track="viral">
-      <div class="media"><div class="facade facade-text" data-x="2098445714741166336" data-url="https://x.com/lordspline/status/2098445714741166336" data-plat="X" role="button" tabindex="0" aria-label="Load post from X"><div class="fq"><div class="fwho">@lordspline</div><p>fly brain has learned python</p><div class="fsub">11 Sep 2026 · 7,816 likes</div></div><span class="floadbar">Load post from X</span></div></div>
+      <div class="media"><div class="facade facade-vid" data-vsrc="[&quot;https://video.twimg.com/amplify_video/2098420932746645504/vid/avc1/1280x720/wfSqQvGZ1bru3gpj.mp4&quot;, &quot;https://video.twimg.com/amplify_video/2098420932746645504/vid/avc1/640x360/_eiWcmmjmmh0ohyp.mp4&quot;, &quot;https://video.twimg.com/amplify_video/2098420932746645504/vid/avc1/480x270/gOMDzVXHy4EgyWrW.mp4&quot;]" data-poster="https://pbs.twimg.com/amplify_video_thumb/2098420932746645504/img/KEPGiD_NEmiwFcTJ.jpg" data-gif="0" data-url="https://x.com/lordspline/status/2098445714741166336" data-plat="X" role="button" tabindex="0" aria-label="Play video from X"><img src="https://pbs.twimg.com/amplify_video_thumb/2098420932746645504/img/KEPGiD_NEmiwFcTJ.jpg" alt="" loading="lazy" decoding="async" onerror="this.closest('.facade').classList.add('nothumb')"><span class="play" aria-hidden="true"></span><span class="vplat p-x">X</span></div></div>
       <div class="body">
         <div class="chips"><span class="chip p-x">X</span></div>
         <h3><a href="https://x.com/lordspline/status/2098445714741166336" target="_blank" rel="noopener">&quot;fly brain has learned python&quot;</a></h3>
@@ -548,7 +566,7 @@
       </div>
     </article>
     <article class="card" data-platforms="x" data-track="viral">
-      <div class="media"><div class="facade facade-text" data-x="2098373490038485150" data-url="https://x.com/ngxson/status/2098373490038485150" data-plat="X" role="button" tabindex="0" aria-label="Load post from X"><div class="fq"><div class="fwho">@ngxson</div><p>Fruit fly brain as LLM</p><div class="fsub">11 Sep 2026 · 738 likes</div></div><span class="floadbar">Load post from X</span></div></div>
+      <div class="media"><div class="facade facade-vid" data-vsrc="[&quot;https://video.twimg.com/amplify_video/2098373375467077633/vid/avc1/864x720/3yA6wdch8-jyzptJ.mp4&quot;, &quot;https://video.twimg.com/amplify_video/2098373375467077633/vid/avc1/432x360/8AJHNHhHDRc9H5l1.mp4&quot;, &quot;https://video.twimg.com/amplify_video/2098373375467077633/vid/avc1/324x270/AoCNv7sY4aCUoiS9.mp4&quot;]" data-poster="https://pbs.twimg.com/amplify_video_thumb/2098373375467077633/img/MDiU0mPDWjZGvP_Y.jpg" data-gif="0" data-url="https://x.com/ngxson/status/2098373490038485150" data-plat="X" role="button" tabindex="0" aria-label="Play video from X"><img src="https://pbs.twimg.com/amplify_video_thumb/2098373375467077633/img/MDiU0mPDWjZGvP_Y.jpg" alt="" loading="lazy" decoding="async" onerror="this.closest('.facade').classList.add('nothumb')"><span class="play" aria-hidden="true"></span><span class="vplat p-x">X</span></div></div>
       <div class="body">
         <div class="chips"><span class="chip p-x">X</span></div>
         <h3><a href="https://x.com/ngxson/status/2098373490038485150" target="_blank" rel="noopener">&quot;Fruit fly brain as LLM&quot;</a></h3>
@@ -558,7 +576,7 @@
       </div>
     </article>
     <article class="card" data-platforms="x" data-track="viral">
-      <div class="media"><div class="facade facade-text" data-x="2098820460502716835" data-url="https://x.com/tryramp/status/2098820460502716835" data-plat="X" role="button" tabindex="0" aria-label="Load post from X"><div class="fq"><div class="fwho">@tryramp</div><p>Agentic Flynance. We trained a simulated fruit fly brain to review expenses by changing just 4,184 weights. A vision model reads the receipt, then the fly decides whether to approve it.</p><div class="fsub">12 Sep 2026 · 1,142 likes</div></div><span class="floadbar">Load post from X</span></div></div>
+      <div class="media"><div class="facade facade-vid" data-vsrc="[&quot;https://video.twimg.com/amplify_video/2098820390332014597/vid/avc1/1314x720/dggJDo17macVu8dc.mp4&quot;, &quot;https://video.twimg.com/amplify_video/2098820390332014597/vid/avc1/656x360/iOXVpFkmJ3IrVNCN.mp4&quot;, &quot;https://video.twimg.com/amplify_video/2098820390332014597/vid/avc1/492x270/sLTW5KYAFcJdoqWU.mp4&quot;]" data-poster="https://pbs.twimg.com/amplify_video_thumb/2098820390332014597/img/1w-vUSW1zAgvOulM.jpg" data-gif="0" data-url="https://x.com/tryramp/status/2098820460502716835" data-plat="X" role="button" tabindex="0" aria-label="Play video from X"><img src="https://pbs.twimg.com/amplify_video_thumb/2098820390332014597/img/1w-vUSW1zAgvOulM.jpg" alt="" loading="lazy" decoding="async" onerror="this.closest('.facade').classList.add('nothumb')"><span class="play" aria-hidden="true"></span><span class="vplat p-x">X</span></div></div>
       <div class="body">
         <div class="chips"><span class="chip p-x">X</span></div>
         <h3><a href="https://x.com/tryramp/status/2098820460502716835" target="_blank" rel="noopener">Agentic Flynance: a fly brain reviewing expenses</a></h3>
@@ -568,7 +586,7 @@
       </div>
     </article>
     <article class="card" data-platforms="x" data-track="viral">
-      <div class="media"><div class="facade facade-text" data-x="2098465568269680794" data-url="https://x.com/EvgenyKirilin/status/2098465568269680794" data-plat="X" role="button" tabindex="0" aria-label="Load post from X"><div class="fq"><div class="fwho">@EvgenyKirilin</div><p>I trained a fly brain to synthesize Rentosertib, our anti-aging drug that had its first patient dosed in Phase III yesterday. Even a fly uses #insilicoSOTAFM models</p><div class="fsub">11 Sep 2026 · 609 likes</div></div><span class="floadbar">Load post from X</span></div></div>
+      <div class="media"><div class="facade facade-vid" data-vsrc="[&quot;https://video.twimg.com/amplify_video/2098464622336782336/vid/avc1/1464x720/KdvCIDrdi3IfeGeN.mp4&quot;, &quot;https://video.twimg.com/amplify_video/2098464622336782336/vid/avc1/732x360/rU3h_uOjEkFm0myU.mp4&quot;, &quot;https://video.twimg.com/amplify_video/2098464622336782336/vid/avc1/548x270/B0bgEWL9KqyIytF3.mp4&quot;]" data-poster="https://pbs.twimg.com/amplify_video_thumb/2098464622336782336/img/rb6wX3yg3U4KG1Nj.jpg" data-gif="0" data-url="https://x.com/EvgenyKirilin/status/2098465568269680794" data-plat="X" role="button" tabindex="0" aria-label="Play video from X"><img src="https://pbs.twimg.com/amplify_video_thumb/2098464622336782336/img/rb6wX3yg3U4KG1Nj.jpg" alt="" loading="lazy" decoding="async" onerror="this.closest('.facade').classList.add('nothumb')"><span class="play" aria-hidden="true"></span><span class="vplat p-x">X</span></div></div>
       <div class="body">
         <div class="chips"><span class="chip p-x">X</span></div>
         <h3><a href="https://x.com/EvgenyKirilin/status/2098465568269680794" target="_blank" rel="noopener">A fly brain pointed at a drug-synthesis task</a></h3>
@@ -578,13 +596,13 @@
       </div>
     </article>
     <article class="card" data-platforms="linkedin" data-track="viral">
-      <div class="media"><div class="facade facade-text" data-li="urn:li:activity:7511154079549734912" data-url="https://www.linkedin.com/feed/update/urn:li:activity:7511154079549734912/" data-plat="LinkedIn" role="button" tabindex="0" aria-label="Load post from LinkedIn"><div class="fq"><div class="fwho">Oppa AI<span class="frole">Founder at OppaAI</span></div><p>Currently doing research and test on the fly-brain neurons connectome as a biological simulation layer inside the brain of my local AI companion running on a Jetson Orin Nano. Modulatory only. The LLM proposes, the fly votes. The fly gets 25% of the final score. One veto: a giant fiber escape reflex can hard-block an external action, and…</p><div class="fsub">2026-09-30</div></div><span class="floadbar">Load post from LinkedIn</span></div></div>
+      <div class="media"><div class="facade facade-vid" data-vsrc="[&quot;https://dms.licdn.com/playlist/vid/v2/D5605AQGEi4jXS48yKQ/mp4-720p-30fp-crf28/B56aDT_6TgK4B8-/0/1790263150752?e=2147483647&amp;v=beta&amp;t=B2_Fg9Jurx4u0jexGwpVza_Ylko6gUMqbjpW8FF8jbo&quot;, &quot;https://dms.licdn.com/playlist/vid/v2/D5605AQGEi4jXS48yKQ/mp4-640p-30fp-crf28/B56aDT_6TgK4Bk-/0/1790263150752?e=2147483647&amp;v=beta&amp;t=-3N5eI0DKagJM1GPTrKepZoS9u8xhmm-NA3-upwbrJ0&quot;]" data-poster="https://media.licdn.com/dms/image/v2/D5605AQGEi4jXS48yKQ/videocover-high/B56aDT_6TgK4BM-/0/1790263143601?e=2147483647&amp;v=beta&amp;t=A2ZE6-OZ-wfU25_wJJAnxYTbXeAWfjvjVcax2mdGz0o" data-gif="0" data-url="https://www.linkedin.com/feed/update/urn:li:activity:7508907927353761792/" data-plat="LinkedIn" role="button" tabindex="0" aria-label="Play video from LinkedIn"><img src="https://media.licdn.com/dms/image/v2/D5605AQGEi4jXS48yKQ/videocover-high/B56aDT_6TgK4BM-/0/1790263143601?e=2147483647&amp;v=beta&amp;t=A2ZE6-OZ-wfU25_wJJAnxYTbXeAWfjvjVcax2mdGz0o" alt="" loading="lazy" decoding="async" onerror="this.closest('.facade').classList.add('nothumb')"><span class="play" aria-hidden="true"></span><span class="vplat p-linkedin">LinkedIn</span></div></div>
       <div class="body">
         <div class="chips"><span class="chip p-linkedin">LinkedIn</span></div>
-        <h3><a href="https://www.linkedin.com/feed/update/urn:li:activity:7511154079549734912/" target="_blank" rel="noopener">A connectome layer bolted onto a local AI companion</a></h3>
-        <div class="meta"><span><a href="https://www.linkedin.com/in/oppa-ai/" target="_blank" rel="noopener">Oppa AI</a></span><span class="sep">·</span><span>2026-09-30</span></div>
+        <h3><a href="https://www.linkedin.com/feed/update/urn:li:activity:7508907927353761792/" target="_blank" rel="noopener">A connectome layer bolted onto a local AI companion</a></h3>
+        <div class="meta"><span><a href="https://www.linkedin.com/in/oppa-ai/" target="_blank" rel="noopener">Oppa AI</a></span><span class="sep">·</span><span>2026-09-26</span></div>
         <p class="commentary">A local AI companion on a Jetson Orin Nano with Drosophila-connectome-derived circuits wired in as a modulatory layer for urgency, learned value, reflexes and effort cost, while the language model keeps language, planning and tool use. The author states the fly layer gets 25% of the final score, that a giant-fiber escape reflex can hard-block an action once learned valence drops below a set threshold, and that the reference graph is MaleCNS at 166,606 neurons and 25.5M edges. He is explicit that there are no spiking neurons and no claim to simulate a real fly, calling the system connectome-constrained rather than connectome-faithful.</p>
-        <div class="also"><span class="also-label">Also posted on</span><a href="https://www.linkedin.com/feed/update/urn:li:activity:7508907927353761792/" target="_blank" rel="noopener" class="alt p-linkedin">LinkedIn · Oppa AI</a></div>
+        <div class="also"><span class="also-label">Also posted on</span><a href="https://www.linkedin.com/feed/update/urn:li:activity:7511154079549734912/" target="_blank" rel="noopener" class="alt p-linkedin">LinkedIn · Oppa AI</a></div>
       </div>
     </article>
     <article class="card" data-platforms="youtube" data-track="viral">
@@ -618,7 +636,7 @@
       </div>
     </article>
     <article class="card" data-platforms="x" data-track="viral">
-      <div class="media"><div class="facade facade-text" data-x="2106064814502007124" data-url="https://x.com/SpikeCalls/status/2106064814502007124" data-plat="X" role="button" tabindex="0" aria-label="Load post from X"><div class="fq"><div class="fwho">@SpikeCalls</div><p>SOMEONE JUST OPEN SOURCED GREY LENO, A TALK SHOW HOST CONTROLLED BY A REAL FRUIT FLY BRAIN WITH 138,639 NEURONS AND 0 WRITERS. That whole brain runs live in a browser tab from a 31 MB file, with every neuron updated every 0.1 ms.</p><div class="fsub">2026-10-01 · 13 likes</div></div><span class="floadbar">Load post from X</span></div></div>
+      <div class="media"><div class="facade facade-vid" data-vsrc="[&quot;https://video.twimg.com/amplify_video/2106064697900351488/vid/avc1/1150x720/2suVzVu0SfyZFRPR.mp4&quot;, &quot;https://video.twimg.com/amplify_video/2106064697900351488/vid/avc1/574x360/UgaQ_S4HKWOvgapy.mp4&quot;, &quot;https://video.twimg.com/amplify_video/2106064697900351488/vid/avc1/430x270/tCvrBAIHopNnApcg.mp4&quot;]" data-poster="https://pbs.twimg.com/amplify_video_thumb/2106064697900351488/img/rmHtKAeixHgum_yk.jpg" data-gif="0" data-url="https://x.com/SpikeCalls/status/2106064814502007124" data-plat="X" role="button" tabindex="0" aria-label="Play video from X"><img src="https://pbs.twimg.com/amplify_video_thumb/2106064697900351488/img/rmHtKAeixHgum_yk.jpg" alt="" loading="lazy" decoding="async" onerror="this.closest('.facade').classList.add('nothumb')"><span class="play" aria-hidden="true"></span><span class="vplat p-x">X</span></div></div>
       <div class="body">
         <div class="chips"><span class="chip p-x">X</span></div>
         <h3><a href="https://x.com/SpikeCalls/status/2106064814502007124" target="_blank" rel="noopener">Grey Leno: a talk show host puppeteered by a fly connectome</a></h3>
@@ -628,7 +646,7 @@
       </div>
     </article>
     <article class="card" data-platforms="x" data-track="viral">
-      <div class="media"><div class="facade facade-text" data-x="2105776070490575069" data-url="https://x.com/adamgrag/status/2105776070490575069" data-plat="X" role="button" tabindex="0" aria-label="Load post from X"><div class="fq"><div class="fwho">@adamgrag</div><p>It just solved a toy made for toddlers in 49 seconds. A real scanned fruit fly brain, 139,255 neurons, running a body on my desk. Three shapes, three holes in a wall, and a shape through the right hole opens the cigarette box for 7 seconds.</p><div class="fsub">2026-10-01 · 60 likes</div></div><span class="floadbar">Load post from X</span></div></div>
+      <div class="media"><div class="facade facade-vid" data-vsrc="[&quot;https://video.twimg.com/amplify_video/2105775623822282752/vid/avc1/1280x720/p8UFbKeUY2RKCSuS.mp4&quot;, &quot;https://video.twimg.com/amplify_video/2105775623822282752/vid/avc1/640x360/APt08-aqyuBZ1pW-.mp4&quot;, &quot;https://video.twimg.com/amplify_video/2105775623822282752/vid/avc1/480x270/5uj9mo_tr9GqAPJ0.mp4&quot;]" data-poster="https://pbs.twimg.com/amplify_video_thumb/2105775623822282752/img/bPsxfxhpM_LJJwyt.jpg" data-gif="0" data-url="https://x.com/adamgrag/status/2105776070490575069" data-plat="X" role="button" tabindex="0" aria-label="Play video from X"><img src="https://pbs.twimg.com/amplify_video_thumb/2105775623822282752/img/bPsxfxhpM_LJJwyt.jpg" alt="" loading="lazy" decoding="async" onerror="this.closest('.facade').classList.add('nothumb')"><span class="play" aria-hidden="true"></span><span class="vplat p-x">X</span></div></div>
       <div class="body">
         <div class="chips"><span class="chip p-x">X</span></div>
         <h3><a href="https://x.com/adamgrag/status/2105776070490575069" target="_blank" rel="noopener">Shape sorter and colour sorting on a desktop fly brain</a></h3>
@@ -678,7 +696,7 @@
       </div>
     </article>
     <article class="card" data-platforms="x" data-track="viral">
-      <div class="media"><div class="facade facade-text" data-x="2104454811357700450" data-url="https://x.com/jj_kowalewski/status/2104454811357700450" data-plat="X" role="button" tabindex="0" aria-label="Load post from X"><div class="fq"><div class="fwho">@jj_kowalewski</div><p>Nauczylem mozg muchy sterowac nowoczesnym satelita. Od razu uczciwie: mucha to cyfrowa mapa jej mozgu, a satelita latal w symulacji. Reszta jest prawdziwa.</p><div class="fsub">28 Sep 2026 · 69 likes</div></div><span class="floadbar">Load post from X</span></div></div>
+      <div class="media"><div class="facade facade-vid" data-vsrc="[&quot;https://video.twimg.com/amplify_video/2104329813695565824/vid/avc1/1280x720/5VVTb15pHnP_dm9A.mp4&quot;, &quot;https://video.twimg.com/amplify_video/2104329813695565824/vid/avc1/640x360/F0dJwwKYpQezQQgV.mp4&quot;, &quot;https://video.twimg.com/amplify_video/2104329813695565824/vid/avc1/480x270/1L6YfmmjAXum6uA4.mp4&quot;]" data-poster="https://pbs.twimg.com/amplify_video_thumb/2104329813695565824/img/rHys-5aWZ_540G6R.jpg" data-gif="0" data-url="https://x.com/jj_kowalewski/status/2104454811357700450" data-plat="X" role="button" tabindex="0" aria-label="Play video from X"><img src="https://pbs.twimg.com/amplify_video_thumb/2104329813695565824/img/rHys-5aWZ_540G6R.jpg" alt="" loading="lazy" decoding="async" onerror="this.closest('.facade').classList.add('nothumb')"><span class="play" aria-hidden="true"></span><span class="vplat p-x">X</span></div></div>
       <div class="body">
         <div class="chips"><span class="chip p-x">X</span></div>
         <h3><a href="https://x.com/jj_kowalewski/status/2104454811357700450" target="_blank" rel="noopener">A fly brain steering a satellite in simulation</a></h3>
@@ -688,7 +706,7 @@
       </div>
     </article>
     <article class="card" data-platforms="x" data-track="viral">
-      <div class="media"><div class="facade facade-text" data-x="2105030119010299997" data-url="https://x.com/adamgrag/status/2105030119010299997" data-plat="X" role="button" tabindex="0" aria-label="Load post from X"><div class="fq"><div class="fwho">@adamgrag</div><p>I MADE 22 COPIES OF MY FLY PLAY FOOTBALL. THE LOSING TEAM DIED. one scanned fly brain, 139,255 neurons, copied 22 times, 11 red and 11 blue</p><div class="fsub">29 Sep 2026 · 45 likes</div></div><span class="floadbar">Load post from X</span></div></div>
+      <div class="media"><div class="facade facade-vid" data-vsrc="[&quot;https://video.twimg.com/amplify_video/2105030041600180224/vid/avc1/1280x720/PnD_DEdR-siqzvDi.mp4&quot;, &quot;https://video.twimg.com/amplify_video/2105030041600180224/vid/avc1/640x360/2FiSCVcXvQkHqnCA.mp4&quot;, &quot;https://video.twimg.com/amplify_video/2105030041600180224/vid/avc1/480x270/7t5LWme-Aqv0rUd2.mp4&quot;]" data-poster="https://pbs.twimg.com/amplify_video_thumb/2105030041600180224/img/fJK_1wszWw_ZBdpL.jpg" data-gif="0" data-url="https://x.com/adamgrag/status/2105030119010299997" data-plat="X" role="button" tabindex="0" aria-label="Play video from X"><img src="https://pbs.twimg.com/amplify_video_thumb/2105030041600180224/img/fJK_1wszWw_ZBdpL.jpg" alt="" loading="lazy" decoding="async" onerror="this.closest('.facade').classList.add('nothumb')"><span class="play" aria-hidden="true"></span><span class="vplat p-x">X</span></div></div>
       <div class="body">
         <div class="chips"><span class="chip p-x">X</span></div>
         <h3><a href="https://x.com/adamgrag/status/2105030119010299997" target="_blank" rel="noopener">The same simulated fly made to play football and solve a maze</a></h3>
@@ -758,7 +776,7 @@
       </div>
     </article>
     <article class="card" data-platforms="x" data-track="viral">
-      <div class="media"><div class="facade facade-text" data-x="2103251258933170461" data-url="https://x.com/adamgrag/status/2103251258933170461" data-plat="X" role="button" tabindex="0" aria-label="Load post from X"><div class="fq"><div class="fwho">@adamgrag</div><p>I GAVE A SCANNED FLY BRAIN ALCOHOL AND THREE JOBS. SHE FINISHED TWO OF THEM DRUNK AND NEVER GOT TO THE THIRD.</p><div class="fsub">2026-09-24 · 8,081 views</div></div><span class="floadbar">Load post from X</span></div></div>
+      <div class="media"><div class="facade facade-vid" data-vsrc="[&quot;https://video.twimg.com/amplify_video/2103251147998060544/vid/avc1/1280x720/UnNZDUUGbXRs4-aa.mp4&quot;, &quot;https://video.twimg.com/amplify_video/2103251147998060544/vid/avc1/640x360/ZchBBUDRZPNN_33V.mp4&quot;, &quot;https://video.twimg.com/amplify_video/2103251147998060544/vid/avc1/480x270/zjvvCPwIDxia0-XH.mp4&quot;]" data-poster="https://pbs.twimg.com/amplify_video_thumb/2103251147998060544/img/tOG0lkKERLh9qzgK.jpg" data-gif="0" data-url="https://x.com/adamgrag/status/2103251258933170461" data-plat="X" role="button" tabindex="0" aria-label="Play video from X"><img src="https://pbs.twimg.com/amplify_video_thumb/2103251147998060544/img/tOG0lkKERLh9qzgK.jpg" alt="" loading="lazy" decoding="async" onerror="this.closest('.facade').classList.add('nothumb')"><span class="play" aria-hidden="true"></span><span class="vplat p-x">X</span></div></div>
       <div class="body">
         <div class="chips"><span class="chip p-x">X</span></div>
         <h3><a href="https://x.com/adamgrag/status/2103251258933170461" target="_blank" rel="noopener">The same simulated fly given alcohol, jobs and a reading test</a></h3>
@@ -778,7 +796,7 @@
       </div>
     </article>
     <article class="card" data-platforms="x" data-track="viral">
-      <div class="media"><div class="facade facade-text" data-x="2102615991654256925" data-url="https://x.com/kenopsia_ow/status/2102615991654256925" data-plat="X" role="button" tabindex="0" aria-label="Load post from X"><div class="fq"><div class="fwho">@kenopsia_ow</div><p>I trained 166,700 fruit fly neurons to play Overwatch. It performed best on Moira. The fly doesn&#x27;t need to aim, Moira does it for them. 166,700 neurons reduced to right clicking, flanking, dying, and ulting a Torb turret. Millions of years of evolution for this. Amazing.</p><div class="fsub">23 Sep 2026 · 10,836 likes</div></div><span class="floadbar">Load post from X</span></div></div>
+      <div class="media"><div class="facade facade-vid" data-vsrc="[&quot;https://video.twimg.com/amplify_video/2102615468343517184/vid/avc1/1410x720/STZxopKLu0eVAH4C.mp4?tag=14&quot;, &quot;https://video.twimg.com/amplify_video/2102615468343517184/vid/avc1/704x360/idG1IhpGV67-6vjG.mp4?tag=14&quot;, &quot;https://video.twimg.com/amplify_video/2102615468343517184/vid/avc1/528x270/3WhXFwAAx8I608rq.mp4?tag=14&quot;]" data-poster="https://pbs.twimg.com/amplify_video_thumb/2102615468343517184/img/aq1qA28gtCciOXfR.jpg" data-gif="0" data-url="https://x.com/kenopsia_ow/status/2102615991654256925" data-plat="X" role="button" tabindex="0" aria-label="Play video from X"><img src="https://pbs.twimg.com/amplify_video_thumb/2102615468343517184/img/aq1qA28gtCciOXfR.jpg" alt="" loading="lazy" decoding="async" onerror="this.closest('.facade').classList.add('nothumb')"><span class="play" aria-hidden="true"></span><span class="vplat p-x">X</span></div></div>
       <div class="body">
         <div class="chips"><span class="chip p-x">X</span></div>
         <h3><a href="https://x.com/kenopsia_ow/status/2102615991654256925" target="_blank" rel="noopener">A fly brain playing Overwatch</a></h3>
@@ -788,7 +806,7 @@
       </div>
     </article>
     <article class="card" data-platforms="x" data-track="viral">
-      <div class="media"><div class="facade facade-text" data-x="2103069347724116201" data-url="https://x.com/muellerberndt/status/2103069347724116201" data-plat="X" role="button" tabindex="0" aria-label="Load post from X"><div class="fq"><div class="fwho">@muellerberndt</div><p>I put a Cadence patchnet into a virtual fruit fly. This creates an actual fly matrix in your browser that the fly experiences as a solid world (observation is substrate-independent). All open-source, Github link on the page. floatingpragma.io/cadence-examples/fly-matrix/</p><div class="fsub">24 Sep 2026 · 2,657 likes</div></div><span class="floadbar">Load post from X</span></div></div>
+      <div class="media"><div class="facade facade-vid" data-vsrc="[&quot;https://video.twimg.com/amplify_video/2103068512281559041/vid/avc1/1280x720/2RWwP_8MdzjG8eHr.mp4&quot;, &quot;https://video.twimg.com/amplify_video/2103068512281559041/vid/avc1/640x360/itKCvPL-qbj6jg6S.mp4&quot;, &quot;https://video.twimg.com/amplify_video/2103068512281559041/vid/avc1/480x270/dHIKu9RnlT1P5-W1.mp4&quot;]" data-poster="https://pbs.twimg.com/amplify_video_thumb/2103068512281559041/img/JpqvDj0NnIxTjVfK.jpg" data-gif="0" data-url="https://x.com/muellerberndt/status/2103069347724116201" data-plat="X" role="button" tabindex="0" aria-label="Play video from X"><img src="https://pbs.twimg.com/amplify_video_thumb/2103068512281559041/img/JpqvDj0NnIxTjVfK.jpg" alt="" loading="lazy" decoding="async" onerror="this.closest('.facade').classList.add('nothumb')"><span class="play" aria-hidden="true"></span><span class="vplat p-x">X</span></div></div>
       <div class="body">
         <div class="chips"><span class="chip p-x">X</span></div>
         <h3><a href="https://x.com/muellerberndt/status/2103069347724116201" target="_blank" rel="noopener">A virtual world for a simulated fly, in the browser</a></h3>
@@ -798,7 +816,7 @@
       </div>
     </article>
     <article class="card" data-platforms="x" data-track="viral">
-      <div class="media"><div class="facade facade-text" data-x="2101784080249692665" data-url="https://x.com/adamgrag/status/2101784080249692665" data-plat="X" role="button" tabindex="0" aria-label="Load post from X"><div class="fq"><div class="fwho">@adamgrag</div><p>I did something slightly evil to a digitized fly brain and now I feel bad. Two weeks ago I gave it a lit cigarette. Every puff fires a small dopamine pulse. It took the fly about a day to figure out that the glowing stick equals good feeling.</p><div class="fsub">20 Sep 2026 · 1,233 likes</div></div><span class="floadbar">Load post from X</span></div></div>
+      <div class="media"><div class="facade facade-vid" data-vsrc="[&quot;https://video.twimg.com/amplify_video/2101783921382088704/vid/avc1/1280x720/0pE_IaQfZpqUdqps.mp4&quot;, &quot;https://video.twimg.com/amplify_video/2101783921382088704/vid/avc1/640x360/t0kneAfJuZXpVDbf.mp4&quot;, &quot;https://video.twimg.com/amplify_video/2101783921382088704/vid/avc1/480x270/ukHgECLGo1XXjSgp.mp4&quot;]" data-poster="https://pbs.twimg.com/amplify_video_thumb/2101783921382088704/img/4kX-ivf79zfoexje.jpg" data-gif="0" data-url="https://x.com/adamgrag/status/2101784080249692665" data-plat="X" role="button" tabindex="0" aria-label="Play video from X"><img src="https://pbs.twimg.com/amplify_video_thumb/2101783921382088704/img/4kX-ivf79zfoexje.jpg" alt="" loading="lazy" decoding="async" onerror="this.closest('.facade').classList.add('nothumb')"><span class="play" aria-hidden="true"></span><span class="vplat p-x">X</span></div></div>
       <div class="body">
         <div class="chips"><span class="chip p-x">X</span></div>
         <h3><a href="https://x.com/adamgrag/status/2101784080249692665" target="_blank" rel="noopener">A digitized fly brain conditioned with a simulated dopamine reward</a></h3>
@@ -808,7 +826,7 @@
       </div>
     </article>
     <article class="card" data-platforms="x" data-track="viral">
-      <div class="media"><div class="facade facade-text" data-x="2101496126620758117" data-url="https://x.com/yourlocalbun20/status/2101496126620758117" data-plat="X" role="button" tabindex="0" aria-label="Load post from X"><div class="fq"><div class="fwho">@yourlocalbun20</div><p>so... following the fruit fly playing everything trend......... i decided to make the fruit fly brain play fnf</p><div class="fsub">20 Sep 2026 · 1,250 likes</div></div><span class="floadbar">Load post from X</span></div></div>
+      <div class="media"><div class="facade facade-vid" data-vsrc="[&quot;https://video.twimg.com/amplify_video/2101495735669723136/vid/avc1/1280x720/b_HQcw00Ka_N1Adn.mp4?tag=14&quot;, &quot;https://video.twimg.com/amplify_video/2101495735669723136/vid/avc1/640x360/reRaFm3wOr227iqd.mp4?tag=14&quot;, &quot;https://video.twimg.com/amplify_video/2101495735669723136/vid/avc1/480x270/86vyR02UGwCO-Rnm.mp4?tag=14&quot;]" data-poster="https://pbs.twimg.com/amplify_video_thumb/2101495735669723136/img/tAroEjgge9odX_BM.jpg" data-gif="0" data-url="https://x.com/yourlocalbun20/status/2101496126620758117" data-plat="X" role="button" tabindex="0" aria-label="Play video from X"><img src="https://pbs.twimg.com/amplify_video_thumb/2101495735669723136/img/tAroEjgge9odX_BM.jpg" alt="" loading="lazy" decoding="async" onerror="this.closest('.facade').classList.add('nothumb')"><span class="play" aria-hidden="true"></span><span class="vplat p-x">X</span></div></div>
       <div class="body">
         <div class="chips"><span class="chip p-x">X</span></div>
         <h3><a href="https://x.com/yourlocalbun20/status/2101496126620758117" target="_blank" rel="noopener">A fly brain playing Friday Night Funkin&#x27;</a></h3>
@@ -818,7 +836,7 @@
       </div>
     </article>
     <article class="card" data-platforms="x" data-track="viral">
-      <div class="media"><div class="facade facade-text" data-x="2102319442898161780" data-url="https://x.com/konradkokosa/status/2102319442898161780" data-plat="X" role="button" tabindex="0" aria-label="Load post from X"><div class="fq"><div class="fwho">@konradkokosa</div><p>Everyone was making a fruit fly&#x27;s brain play Mario or Doom last week. I had to build somethong on my own to understand what it is all about. So, meet dotFly - the full 166,700-neuron connectome, simulated in real time in @godotengine, flying around a virtual room looking for</p><div class="fsub">22 Sep 2026 · 213 likes</div></div><span class="floadbar">Load post from X</span></div></div>
+      <div class="media"><div class="facade facade-vid" data-vsrc="[&quot;https://video.twimg.com/amplify_video/2102317538180829184/vid/avc1/1280x720/0uz9A46YPd_Ee9x_.mp4&quot;, &quot;https://video.twimg.com/amplify_video/2102317538180829184/vid/avc1/640x360/5uF5VCx86CvolQ03.mp4&quot;, &quot;https://video.twimg.com/amplify_video/2102317538180829184/vid/avc1/480x270/uH1gvoT-Rgo-bZ1P.mp4&quot;]" data-poster="https://pbs.twimg.com/amplify_video_thumb/2102317538180829184/img/TbK2WKqJXtuZ5zk_.jpg" data-gif="0" data-url="https://x.com/konradkokosa/status/2102319442898161780" data-plat="X" role="button" tabindex="0" aria-label="Play video from X"><img src="https://pbs.twimg.com/amplify_video_thumb/2102317538180829184/img/TbK2WKqJXtuZ5zk_.jpg" alt="" loading="lazy" decoding="async" onerror="this.closest('.facade').classList.add('nothumb')"><span class="play" aria-hidden="true"></span><span class="vplat p-x">X</span></div></div>
       <div class="body">
         <div class="chips"><span class="chip p-x">X</span></div>
         <h3><a href="https://x.com/konradkokosa/status/2102319442898161780" target="_blank" rel="noopener">dotFly: the connectome simulated in Godot</a></h3>
@@ -848,7 +866,7 @@
       </div>
     </article>
     <article class="card" data-platforms="linkedin" data-track="viral">
-      <div class="media"><div class="facade facade-text" data-li="urn:li:activity:7506587267054927872" data-url="https://www.linkedin.com/feed/update/urn:li:activity:7506587267054927872/" data-plat="LinkedIn" role="button" tabindex="0" aria-label="Load post from LinkedIn"><div class="fq"><div class="fwho">Narendra Naik<span class="frole">Chief Technology Officer (CTO) @MajheApp SuperApp</span></div><p>I spent the week building a fly that learns to play Flappy Bird using its actual brain chemistry, using the open-source fruit fly connectome data. It&#x27;s inspired by how real fruit flies learn: a tiny brain region releases a dopamine signal every time something works or fails, and that reshapes the fly&#x27;s decisions in real time.</p><div class="fsub">1w ago</div></div><span class="floadbar">Load post from LinkedIn</span></div></div>
+      <div class="media"><div class="facade facade-vid" data-vsrc="[&quot;https://dms.licdn.com/playlist/vid/v2/D4D05AQF7UnYDXL3stg/mp4-720p-30fp-crf28/B4DaCzBT6PKQB8-/0/1789709863652?e=2147483647&amp;v=beta&amp;t=j_ZSQgNM1gYYknpRftHEZ8eN_rtUoJBPRefeLwIYi0w&quot;, &quot;https://dms.licdn.com/playlist/vid/v2/D4D05AQF7UnYDXL3stg/mp4-640p-30fp-crf28/B4DaCzBT6PKQBk-/0/1789709864511?e=2147483647&amp;v=beta&amp;t=8sJNEBYle1J8YTeF01G51o5jUYoa1uE4zuPWsbAQj4o&quot;]" data-poster="https://media.licdn.com/dms/image/v2/D4D05AQF7UnYDXL3stg/videocover-high/B4DaCzBT6PKQBM-/0/1789709862732?e=2147483647&amp;v=beta&amp;t=yBQpkAi3b_vPl5oEj3Qpe_qlBxo9dtjGYjGTzdctbOg" data-gif="0" data-url="https://www.linkedin.com/feed/update/urn:li:activity:7506587267054927872/" data-plat="LinkedIn" role="button" tabindex="0" aria-label="Play video from LinkedIn"><img src="https://media.licdn.com/dms/image/v2/D4D05AQF7UnYDXL3stg/videocover-high/B4DaCzBT6PKQBM-/0/1789709862732?e=2147483647&amp;v=beta&amp;t=yBQpkAi3b_vPl5oEj3Qpe_qlBxo9dtjGYjGTzdctbOg" alt="" loading="lazy" decoding="async" onerror="this.closest('.facade').classList.add('nothumb')"><span class="play" aria-hidden="true"></span><span class="vplat p-linkedin">LinkedIn</span></div></div>
       <div class="body">
         <div class="chips"><span class="chip p-linkedin">LinkedIn</span></div>
         <h3><a href="https://www.linkedin.com/feed/update/urn:li:activity:7506587267054927872/" target="_blank" rel="noopener">A fly learning Flappy Bird through a dopamine signal</a></h3>
@@ -988,7 +1006,7 @@
       </div>
     </article>
     <article class="card" data-platforms="x" data-track="viral">
-      <div class="media"><div class="facade facade-text" data-x="2100308403629294009" data-url="https://x.com/pablominceraft/status/2100308403629294009" data-plat="X" role="button" tabindex="0" aria-label="Load post from X"><div class="fq"><div class="fwho">@pablominceraft</div><p>The Fruit Fly can play axle on controller. I trained all 166,700 neurons in the MaleCNS v1.0 fruit fly connectome to play Axle in Apex Legends, using YOLOv5 plus video pretraining.</p><div class="fsub">16 Sep 2026 · 17,991 likes</div></div><span class="floadbar">Load post from X</span></div></div>
+      <div class="media"><div class="facade facade-vid" data-vsrc="[&quot;https://video.twimg.com/amplify_video/2100308078893596672/vid/avc1/1410x720/WBv5KoS1xogwSVSd.mp4&quot;, &quot;https://video.twimg.com/amplify_video/2100308078893596672/vid/avc1/704x360/Dxw7TU8XFQKiMuJX.mp4&quot;, &quot;https://video.twimg.com/amplify_video/2100308078893596672/vid/avc1/528x270/ZP_J2UQrzTzkUADt.mp4&quot;]" data-poster="https://pbs.twimg.com/amplify_video_thumb/2100308078893596672/img/gu24RLulcCtjhkmW.jpg" data-gif="0" data-url="https://x.com/pablominceraft/status/2100308403629294009" data-plat="X" role="button" tabindex="0" aria-label="Play video from X"><img src="https://pbs.twimg.com/amplify_video_thumb/2100308078893596672/img/gu24RLulcCtjhkmW.jpg" alt="" loading="lazy" decoding="async" onerror="this.closest('.facade').classList.add('nothumb')"><span class="play" aria-hidden="true"></span><span class="vplat p-x">X</span></div></div>
       <div class="body">
         <div class="chips"><span class="chip p-x">X</span></div>
         <h3><a href="https://x.com/pablominceraft/status/2100308403629294009" target="_blank" rel="noopener">A fly brain playing Apex Legends</a></h3>
@@ -998,7 +1016,7 @@
       </div>
     </article>
     <article class="card" data-platforms="x" data-track="viral">
-      <div class="media"><div class="facade facade-text" data-x="2099195369293070727" data-url="https://x.com/yungcontent/status/2099195369293070727" data-plat="X" role="button" tabindex="0" aria-label="Load post from X"><div class="fq"><div class="fwho">@yungcontent</div><p>onlyflies - i downloaded a fly brain and made it an onlyfans then i simulated all 20 subscribers too</p><div class="fsub">13 Sep 2026 · 1,689 likes</div></div><span class="floadbar">Load post from X</span></div></div>
+      <div class="media"><div class="facade facade-vid" data-vsrc="[&quot;https://video.twimg.com/amplify_video/2099195258659901440/vid/avc1/720x900/ywz-7I8selLU87Vd.mp4&quot;, &quot;https://video.twimg.com/amplify_video/2099195258659901440/vid/avc1/480x600/715Xzx9JkxKNI2-m.mp4&quot;, &quot;https://video.twimg.com/amplify_video/2099195258659901440/vid/avc1/320x400/U_gp2AwG3OCREN2T.mp4&quot;]" data-poster="https://pbs.twimg.com/amplify_video_thumb/2099195258659901440/img/gCcp-ASBB6HSN5tC.jpg" data-gif="0" data-url="https://x.com/yungcontent/status/2099195369293070727" data-plat="X" role="button" tabindex="0" aria-label="Play video from X"><img src="https://pbs.twimg.com/amplify_video_thumb/2099195258659901440/img/gCcp-ASBB6HSN5tC.jpg" alt="" loading="lazy" decoding="async" onerror="this.closest('.facade').classList.add('nothumb')"><span class="play" aria-hidden="true"></span><span class="vplat p-x">X</span></div></div>
       <div class="body">
         <div class="chips"><span class="chip p-x">X</span></div>
         <h3><a href="https://x.com/yungcontent/status/2099195369293070727" target="_blank" rel="noopener">A fly brain given an OnlyFans account</a></h3>
@@ -1008,7 +1026,7 @@
       </div>
     </article>
     <article class="card" data-platforms="x" data-track="viral">
-      <div class="media"><div class="facade facade-text" data-x="2099831579900043769" data-url="https://x.com/kiruwaaaaaa/status/2099831579900043769" data-plat="X" role="button" tabindex="0" aria-label="Load post from X"><div class="fq"><div class="fwho">@kiruwaaaaaa</div><p>A DEAD FLY IS DRIVING MY ROBOT RIGHT NOW. Not a metaphor. A reconstructed neural map of a fruit fly - 166,700 neurons, 25.6 million synapses - is now driving it.</p><div class="fsub">15 Sep 2026 · 1,015 likes</div></div><span class="floadbar">Load post from X</span></div></div>
+      <div class="media"><div class="facade facade-vid" data-vsrc="[&quot;https://video.twimg.com/amplify_video/2099831441811034112/vid/avc1/720x1280/OdrN3BK2yxyVKC2Q.mp4&quot;, &quot;https://video.twimg.com/amplify_video/2099831441811034112/vid/avc1/480x852/xPYGjhlWuhNHvrrk.mp4&quot;, &quot;https://video.twimg.com/amplify_video/2099831441811034112/vid/avc1/320x568/oyns22DBv8qKkNHk.mp4&quot;]" data-poster="https://pbs.twimg.com/amplify_video_thumb/2099831441811034112/img/KZ3MGOCXBQjatHTb.jpg" data-gif="0" data-url="https://x.com/kiruwaaaaaa/status/2099831579900043769" data-plat="X" role="button" tabindex="0" aria-label="Play video from X"><img src="https://pbs.twimg.com/amplify_video_thumb/2099831441811034112/img/KZ3MGOCXBQjatHTb.jpg" alt="" loading="lazy" decoding="async" onerror="this.closest('.facade').classList.add('nothumb')"><span class="play" aria-hidden="true"></span><span class="vplat p-x">X</span></div></div>
       <div class="body">
         <div class="chips"><span class="chip p-x">X</span></div>
         <h3><a href="https://x.com/kiruwaaaaaa/status/2099831579900043769" target="_blank" rel="noopener">A fly connectome driving a physical robot</a></h3>
@@ -1018,7 +1036,7 @@
       </div>
     </article>
     <article class="card" data-platforms="x" data-track="viral">
-      <div class="media"><div class="facade facade-text" data-x="2100922642286960663" data-url="https://x.com/kiruwaaaaaa/status/2100922642286960663" data-plat="X" role="button" tabindex="0" aria-label="Load post from X"><div class="fq"><div class="fwho">@kiruwaaaaaa</div><p>I uploaded a fly brain and GPT-6 Astra into a Vector robot I bought on eBay. Vector was supposed to be a desk pet. Now it has a reconstructed fruit fly nervous system.</p><div class="fsub">18 Sep 2026 · 915 likes</div></div><span class="floadbar">Load post from X</span></div></div>
+      <div class="media"><div class="facade facade-vid" data-vsrc="[&quot;https://video.twimg.com/amplify_video/2100920930629275648/vid/avc1/720x1272/6C7MlaU8h2KpitOz.mp4&quot;, &quot;https://video.twimg.com/amplify_video/2100920930629275648/vid/avc1/480x848/2Avvug0kDVn7Dwc6.mp4&quot;, &quot;https://video.twimg.com/amplify_video/2100920930629275648/vid/avc1/320x564/UuDKA3NCVMYO8FoS.mp4&quot;]" data-poster="https://pbs.twimg.com/amplify_video_thumb/2100920930629275648/img/QIYaG03XTRa57_XR.jpg" data-gif="0" data-url="https://x.com/kiruwaaaaaa/status/2100922642286960663" data-plat="X" role="button" tabindex="0" aria-label="Play video from X"><img src="https://pbs.twimg.com/amplify_video_thumb/2100920930629275648/img/QIYaG03XTRa57_XR.jpg" alt="" loading="lazy" decoding="async" onerror="this.closest('.facade').classList.add('nothumb')"><span class="play" aria-hidden="true"></span><span class="vplat p-x">X</span></div></div>
       <div class="body">
         <div class="chips"><span class="chip p-x">X</span></div>
         <h3><a href="https://x.com/kiruwaaaaaa/status/2100922642286960663" target="_blank" rel="noopener">A fly brain and an LLM sharing a Vector desk robot</a></h3>
@@ -1028,7 +1046,7 @@
       </div>
     </article>
     <article class="card" data-platforms="x" data-track="viral">
-      <div class="media"><div class="facade facade-text" data-x="2099820536947749162" data-url="https://x.com/ZentrixHQ/status/2099820536947749162" data-plat="X" role="button" tabindex="0" aria-label="Load post from X"><div class="fq"><div class="fwho">@ZentrixHQ</div><p>166,700 fruit fly neurons are walking a robot cat across a desk right now. In September 2026, Google Research and HHMI Janelia mapped every neuron and connection.</p><div class="fsub">15 Sep 2026 · 1,406 likes</div></div><span class="floadbar">Load post from X</span></div></div>
+      <div class="media"><div class="facade facade-vid" data-vsrc="[&quot;https://video.twimg.com/amplify_video/2099771499754237952/vid/avc1/720x720/cvdkl5WKFbCwiHOV.mp4&quot;, &quot;https://video.twimg.com/amplify_video/2099771499754237952/vid/avc1/540x540/VIpqvbA4pHLdCr1D.mp4&quot;, &quot;https://video.twimg.com/amplify_video/2099771499754237952/vid/avc1/320x320/LWW_rSeTNf9xRAEl.mp4&quot;]" data-poster="https://pbs.twimg.com/amplify_video_thumb/2099771499754237952/img/l8XBdSZkcEJ9zM_F.jpg" data-gif="0" data-url="https://x.com/ZentrixHQ/status/2099820536947749162" data-plat="X" role="button" tabindex="0" aria-label="Play video from X"><img src="https://pbs.twimg.com/amplify_video_thumb/2099771499754237952/img/l8XBdSZkcEJ9zM_F.jpg" alt="" loading="lazy" decoding="async" onerror="this.closest('.facade').classList.add('nothumb')"><span class="play" aria-hidden="true"></span><span class="vplat p-x">X</span></div></div>
       <div class="body">
         <div class="chips"><span class="chip p-x">X</span></div>
         <h3><a href="https://x.com/ZentrixHQ/status/2099820536947749162" target="_blank" rel="noopener">A robot cat walked by fly neurons</a></h3>
@@ -1038,7 +1056,7 @@
       </div>
     </article>
     <article class="card" data-platforms="x" data-track="viral">
-      <div class="media"><div class="facade facade-text" data-x="2100676636010279243" data-url="https://x.com/adamgrag/status/2100676636010279243" data-plat="X" role="button" tabindex="0" aria-label="Load post from X"><div class="fq"><div class="fwho">@adamgrag</div><p>I GAVE A FLY BRAIN ONE TASK: LEARN TO BALANCE ON A BICYCLE. IT FELL 1,238 TIMES. THEN SOMETHING CHANGED. No instructions. No balance code.</p><div class="fsub">17 Sep 2026 · 586 likes</div></div><span class="floadbar">Load post from X</span></div></div>
+      <div class="media"><div class="facade facade-vid" data-vsrc="[&quot;https://video.twimg.com/amplify_video/2100676583719870464/vid/avc1/1280x720/kD-AlK4OvTfxRiwx.mp4&quot;, &quot;https://video.twimg.com/amplify_video/2100676583719870464/vid/avc1/640x360/3JK6XzbdqRL3c7cn.mp4&quot;, &quot;https://video.twimg.com/amplify_video/2100676583719870464/vid/avc1/480x270/haIJ6OFT16achUAX.mp4&quot;]" data-poster="https://pbs.twimg.com/amplify_video_thumb/2100676583719870464/img/Qfx0TEiSw-BpeftI.jpg" data-gif="0" data-url="https://x.com/adamgrag/status/2100676636010279243" data-plat="X" role="button" tabindex="0" aria-label="Play video from X"><img src="https://pbs.twimg.com/amplify_video_thumb/2100676583719870464/img/Qfx0TEiSw-BpeftI.jpg" alt="" loading="lazy" decoding="async" onerror="this.closest('.facade').classList.add('nothumb')"><span class="play" aria-hidden="true"></span><span class="vplat p-x">X</span></div></div>
       <div class="body">
         <div class="chips"><span class="chip p-x">X</span></div>
         <h3><a href="https://x.com/adamgrag/status/2100676636010279243" target="_blank" rel="noopener">A fly brain learning to balance a bicycle</a></h3>
@@ -1058,7 +1076,7 @@
       </div>
     </article>
     <article class="card" data-platforms="linkedin" data-track="viral">
-      <div class="media"><div class="facade facade-text" data-li="urn:li:activity:7504578012986912768" data-url="https://www.linkedin.com/feed/update/urn:li:activity:7504578012986912768/" data-plat="LinkedIn" role="button" tabindex="0" aria-label="Load post from LinkedIn"><div class="fq"><div class="fwho">Alex Xiao Cai<span class="frole">Software Engineer</span></div><p>I decided to make two virtual flies play chess with each other. Each has its own full copy of the real 127,400-neuron connectome, its own memory of wins and losses, its own personality.</p><div class="fsub">1w ago</div></div><span class="floadbar">Load post from LinkedIn</span></div></div>
+      <div class="media"><div class="facade facade-vid" data-vsrc="[&quot;https://dms.licdn.com/playlist/vid/v2/D5605AQH0cod1Nocq2Q/mp4-720p-30fp-crf28/B56aCWd5vIKcB8-/0/1789230820013?e=2147483647&amp;v=beta&amp;t=DZ2fryeVxnoWSNj7oNQrwjCdburEPCrGf-y7ZoghtBE&quot;, &quot;https://dms.licdn.com/playlist/vid/v2/D5605AQH0cod1Nocq2Q/mp4-640p-30fp-crf28/B56aCWd5vIKcBk-/0/1789230820013?e=2147483647&amp;v=beta&amp;t=imlOwW57Op3L5VWLOBoGeVL6sNkg21as825Ggszzd0Y&quot;]" data-poster="https://media.licdn.com/dms/image/v2/D5605AQH0cod1Nocq2Q/videocover-high/B56aCWd5vIKcBM-/0/1789230818143?e=2147483647&amp;v=beta&amp;t=KYXoCjzRS8hj0lK0gcXoPxZdcnYO4xQQC7w2aAdIH6Y" data-gif="0" data-url="https://www.linkedin.com/feed/update/urn:li:activity:7504578012986912768/" data-plat="LinkedIn" role="button" tabindex="0" aria-label="Play video from LinkedIn"><img src="https://media.licdn.com/dms/image/v2/D5605AQH0cod1Nocq2Q/videocover-high/B56aCWd5vIKcBM-/0/1789230818143?e=2147483647&amp;v=beta&amp;t=KYXoCjzRS8hj0lK0gcXoPxZdcnYO4xQQC7w2aAdIH6Y" alt="" loading="lazy" decoding="async" onerror="this.closest('.facade').classList.add('nothumb')"><span class="play" aria-hidden="true"></span><span class="vplat p-linkedin">LinkedIn</span></div></div>
       <div class="body">
         <div class="chips"><span class="chip p-linkedin">LinkedIn</span></div>
         <h3><a href="https://www.linkedin.com/feed/update/urn:li:activity:7504578012986912768/" target="_blank" rel="noopener">Two fly brains playing chess against each other</a></h3>
@@ -1118,7 +1136,7 @@
       </div>
     </article>
     <article class="card" data-platforms="linkedin" data-track="viral">
-      <div class="media"><div class="facade facade-text" data-li="urn:li:activity:7505308876737642497" data-url="https://www.linkedin.com/feed/update/urn:li:activity:7505308876737642497/" data-plat="LinkedIn" role="button" tabindex="0" aria-label="Load post from LinkedIn"><div class="fq"><div class="fwho">Shawn Pickett<span class="frole">Radiation Safety Support Services Director at LANDAUER</span></div><p>I trained a Fly to be a Radiologist. A model using a real fruit fly connectome now processes knee MRI studies and produces scores for 12 findings. Not just “brain-inspired AI” - a measured wiring diagram: 2,956 larval neurons and 110,677 directed connections.</p><div class="fsub">21h ago</div></div><span class="floadbar">Load post from LinkedIn</span></div></div>
+      <div class="media"><div class="facade facade-vid" data-vsrc="[&quot;https://dms.licdn.com/playlist/vid/v2/D4E05AQGltmA-A8qVFw/mp4-720p-30fp-crf28/B4EaCg2niZKYB8-/0/1789405071812?e=2147483647&amp;v=beta&amp;t=8hYbuajTeb3gn56awFhWbjuz5zkMcs8nM4NIxeGVtPs&quot;, &quot;https://dms.licdn.com/playlist/vid/v2/D4E05AQGltmA-A8qVFw/mp4-640p-30fp-crf28/B4EaCg2niZKYBk-/0/1789405071811?e=2147483647&amp;v=beta&amp;t=kiJbcxwdhaxG5uVN38vCHEBs-QLBY-U9Vlu3sGDs0vE&quot;]" data-poster="https://media.licdn.com/dms/image/v2/D4E05AQGltmA-A8qVFw/videocover-low/B4EaCg2niZKYBI-/0/1789405069571?e=2147483647&amp;v=beta&amp;t=C2ULwwcprcN6oEfbI7Bvv17l4EQAAgZ6kim_5UDBJjA" data-gif="0" data-url="https://www.linkedin.com/feed/update/urn:li:activity:7505308876737642497/" data-plat="LinkedIn" role="button" tabindex="0" aria-label="Play video from LinkedIn"><img src="https://media.licdn.com/dms/image/v2/D4E05AQGltmA-A8qVFw/videocover-low/B4EaCg2niZKYBI-/0/1789405069571?e=2147483647&amp;v=beta&amp;t=C2ULwwcprcN6oEfbI7Bvv17l4EQAAgZ6kim_5UDBJjA" alt="" loading="lazy" decoding="async" onerror="this.closest('.facade').classList.add('nothumb')"><span class="play" aria-hidden="true"></span><span class="vplat p-linkedin">LinkedIn</span></div></div>
       <div class="body">
         <div class="chips"><span class="chip p-linkedin">LinkedIn</span></div>
         <h3><a href="https://www.linkedin.com/feed/update/urn:li:activity:7505308876737642497/" target="_blank" rel="noopener">A fly connectome scoring knee MRI studies</a></h3>
@@ -1128,7 +1146,7 @@
       </div>
     </article>
     <article class="card" data-platforms="linkedin" data-track="viral">
-      <div class="media"><div class="facade facade-text" data-li="urn:li:activity:7505025563187818496" data-url="https://www.linkedin.com/feed/update/urn:li:activity:7505025563187818496/" data-plat="LinkedIn" role="button" tabindex="0" aria-label="Load post from LinkedIn"><div class="fq"><div class="fwho">Sebastian Sosa<span class="frole">Customer Foresight Engineer (AI Engineer)</span></div><p>The fly adjudicator runs the male fly connectome against X posts and determines whether the post is savory BULLSHIT or repulsively VALID.</p><div class="fsub">1d ago</div></div><span class="floadbar">Load post from LinkedIn</span></div></div>
+      <div class="media"><div class="facade facade-vid" data-vsrc="[&quot;https://dms.licdn.com/playlist/vid/v2/D5605AQFG5uWYc5X_sg/mp4-720p-30fp-crf28/B56aCc08nSHECA-/0/1789337525687?e=2147483647&amp;v=beta&amp;t=fh-7rWvsy1k5Cjgz_jD0PhRwc7uNWfA_oWT5ZSM-3w8&quot;, &quot;https://dms.licdn.com/playlist/vid/v2/D5605AQFG5uWYc5X_sg/mp4-640p-30fp-crf28/B56aCc08nSHEBo-/0/1789337525687?e=2147483647&amp;v=beta&amp;t=mMb3IfKG_fvWhgpu2LDKdh0bZmcumko9e67bTgYdDhY&quot;]" data-poster="https://media.licdn.com/dms/image/v2/D5605AQFG5uWYc5X_sg/videocover-high/B56aCc08nSHEBQ-/0/1789337523357?e=2147483647&amp;v=beta&amp;t=m8-ElhjBqjcFItBEEneui38I9mg155KuJVsbQAMvgg0" data-gif="0" data-url="https://www.linkedin.com/feed/update/urn:li:activity:7505025563187818496/" data-plat="LinkedIn" role="button" tabindex="0" aria-label="Play video from LinkedIn"><img src="https://media.licdn.com/dms/image/v2/D5605AQFG5uWYc5X_sg/videocover-high/B56aCc08nSHEBQ-/0/1789337523357?e=2147483647&amp;v=beta&amp;t=m8-ElhjBqjcFItBEEneui38I9mg155KuJVsbQAMvgg0" alt="" loading="lazy" decoding="async" onerror="this.closest('.facade').classList.add('nothumb')"><span class="play" aria-hidden="true"></span><span class="vplat p-linkedin">LinkedIn</span></div></div>
       <div class="body">
         <div class="chips"><span class="chip p-linkedin">LinkedIn</span></div>
         <h3><a href="https://www.linkedin.com/feed/update/urn:li:activity:7505025563187818496/" target="_blank" rel="noopener">The fly adjudicator: connectome as a bullshit detector</a></h3>
@@ -1268,7 +1286,7 @@
       </div>
     </article>
     <article class="card" data-platforms="x" data-track="viral">
-      <div class="media"><div class="facade facade-text" data-x="2095975490708291948" data-url="https://x.com/evnsnclr/status/2095975490708291948" data-plat="X" role="button" tabindex="0" aria-label="Load post from X"><div class="fq"><div class="fwho">@evnsnclr</div><p>I&#x27;ve successfully run the full retained MaleCNS v1.0 fruit fly connectome, all 166,700 neurons, inside Minecraft, with its simulated neural activity driving a fly&#x27;s movement.</p><div class="fsub">4 Sep 2026 · 13,975,946 views</div></div><span class="floadbar">Load post from X</span></div></div>
+      <div class="media"><div class="facade facade-vid" data-vsrc="[&quot;https://video.twimg.com/amplify_video/2095974714162511872/vid/avc1/1308x720/7yCc1amelNgtoCOF.mp4&quot;, &quot;https://video.twimg.com/amplify_video/2095974714162511872/vid/avc1/654x360/BWSVvPeb0q2WF-2t.mp4&quot;, &quot;https://video.twimg.com/amplify_video/2095974714162511872/vid/avc1/490x270/IIBEPNgjsxmsokKq.mp4&quot;]" data-poster="https://pbs.twimg.com/amplify_video_thumb/2095974714162511872/img/xUxhHCi9a5kSbreF.jpg" data-gif="0" data-url="https://x.com/evnsnclr/status/2095975490708291948" data-plat="X" role="button" tabindex="0" aria-label="Play video from X"><img src="https://pbs.twimg.com/amplify_video_thumb/2095974714162511872/img/xUxhHCi9a5kSbreF.jpg" alt="" loading="lazy" decoding="async" onerror="this.closest('.facade').classList.add('nothumb')"><span class="play" aria-hidden="true"></span><span class="vplat p-x">X</span></div></div>
       <div class="body">
         <div class="chips"><span class="chip p-x">X</span></div>
         <h3><a href="https://x.com/evnsnclr/status/2095975490708291948" target="_blank" rel="noopener">The full MaleCNS connectome running inside Minecraft</a></h3>
@@ -1278,7 +1296,7 @@
       </div>
     </article>
     <article class="card" data-platforms="x" data-track="viral">
-      <div class="media"><div class="facade facade-text" data-x="2099122649968357551" data-url="https://x.com/Frank_web33/status/2099122649968357551" data-plat="X" role="button" tabindex="0" aria-label="Load post from X"><div class="fq"><div class="fwho">@Frank_web33</div><p>THE FLY BRAIN ESCAPED THE COMPUTER. I PUT IT INSIDE A PHYSICAL ROBOT. Scientists released a reconstructed map containing 166,700 neurons from a fruit fly. I connected it to a Strandbeest.</p><div class="fsub">13 Sep 2026 · 4,655,200 views</div></div><span class="floadbar">Load post from X</span></div></div>
+      <div class="media"><div class="facade facade-vid" data-vsrc="[&quot;https://video.twimg.com/amplify_video/2099121962450579460/vid/avc1/720x1280/MYEwGNilI3tAV69E.mp4&quot;, &quot;https://video.twimg.com/amplify_video/2099121962450579460/vid/avc1/480x852/jFMRfckCXIVWjNww.mp4&quot;, &quot;https://video.twimg.com/amplify_video/2099121962450579460/vid/avc1/320x568/IEA8Dh7zhDQLN49X.mp4&quot;]" data-poster="https://pbs.twimg.com/amplify_video_thumb/2099121962450579460/img/gHYPKqYQ1HXMrjXt.jpg" data-gif="0" data-url="https://x.com/Frank_web33/status/2099122649968357551" data-plat="X" role="button" tabindex="0" aria-label="Play video from X"><img src="https://pbs.twimg.com/amplify_video_thumb/2099121962450579460/img/gHYPKqYQ1HXMrjXt.jpg" alt="" loading="lazy" decoding="async" onerror="this.closest('.facade').classList.add('nothumb')"><span class="play" aria-hidden="true"></span><span class="vplat p-x">X</span></div></div>
       <div class="body">
         <div class="chips"><span class="chip p-x">X</span></div>
         <h3><a href="https://x.com/Frank_web33/status/2099122649968357551" target="_blank" rel="noopener">The connectome escapes the computer and into a Strandbeest</a></h3>
@@ -1288,7 +1306,7 @@
       </div>
     </article>
     <article class="card" data-platforms="x" data-track="viral">
-      <div class="media"><div class="facade facade-text" data-x="2098012107652391357" data-url="https://x.com/wormuth/status/2098012107652391357" data-plat="X" role="button" tabindex="0" aria-label="Load post from X"><div class="fq"><div class="fwho">@wormuth</div><p>I gave the fly brain $100 to trade bitcoin. Dopamine neurons are stimulated when the fly makes profit. Neuron activity controls buy/sell decisions and makes trades on coinbase. Will the fly get rich?</p><div class="fsub">10 Sep 2026 · 4,036,887 views</div></div><span class="floadbar">Load post from X</span></div></div>
+      <div class="media"><div class="facade facade-vid" data-vsrc="[&quot;https://video.twimg.com/amplify_video/2097893699925458948/vid/avc1/1280x720/a6QNMAd7h93dAd9S.mp4&quot;, &quot;https://video.twimg.com/amplify_video/2097893699925458948/vid/avc1/640x360/FZzTJ6Ej3ko0cXE1.mp4&quot;, &quot;https://video.twimg.com/amplify_video/2097893699925458948/vid/avc1/480x270/letm8AIXXs85Bgc9.mp4&quot;]" data-poster="https://pbs.twimg.com/amplify_video_thumb/2097893699925458948/img/LOeUzu35T_s5f70k.jpg" data-gif="0" data-url="https://x.com/wormuth/status/2098012107652391357" data-plat="X" role="button" tabindex="0" aria-label="Play video from X"><img src="https://pbs.twimg.com/amplify_video_thumb/2097893699925458948/img/LOeUzu35T_s5f70k.jpg" alt="" loading="lazy" decoding="async" onerror="this.closest('.facade').classList.add('nothumb')"><span class="play" aria-hidden="true"></span><span class="vplat p-x">X</span></div></div>
       <div class="body">
         <div class="chips"><span class="chip p-x">X</span></div>
         <h3><a href="https://x.com/wormuth/status/2098012107652391357" target="_blank" rel="noopener">The fly brain given $100 to trade bitcoin</a></h3>
@@ -1298,7 +1316,7 @@
       </div>
     </article>
     <article class="card" data-platforms="x" data-track="viral">
-      <div class="media"><div class="facade facade-text" data-x="2097711063135383642" data-url="https://x.com/wormuth/status/2097711063135383642" data-plat="X" role="button" tabindex="0" aria-label="Load post from X"><div class="fq"><div class="fwho">@wormuth</div><p>the fly brain can play doom</p><div class="fsub">9 Sep 2026 · 2,513,388 views</div></div><span class="floadbar">Load post from X</span></div></div>
+      <div class="media"><div class="facade facade-vid" data-vsrc="[&quot;https://video.twimg.com/amplify_video/2097711005941817344/vid/avc1/1280x720/I2e-de6qGRkJ4Q4E.mp4&quot;, &quot;https://video.twimg.com/amplify_video/2097711005941817344/vid/avc1/640x360/FIouGApH04waB1QD.mp4&quot;, &quot;https://video.twimg.com/amplify_video/2097711005941817344/vid/avc1/480x270/1jPcHc_kIgFFg_vs.mp4&quot;]" data-poster="https://pbs.twimg.com/amplify_video_thumb/2097711005941817344/img/G90WiorzYBTsGL0N.jpg" data-gif="0" data-url="https://x.com/wormuth/status/2097711063135383642" data-plat="X" role="button" tabindex="0" aria-label="Play video from X"><img src="https://pbs.twimg.com/amplify_video_thumb/2097711005941817344/img/G90WiorzYBTsGL0N.jpg" alt="" loading="lazy" decoding="async" onerror="this.closest('.facade').classList.add('nothumb')"><span class="play" aria-hidden="true"></span><span class="vplat p-x">X</span></div></div>
       <div class="body">
         <div class="chips"><span class="chip p-x">X</span></div>
         <h3><a href="https://x.com/wormuth/status/2097711063135383642" target="_blank" rel="noopener">The fly brain can play Doom</a></h3>
@@ -1308,7 +1326,7 @@
       </div>
     </article>
     <article class="card" data-platforms="x" data-track="viral">
-      <div class="media"><div class="facade facade-text" data-x="2099168936059437206" data-url="https://x.com/jerryjliu0/status/2099168936059437206" data-plat="X" role="button" tabindex="0" aria-label="Load post from X"><div class="fq"><div class="fwho">@jerryjliu0</div><p>Introducing FlyOCR - I trained a fly brain to read a PDF. It uses the full MaleCNS v1.0 fruit fly connectome. The fly splits a pdf image into individual glyphs, maps pixels into receptor activations.</p><div class="fsub">13 Sep 2026 · 36,513 views</div></div><span class="floadbar">Load post from X</span></div></div>
+      <div class="media"><div class="facade facade-vid" data-vsrc="[&quot;https://video.twimg.com/amplify_video/2099168693867692032/vid/avc1/1280x720/wptQ9lnk6vjVIVlI.mp4&quot;, &quot;https://video.twimg.com/amplify_video/2099168693867692032/vid/avc1/640x360/oJ57NJaf2yQ5ywOq.mp4&quot;, &quot;https://video.twimg.com/amplify_video/2099168693867692032/vid/avc1/480x270/foik3eqfyMxlnnxT.mp4&quot;]" data-poster="https://pbs.twimg.com/amplify_video_thumb/2099168693867692032/img/eFSGinIFxADeISsL.jpg" data-gif="0" data-url="https://x.com/jerryjliu0/status/2099168936059437206" data-plat="X" role="button" tabindex="0" aria-label="Play video from X"><img src="https://pbs.twimg.com/amplify_video_thumb/2099168693867692032/img/eFSGinIFxADeISsL.jpg" alt="" loading="lazy" decoding="async" onerror="this.closest('.facade').classList.add('nothumb')"><span class="play" aria-hidden="true"></span><span class="vplat p-x">X</span></div></div>
       <div class="body">
         <div class="chips"><span class="chip p-x">X</span></div>
         <h3><a href="https://x.com/jerryjliu0/status/2099168936059437206" target="_blank" rel="noopener">FlyOCR: a fly brain reading a PDF</a></h3>
@@ -1318,7 +1336,7 @@
       </div>
     </article>
     <article class="card" data-platforms="x" data-track="viral">
-      <div class="media"><div class="facade facade-text" data-x="2098717831097634865" data-url="https://x.com/cto_junior/status/2098717831097634865" data-plat="X" role="button" tabindex="0" aria-label="Load post from X"><div class="fq"><div class="fwho">@cto_junior</div><p>trained a fly connectome to handle kubernetes deployments. imagine escaping your mortal body only to find out you&#x27;re now primary oncall</p><div class="fsub">12 Sep 2026 · 166,495 views</div></div><span class="floadbar">Load post from X</span></div></div>
+      <div class="media"><div class="facade facade-vid" data-vsrc="[&quot;https://video.twimg.com/amplify_video/2098717258323501056/vid/avc1/1280x720/GkaMqEvsY0RbMID2.mp4&quot;, &quot;https://video.twimg.com/amplify_video/2098717258323501056/vid/avc1/640x360/XWgGbYtuqXw0SdD6.mp4&quot;, &quot;https://video.twimg.com/amplify_video/2098717258323501056/vid/avc1/480x270/Al2MsM1udtlbx7n5.mp4&quot;]" data-poster="https://pbs.twimg.com/amplify_video_thumb/2098717258323501056/img/J-6RxFtHwZPuKC6c.jpg" data-gif="0" data-url="https://x.com/cto_junior/status/2098717831097634865" data-plat="X" role="button" tabindex="0" aria-label="Play video from X"><img src="https://pbs.twimg.com/amplify_video_thumb/2098717258323501056/img/J-6RxFtHwZPuKC6c.jpg" alt="" loading="lazy" decoding="async" onerror="this.closest('.facade').classList.add('nothumb')"><span class="play" aria-hidden="true"></span><span class="vplat p-x">X</span></div></div>
       <div class="body">
         <div class="chips"><span class="chip p-x">X</span></div>
         <h3><a href="https://x.com/cto_junior/status/2098717831097634865" target="_blank" rel="noopener">A fly connectome on Kubernetes duty</a></h3>
@@ -1328,7 +1346,7 @@
       </div>
     </article>
     <article class="card" data-platforms="x" data-track="viral">
-      <div class="media"><div class="facade facade-text" data-x="2099959576212988254" data-url="https://x.com/tigerfl0w/status/2099959576212988254" data-plat="X" role="button" tabindex="0" aria-label="Load post from X"><div class="fq"><div class="fwho">@tigerfl0w</div><p>A dead fly is piloting 3 drones right now and not a single AI lab was involved. No GPUs. No training data. No code. 166,700 neurons copied from one real fly brain and plugged straight into machines.</p><div class="fsub">15 Sep 2026 · 47 views</div></div><span class="floadbar">Load post from X</span></div></div>
+      <div class="media"><div class="facade facade-vid" data-vsrc="[&quot;https://video.twimg.com/amplify_video/2099959511809212416/vid/avc1/1282x720/ez0FuEb1rKPVgZ5r.mp4&quot;, &quot;https://video.twimg.com/amplify_video/2099959511809212416/vid/avc1/640x360/Az5T4H_ER4vqB8O2.mp4&quot;, &quot;https://video.twimg.com/amplify_video/2099959511809212416/vid/avc1/480x270/oAHB9lzfKJbIw_Xb.mp4&quot;]" data-poster="https://pbs.twimg.com/amplify_video_thumb/2099959511809212416/img/o0NoApiVOPdRQwTv.jpg" data-gif="0" data-url="https://x.com/tigerfl0w/status/2099959576212988254" data-plat="X" role="button" tabindex="0" aria-label="Play video from X"><img src="https://pbs.twimg.com/amplify_video_thumb/2099959511809212416/img/o0NoApiVOPdRQwTv.jpg" alt="" loading="lazy" decoding="async" onerror="this.closest('.facade').classList.add('nothumb')"><span class="play" aria-hidden="true"></span><span class="vplat p-x">X</span></div></div>
       <div class="body">
         <div class="chips"><span class="chip p-x">X</span></div>
         <h3><a href="https://x.com/tigerfl0w/status/2099959576212988254" target="_blank" rel="noopener">A fly brain piloting three drones</a></h3>
@@ -1356,7 +1374,7 @@
       </div>
     </article>
     <article class="card" data-platforms="x" data-track="science">
-      <div class="media"><div class="facade facade-text" data-x="2115800796063559843" data-url="https://x.com/LiuZiyin10/status/2115800796063559843" data-plat="X" role="button" tabindex="0" aria-label="Load post from X"><div class="fq"><div class="fwho">@LiuZiyin10</div><p>How to model a brain given its full anatomy? We took the Drosophila connectome and biophysically simulated its visual system.</p><div class="fsub">2026-10-29 · 1,975 views</div></div><span class="floadbar">Load post from X</span></div></div>
+      <div class="media"><div class="facade facade-vid" data-vsrc="[&quot;https://video.twimg.com/amplify_video/2115799565685448704/vid/avc1/960x720/9yyFbfpZS_JZSfcj.mp4&quot;, &quot;https://video.twimg.com/amplify_video/2115799565685448704/vid/avc1/480x360/fekZeyNwvKxr0heW.mp4&quot;, &quot;https://video.twimg.com/amplify_video/2115799565685448704/vid/avc1/360x270/hRGBDyNQMnTywrQR.mp4&quot;]" data-poster="https://pbs.twimg.com/amplify_video_thumb/2115799565685448704/img/2uA0sNUKz2rWS_nG.jpg" data-gif="0" data-url="https://x.com/LiuZiyin10/status/2115800796063559843" data-plat="X" role="button" tabindex="0" aria-label="Play video from X"><img src="https://pbs.twimg.com/amplify_video_thumb/2115799565685448704/img/2uA0sNUKz2rWS_nG.jpg" alt="" loading="lazy" decoding="async" onerror="this.closest('.facade').classList.add('nothumb')"><span class="play" aria-hidden="true"></span><span class="vplat p-x">X</span></div></div>
       <div class="body">
         <div class="chips"><span class="chip p-x">X</span></div>
         <h3><a href="https://x.com/LiuZiyin10/status/2115800796063559843" target="_blank" rel="noopener">A biophysical simulation of the fly&#x27;s visual system</a></h3>
@@ -1376,7 +1394,7 @@
       </div>
     </article>
     <article class="card" data-platforms="x" data-track="science">
-      <div class="media"><div class="facade facade-text" data-x="2096208900844409098" data-url="https://x.com/amyneurons/status/2096208900844409098" data-plat="X" role="button" tabindex="0" aria-label="Load post from X"><div class="fq"><div class="fwho">@amyneurons</div><p>Since there is interest, I put this WIP interactive fly connectome explorer online. Featuring the OG datasets. Works on your phone :) At the end you can follow the story of several different circuits and explore interactive animations. https://whatisabrain.com/fly/</p><div class="fsub">2026-09-05 · 20,651 views</div></div><span class="floadbar">Load post from X</span></div></div>
+      <div class="media"><div class="facade facade-vid" data-vsrc="[&quot;https://video.twimg.com/amplify_video/2096208657520242688/vid/avc1/720x1558/LEADwrhzZ4kBJBtE.mp4&quot;, &quot;https://video.twimg.com/amplify_video/2096208657520242688/vid/avc1/480x1038/g6T2FvqUQy1NTM4Y.mp4&quot;, &quot;https://video.twimg.com/amplify_video/2096208657520242688/vid/avc1/320x692/TcbMzzOaQFioakT6.mp4&quot;]" data-poster="https://pbs.twimg.com/amplify_video_thumb/2096208657520242688/img/p1k5B_g_OZUWPhQ0.jpg" data-gif="0" data-url="https://x.com/amyneurons/status/2096208900844409098" data-plat="X" role="button" tabindex="0" aria-label="Play video from X"><img src="https://pbs.twimg.com/amplify_video_thumb/2096208657520242688/img/p1k5B_g_OZUWPhQ0.jpg" alt="" loading="lazy" decoding="async" onerror="this.closest('.facade').classList.add('nothumb')"><span class="play" aria-hidden="true"></span><span class="vplat p-x">X</span></div></div>
       <div class="body">
         <div class="chips"><span class="chip p-x">X</span></div>
         <h3><a href="https://x.com/amyneurons/status/2096208900844409098" target="_blank" rel="noopener">An interactive fly connectome explorer that runs on a phone</a></h3>
@@ -1426,7 +1444,7 @@
       </div>
     </article>
     <article class="card" data-platforms="x" data-track="science">
-      <div class="media"><div class="facade facade-text" data-x="1096481932211310593" data-url="https://x.com/eboyden3/status/1096481932211310593" data-plat="X" role="button" tabindex="0" aria-label="Load post from X"><div class="fq"><div class="fwho">@eboyden3</div><p>A fly-through through the fly brain... A new rendering by Y. Bando (Toshiba Memory Corp/MIT), K. Hiwada (Toshiba Memory Corp), R. Gao (MIT/Janelia), S. Upadhyayula (HMS/Janelia), S. Asano (MIT), Y. Aso (Janelia), E. Betzig (UC Berkeley)</p><div class="fsub">15 Feb 2019 · 943 likes</div></div><span class="floadbar">Load post from X</span></div></div>
+      <div class="media"><div class="facade facade-vid" data-vsrc="[&quot;https://video.twimg.com/ext_tw_video/1096481601486290945/pu/vid/1280x720/j7zv5EJ4rYss925A.mp4?tag=6&quot;, &quot;https://video.twimg.com/ext_tw_video/1096481601486290945/pu/vid/640x360/JJF8A2UAArVzU2hF.mp4?tag=6&quot;, &quot;https://video.twimg.com/ext_tw_video/1096481601486290945/pu/vid/320x180/-y2scXvlZRDPs8cd.mp4?tag=6&quot;]" data-poster="https://pbs.twimg.com/ext_tw_video_thumb/1096481601486290945/pu/img/dAZnEcnuIcNCQqoc.jpg" data-gif="0" data-url="https://x.com/eboyden3/status/1096481932211310593" data-plat="X" role="button" tabindex="0" aria-label="Play video from X"><img src="https://pbs.twimg.com/ext_tw_video_thumb/1096481601486290945/pu/img/dAZnEcnuIcNCQqoc.jpg" alt="" loading="lazy" decoding="async" onerror="this.closest('.facade').classList.add('nothumb')"><span class="play" aria-hidden="true"></span><span class="vplat p-x">X</span></div></div>
       <div class="body">
         <div class="chips"><span class="chip p-x">X</span></div>
         <h3><a href="https://x.com/eboyden3/status/1096481932211310593" target="_blank" rel="noopener">An imaged fly brain, rendered as a fly-through</a></h3>
@@ -1486,7 +1504,7 @@
       </div>
     </article>
     <article class="card" data-platforms="x" data-track="science">
-      <div class="media"><div class="facade facade-text" data-x="2105730471883645358" data-url="https://x.com/IdoAizenbud/status/2105730471883645358" data-plat="X" role="button" tabindex="0" aria-label="Load post from X"><div class="fq"><div class="fwho">@IdoAizenbud</div><p>One fly brain can almost perfectly mimic one rat neuron.</p><div class="fsub">2026-10-01 · 87 likes</div></div><span class="floadbar">Load post from X</span></div></div>
+      <div class="media"><div class="facade facade-vid" data-vsrc="[&quot;https://video.twimg.com/amplify_video/2105720927912681472/vid/avc1/1280x720/oA1Da-HWOokXu24w.mp4&quot;, &quot;https://video.twimg.com/amplify_video/2105720927912681472/vid/avc1/640x360/Xnz9hP16J6s40-eT.mp4&quot;, &quot;https://video.twimg.com/amplify_video/2105720927912681472/vid/avc1/480x270/VHJd1BsgstvcxMq-.mp4&quot;]" data-poster="https://pbs.twimg.com/amplify_video_thumb/2105720927912681472/img/NDcOgPkda7yQj5cy.jpg" data-gif="0" data-url="https://x.com/IdoAizenbud/status/2105730471883645358" data-plat="X" role="button" tabindex="0" aria-label="Play video from X"><img src="https://pbs.twimg.com/amplify_video_thumb/2105720927912681472/img/NDcOgPkda7yQj5cy.jpg" alt="" loading="lazy" decoding="async" onerror="this.closest('.facade').classList.add('nothumb')"><span class="play" aria-hidden="true"></span><span class="vplat p-x">X</span></div></div>
       <div class="body">
         <div class="chips"><span class="chip p-x">X</span></div>
         <h3><a href="https://x.com/IdoAizenbud/status/2105730471883645358" target="_blank" rel="noopener">One fly brain to mimic one rat neuron</a></h3>
@@ -1496,7 +1514,7 @@
       </div>
     </article>
     <article class="card" data-platforms="linkedin" data-track="science">
-      <div class="media"><div class="facade facade-text" data-li="urn:li:activity:7509644786895630336" data-url="https://www.linkedin.com/feed/update/urn:li:activity:7509644786895630336/" data-plat="LinkedIn" role="button" tabindex="0" aria-label="Load post from LinkedIn"><div class="fq"><div class="fwho">Raunak Sharma<span class="frole">Founder @ TheRonnyStack</span></div><p>Built a small 3D environment: a walled room, scattered obstacles, glowing food. Important honesty check: the fly&#x27;s brain right now is simple hand-coded steering logic - ray-casting for obstacle avoidance, angle-seeking toward the nearest food. It is NOT yet driven by the actual spiking neural circuit from Phases 0-3.</p><div class="fsub">2026-09-26 · 14 reactions</div></div><span class="floadbar">Load post from LinkedIn</span></div></div>
+      <div class="media"><div class="facade facade-vid" data-vsrc="[&quot;https://dms.licdn.com/playlist/vid/v2/D4D05AQGW8VRJ2mT49g/mp4-720p-30fp-crf28/B4DaDeeG7YHgB8-/0/1790438833228?e=2147483647&amp;v=beta&amp;t=JdGL9l2yzL30ZxDpitF5eIvPfAa2z5WXphTtiaS7i24&quot;, &quot;https://dms.licdn.com/playlist/vid/v2/D4D05AQGW8VRJ2mT49g/mp4-640p-30fp-crf28/B4DaDeeG7YHgBk-/0/1790438833228?e=2147483647&amp;v=beta&amp;t=wqhoa5UMLK4p0oBsguUec7etg5ghn1-Grh87bRyL7-Q&quot;]" data-poster="https://media.licdn.com/dms/image/v2/D4D05AQGW8VRJ2mT49g/videocover-high/B4DaDeeG7YHgBM-/0/1790438831592?e=2147483647&amp;v=beta&amp;t=_AfP45kawEVo_cUVFz2fs-auem8RtQcL395344x7Jpo" data-gif="0" data-url="https://www.linkedin.com/feed/update/urn:li:activity:7509644786895630336/" data-plat="LinkedIn" role="button" tabindex="0" aria-label="Play video from LinkedIn"><img src="https://media.licdn.com/dms/image/v2/D4D05AQGW8VRJ2mT49g/videocover-high/B4DaDeeG7YHgBM-/0/1790438831592?e=2147483647&amp;v=beta&amp;t=_AfP45kawEVo_cUVFz2fs-auem8RtQcL395344x7Jpo" alt="" loading="lazy" decoding="async" onerror="this.closest('.facade').classList.add('nothumb')"><span class="play" aria-hidden="true"></span><span class="vplat p-linkedin">LinkedIn</span></div></div>
       <div class="body">
         <div class="chips"><span class="chip p-linkedin">LinkedIn</span></div>
         <h3><a href="https://www.linkedin.com/feed/update/urn:li:activity:7509644786895630336/" target="_blank" rel="noopener">A world for the fly, with the connectome not yet plugged in</a></h3>
@@ -1526,7 +1544,7 @@
       </div>
     </article>
     <article class="card" data-platforms="x" data-track="science">
-      <div class="media"><div class="facade facade-text" data-x="2104511999006691476" data-url="https://x.com/insomnia_vip/status/2104511999006691476" data-plat="X" role="button" tabindex="0" aria-label="Load post from X"><div class="fq"><div class="fwho">@insomnia_vip</div><p>I PUT AN ENTIRE FLY BRAIN UNDER A DIGITAL MICROSCOPE. Inside the model, it becomes an enormous network of connections with 139,255 neurons, 54.5 million synapses and 8,453 different cell types.</p><div class="fsub">28 Sep 2026 · 63 likes</div></div><span class="floadbar">Load post from X</span></div></div>
+      <div class="media"><div class="facade facade-vid" data-vsrc="[&quot;https://video.twimg.com/amplify_video/2104510856465715200/vid/avc1/720x960/pCTcZj6x2B-2m1PJ.mp4&quot;, &quot;https://video.twimg.com/amplify_video/2104510856465715200/vid/avc1/480x640/shjjIRa6Vt5mz4Fi.mp4&quot;, &quot;https://video.twimg.com/amplify_video/2104510856465715200/vid/avc1/320x426/K4g-c420nXCdLeuW.mp4&quot;]" data-poster="https://pbs.twimg.com/amplify_video_thumb/2104510856465715200/img/QG0y4QrQA37wJxWl.jpg" data-gif="0" data-url="https://x.com/insomnia_vip/status/2104511999006691476" data-plat="X" role="button" tabindex="0" aria-label="Play video from X"><img src="https://pbs.twimg.com/amplify_video_thumb/2104510856465715200/img/QG0y4QrQA37wJxWl.jpg" alt="" loading="lazy" decoding="async" onerror="this.closest('.facade').classList.add('nothumb')"><span class="play" aria-hidden="true"></span><span class="vplat p-x">X</span></div></div>
       <div class="body">
         <div class="chips"><span class="chip p-x">X</span></div>
         <h3><a href="https://x.com/insomnia_vip/status/2104511999006691476" target="_blank" rel="noopener">The connectome under a digital microscope</a></h3>
@@ -1556,7 +1574,7 @@
       </div>
     </article>
     <article class="card" data-platforms="linkedin" data-track="science">
-      <div class="media"><div class="facade facade-text" data-li="urn:li:activity:7508526517405224961" data-url="https://www.linkedin.com/feed/update/urn:li:activity:7508526517405224961/" data-plat="LinkedIn" role="button" tabindex="0" aria-label="Load post from LinkedIn"><div class="fq"><div class="fwho">Nina Montana Brown<span class="frole">Co-Founder &amp; CTO @ Mecha Health (YC W25)</span></div><p>We built RadFly, a small research experiment using the fruit fly connectome as the basis of a neural network for medical image classification and trained the brain on a small subset of MIMIC-CXR. RadFly achieves an AUROC of over 80% on pleural effusion classification.</p><div class="fsub">2d ago</div></div><span class="floadbar">Load post from LinkedIn</span></div></div>
+      <div class="media"><div class="facade facade-vid" data-vsrc="[&quot;https://dms.licdn.com/playlist/vid/v2/D4E05AQFFqxUrLtIPAw/mp4-720p-30fp-crf28/B4EaDK..7aHcB8-/0/1790111905540?e=2147483647&amp;v=beta&amp;t=r1ZSxwqSpTWSGy2cUq3jq5r1P4t6uRiXYnbbkxT4pYA&quot;, &quot;https://dms.licdn.com/playlist/vid/v2/D4E05AQFFqxUrLtIPAw/mp4-640p-30fp-crf28/B4EaDK..7aHcBk-/0/1790111905380?e=2147483647&amp;v=beta&amp;t=kXScuE46C0NqO8q_oHVs9SUYc-_3GGVxRLaSiYkLXgQ&quot;]" data-poster="https://media.licdn.com/dms/image/v2/D4E05AQFFqxUrLtIPAw/videocover-high/B4EaDK..7aHcBM-/0/1790111904598?e=2147483647&amp;v=beta&amp;t=cC08MoNEosRFFPnyPk88sNOXHFfDdtF5M17welNpLi8" data-gif="0" data-url="https://www.linkedin.com/feed/update/urn:li:activity:7508526517405224961/" data-plat="LinkedIn" role="button" tabindex="0" aria-label="Play video from LinkedIn"><img src="https://media.licdn.com/dms/image/v2/D4E05AQFFqxUrLtIPAw/videocover-high/B4EaDK..7aHcBM-/0/1790111904598?e=2147483647&amp;v=beta&amp;t=cC08MoNEosRFFPnyPk88sNOXHFfDdtF5M17welNpLi8" alt="" loading="lazy" decoding="async" onerror="this.closest('.facade').classList.add('nothumb')"><span class="play" aria-hidden="true"></span><span class="vplat p-linkedin">LinkedIn</span></div></div>
       <div class="body">
         <div class="chips"><span class="chip p-linkedin">LinkedIn</span></div>
         <h3><a href="https://www.linkedin.com/feed/update/urn:li:activity:7508526517405224961/" target="_blank" rel="noopener">RadFly: the connectome as an X-ray classifier</a></h3>
@@ -1676,13 +1694,13 @@
       </div>
     </article>
     <article class="card" data-platforms="linkedin" data-track="science">
-      <div class="media"><div class="facade facade-text" data-li="urn:li:activity:7506390747378659328" data-url="https://www.linkedin.com/feed/update/urn:li:activity:7506390747378659328/" data-plat="LinkedIn" role="button" tabindex="0" aria-label="Load post from LinkedIn"><div class="fq"><div class="fwho">Radoslav Petkov<span class="frole">Frontend Developer</span></div><p>The Janelia male CNS connectome, 165,122 neurons, 15 million synapses, simulated as a leaky integrate-and-fire network. Audio enters through 86 Johnston&#x27;s organ afferents. Descending neuron firing rates come out as MIDI.</p><div class="fsub">4d ago</div></div><span class="floadbar">Load post from LinkedIn</span></div></div>
+      <div class="media"><div class="facade facade-vid" data-vsrc="[&quot;https://dms.licdn.com/playlist/vid/v2/D4E05AQEKplSDkRqNkg/mp4-720p-30fp-crf28/B4EaC0QsquHYB8-/0/1789730675043?e=2147483647&amp;v=beta&amp;t=dYQXw-sSxZBHDWAbfNXzyt_JFLbNeB9MQUBteKHZC3U&quot;, &quot;https://dms.licdn.com/playlist/vid/v2/D4E05AQEKplSDkRqNkg/mp4-640p-30fp-crf28/B4EaC0QsquHYBk-/0/1789730675043?e=2147483647&amp;v=beta&amp;t=k65cnpq_fLtXDHRbLF6M4FxxKDl9pwzQCwtpcU3iy0s&quot;]" data-poster="https://media.licdn.com/dms/image/v2/D4E05AQEKplSDkRqNkg/videocover-low/B4EaC0QsquHYBI-/0/1789730673406?e=2147483647&amp;v=beta&amp;t=UJPD7EE339oQOSNfOokWCuOK3sM-oyuK7V8QT9hOabM" data-gif="0" data-url="https://www.linkedin.com/feed/update/urn:li:activity:7506674548759625728/" data-plat="LinkedIn" role="button" tabindex="0" aria-label="Play video from LinkedIn"><img src="https://media.licdn.com/dms/image/v2/D4E05AQEKplSDkRqNkg/videocover-low/B4EaC0QsquHYBI-/0/1789730673406?e=2147483647&amp;v=beta&amp;t=UJPD7EE339oQOSNfOokWCuOK3sM-oyuK7V8QT9hOabM" alt="" loading="lazy" decoding="async" onerror="this.closest('.facade').classList.add('nothumb')"><span class="play" aria-hidden="true"></span><span class="vplat p-linkedin">LinkedIn</span></div></div>
       <div class="body">
         <div class="chips"><span class="chip p-linkedin">LinkedIn</span></div>
-        <h3><a href="https://www.linkedin.com/feed/update/urn:li:activity:7506390747378659328/" target="_blank" rel="noopener">Music through the fly connectome, and a retraction</a></h3>
+        <h3><a href="https://www.linkedin.com/feed/update/urn:li:activity:7506674548759625728/" target="_blank" rel="noopener">Music through the fly connectome, and a retraction</a></h3>
         <div class="meta"><span><a href="https://www.linkedin.com/in/radoslavpetkovv/" target="_blank" rel="noopener">Radoslav Petkov</a></span><span class="sep">·</span><span>4d ago</span></div>
         <p class="commentary">Audio pushed through the Janelia male CNS connectome as a leaky integrate-and-fire network, entering at 86 Johnston&#x27;s organ afferents and leaving as MIDI from 56 descending neurons, with a companion video showing every neuron firing at its real anatomical position. Petkov then retracted half of his own headline result: the claim that signal is at chance two synapses in came from a single run, and across ten seeds the second-hop layer carries roughly 1-2% of the first hop&#x27;s signal, detectable over ten runs but invisible in any one of them. The correction, not the music, is the most methodologically useful thing in this index.</p>
-        <div class="also"><span class="also-label">Also posted on</span><a href="https://www.linkedin.com/feed/update/urn:li:activity:7506674548759625728/" target="_blank" rel="noopener" class="alt p-linkedin">LinkedIn · Radoslav Petkov</a> <a href="https://www.linkedin.com/feed/update/urn:li:activity:7506987969233240064/" target="_blank" rel="noopener" class="alt p-linkedin">LinkedIn · Radoslav Petkov</a></div>
+        <div class="also"><span class="also-label">Also posted on</span><a href="https://www.linkedin.com/feed/update/urn:li:activity:7506390747378659328/" target="_blank" rel="noopener" class="alt p-linkedin">LinkedIn · Radoslav Petkov</a> <a href="https://www.linkedin.com/feed/update/urn:li:activity:7506987969233240064/" target="_blank" rel="noopener" class="alt p-linkedin">LinkedIn · Radoslav Petkov</a></div>
       </div>
     </article>
     <article class="card" data-platforms="linkedin" data-track="science">
@@ -1926,7 +1944,7 @@
       </div>
     </article>
     <article class="card" data-platforms="x" data-track="science">
-      <div class="media"><div class="facade facade-text" data-x="2099561733056794645" data-url="https://x.com/BrainsAndTennis/status/2099561733056794645" data-plat="X" role="button" tabindex="0" aria-label="Load post from X"><div class="fq"><div class="fwho">@BrainsAndTennis</div><p>I and @nicochristie ran the fly connectome and found the group of neurons (hDeltaH, hDeltaA, hDeltaI and hDeltaG) that could allow the fly to navigate using fast synaptic weight updates, not neural activations. This is fast-weight continual learning in a fly, something current LLMs don&#x27;t do!</p><div class="fsub">14 Sep 2026 · 588,244 views</div></div><span class="floadbar">Load post from X</span></div></div>
+      <div class="media"><div class="facade facade-vid" data-vsrc="[&quot;https://video.twimg.com/amplify_video/2099560297879273472/vid/avc1/1280x720/krXJAnjx28C74c70.mp4&quot;, &quot;https://video.twimg.com/amplify_video/2099560297879273472/vid/avc1/640x360/zzFVLbfquFquVMay.mp4&quot;, &quot;https://video.twimg.com/amplify_video/2099560297879273472/vid/avc1/480x270/xbhgIwLKxIO-TPVU.mp4&quot;]" data-poster="https://pbs.twimg.com/amplify_video_thumb/2099560297879273472/img/-fBYwy5_YkJmwDht.jpg" data-gif="0" data-url="https://x.com/BrainsAndTennis/status/2099561733056794645" data-plat="X" role="button" tabindex="0" aria-label="Play video from X"><img src="https://pbs.twimg.com/amplify_video_thumb/2099560297879273472/img/-fBYwy5_YkJmwDht.jpg" alt="" loading="lazy" decoding="async" onerror="this.closest('.facade').classList.add('nothumb')"><span class="play" aria-hidden="true"></span><span class="vplat p-x">X</span></div></div>
       <div class="body">
         <div class="chips"><span class="chip p-x">X</span></div>
         <h3><a href="https://x.com/BrainsAndTennis/status/2099561733056794645" target="_blank" rel="noopener">Fast-weight continual learning found in the fly connectome</a></h3>
@@ -1961,6 +1979,18 @@ document.addEventListener('keydown', function (e) {
 });
 
 function escapeAttr(s) { return String(s).replace(/"/g, '&quot;'); }
+function escapeHtml(s) {
+  return String(s).replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;');
+}
+
+// Called from inside a native-video frame when no source could play.
+window.videoFailed = function (ifr) {
+  var f = ifr && ifr.closest('.facade');
+  if (!f) return;
+  f.innerHTML = '<div class="vfail-msg"><a href="' + escapeAttr(f.getAttribute('data-url')) +
+    '" target="_blank" rel="noopener">Video could not play here. Watch on ' +
+    (f.getAttribute('data-plat') || 'the web') + ' \u2197</a></div>';
+};
 
 // Always leave a way through: if the frame is blocked by a tracking blocker,
 // a sandbox, or the post going private, this link still works.
@@ -1985,6 +2015,38 @@ function activate(f) {
     ifr.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; picture-in-picture';
     ifr.allowFullscreen = true;
     ifr.title = 'YouTube video player';
+    f.classList.add('loaded');
+    f.innerHTML = '';
+    f.appendChild(ifr);
+    return;
+  }
+
+  if (f.dataset.vsrc) {
+    // The <video> lives in a same-origin srcdoc frame whose only job is to
+    // send no Referer: video.twimg.com answers 403 to any Referer that is not
+    // X's own, but serves requests without one. A page-wide no-referrer policy
+    // is not an option because YouTube embeds need the Referer.
+    var srcs = JSON.parse(f.dataset.vsrc);
+    f.removeAttribute('data-vsrc');
+    var poster = f.getAttribute('data-poster');
+    var gif = f.dataset.gif === '1';
+    var doc = '<!doctype html><meta name="referrer" content="no-referrer">' +
+      '<style>html,body{margin:0;height:100%;background:#000;overflow:hidden}' +
+      'video{display:block;width:100%;height:100%}</style>' +
+      '<video controls autoplay playsinline' + (gif ? ' loop muted' : '') +
+      (poster ? ' poster="' + escapeHtml(poster) + '"' : '') + '>' +
+      srcs.map(function (u) { return '<source type="video/mp4" src="' + escapeHtml(u) + '">'; }).join('') +
+      '</video><script>' +
+      // Last <source> failing means none could play (deleted post, hotlink
+      // refused, blocker): the parent swaps in a link instead of a black box.
+      'var s=document.querySelectorAll("source");' +
+      'if(s.length)s[s.length-1].addEventListener("error",function(){parent.videoFailed(frameElement)});' +
+      '<\/script>';
+    var ifr = document.createElement('iframe');
+    ifr.setAttribute('allow', 'autoplay; fullscreen; picture-in-picture');
+    ifr.allowFullscreen = true;
+    ifr.title = (f.getAttribute('data-plat') || '') + ' video';
+    ifr.srcdoc = doc;
     f.classList.add('loaded');
     f.innerHTML = '';
     f.appendChild(ifr);

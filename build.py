@@ -44,6 +44,7 @@ from datetime import datetime, timezone
 ROOT = os.path.dirname(os.path.abspath(__file__))
 DATA = os.path.join(ROOT, "data", "items.json")
 OUT = os.path.join(ROOT, "index.html")
+MEDIA = os.path.join(ROOT, "data", "media.json")
 
 PLATFORM_ORDER = {"youtube": 0, "x": 1, "linkedin": 2, "other": 3}
 PLATFORM_LABEL = {"youtube": "YouTube", "x": "X", "linkedin": "LinkedIn", "other": "Web"}
@@ -129,7 +130,48 @@ def _text_facade(item, data_attr, label):
     )
 
 
-def embed_html(item):
+def _yt_facade(vid):
+    thumb = f"https://i.ytimg.com/vi/{vid}/hqdefault.jpg"
+    return (
+        f'<div class="facade facade-yt" data-yt="{esc(vid)}" role="button" tabindex="0" '
+        f'aria-label="Play video">'
+        f'<img src="{esc(thumb)}" alt="" loading="lazy" decoding="async" '
+        f'onerror="this.closest(\'.facade\').classList.add(\'nothumb\')">'
+        f'<span class="play" aria-hidden="true"></span></div>'
+    )
+
+
+def _native_video_facade(item, m):
+    """Poster + play button; click swaps in a native <video> streaming the
+    platform's own MP4 (resolved by tools/fetch_media.py). Highest allowed
+    bitrate first so the browser takes it; lower ones are fallbacks."""
+    srcs = sorted(m.get("sources") or [], key=lambda s: -(s.get("bitrate") or 0))
+    plat = PLATFORM_LABEL.get(item.get("platform"), "the web")
+    poster = m.get("poster") or ""
+    img = (f'<img src="{esc(poster)}" alt="" loading="lazy" decoding="async" '
+           f'onerror="this.closest(\'.facade\').classList.add(\'nothumb\')">') if poster else ""
+    return (
+        f'<div class="facade facade-vid{"" if poster else " nothumb"}" '
+        f'data-vsrc="{esc(json.dumps([s["url"] for s in srcs]))}" data-poster="{esc(poster)}" '
+        f'data-gif="{1 if m.get("gif") else 0}" '
+        f'data-url="{esc(item.get("url") or "")}" data-plat="{esc(plat)}" '
+        f'role="button" tabindex="0" aria-label="Play video from {esc(plat)}">'
+        f'{img}<span class="play" aria-hidden="true"></span>'
+        f'<span class="vplat p-{esc(item.get("platform"))}">{esc(plat)}</span></div>'
+    )
+
+
+def playable(item, media):
+    """Media-cache entry with a playable video for an X/LinkedIn item, else None."""
+    if not media or item.get("platform") not in ("x", "linkedin"):
+        return None
+    m = media.get(canonical_url(item))
+    if m and m.get("status") == "ok" and (m.get("sources") or m.get("youtube")):
+        return m
+    return None
+
+
+def embed_html(item, media=None):
     """Return (kind, html). Every embed is click-to-load: dozens of live
     third-party frames would make the page slow and fragile."""
     p = item.get("platform")
@@ -137,14 +179,13 @@ def embed_html(item):
     if p == "youtube":
         vid = youtube_id(item)
         if vid:
-            thumb = f"https://i.ytimg.com/vi/{vid}/hqdefault.jpg"
-            return "video", (
-                f'<div class="facade facade-yt" data-yt="{esc(vid)}" role="button" tabindex="0" '
-                f'aria-label="Play video">'
-                f'<img src="{esc(thumb)}" alt="" loading="lazy" decoding="async" '
-                f'onerror="this.closest(\'.facade\').classList.add(\'nothumb\')">'
-                f'<span class="play" aria-hidden="true"></span></div>'
-            )
+            return "video", _yt_facade(vid)
+
+    m = playable(item, media)
+    if m:
+        if m.get("youtube"):          # LinkedIn post that links a YouTube video
+            return "video", _yt_facade(m["youtube"])
+        return "video", _native_video_facade(item, m)
 
     if p == "x":
         m = X_STATUS.search(item.get("url") or "")
@@ -164,9 +205,13 @@ def embed_html(item):
     )
 
 
-def pick_primary(items):
-    """Prefer the copy that embeds best and richest: YouTube > X > LinkedIn."""
-    return sorted(items, key=lambda i: PLATFORM_ORDER.get(i.get("platform"), 9))[0]
+def pick_primary(items, media=None):
+    """Prefer the copy that embeds best and richest: anything with a playable
+    video first, then YouTube > X > LinkedIn."""
+    def key(i):
+        has_video = i.get("platform") == "youtube" or playable(i, media) is not None
+        return (0 if has_video else 1, PLATFORM_ORDER.get(i.get("platform"), 9))
+    return sorted(items, key=key)[0]
 
 
 # --------------------------------------------------------------------------
@@ -187,7 +232,7 @@ def render_meta(item):
     return '<span class="sep">·</span>'.join(f"<span>{b}</span>" for b in bits)
 
 
-def render_cluster(c):
+def render_cluster(c, media=None):
     items = []
     seen = set()
     for it in c.get("items", []):
@@ -199,8 +244,8 @@ def render_cluster(c):
     if not items:
         return ""
 
-    primary = pick_primary(items)
-    kind, media = embed_html(primary)
+    primary = pick_primary(items, media)
+    kind, media_html = embed_html(primary, media)
     others = [i for i in items if i is not primary]
 
     platforms = sorted({i.get("platform", "other") for i in items},
@@ -223,7 +268,7 @@ def render_cluster(c):
     title = c.get("title") or primary.get("title") or "Untitled"
     return f"""
     <article class="card" data-platforms="{esc(' '.join(platforms))}" data-track="{esc(c.get('track','viral'))}">
-      <div class="media">{media}</div>
+      <div class="media">{media_html}</div>
       <div class="body">
         <div class="chips">{chips}</div>
         <h3><a href="{esc(primary.get('url'))}" target="_blank" rel="noopener">{esc(title)}</a></h3>
@@ -234,7 +279,7 @@ def render_cluster(c):
     </article>"""
 
 
-def build(data):
+def build(data, media=None):
     clusters = data.get("clusters", [])
     viral = [c for c in clusters if c.get("track") != "science"]
     science = [c for c in clusters if c.get("track") == "science"]
@@ -257,7 +302,7 @@ def build(data):
     def section(title, blurb, items, anchor):
         if not items:
             return ""
-        cards = "".join(render_cluster(c) for c in items)
+        cards = "".join(render_cluster(c, media) for c in items)
         return f"""
   <section id="{anchor}">
     <div class="sechead">
@@ -425,6 +470,24 @@ TEMPLATE = """<!doctype html>
   .facade.nothumb {{ background: linear-gradient(135deg,#16202a,#0e1216); }}
   .facade.nothumb img {{ display: none; }}
 
+  /* X / LinkedIn native video: poster letterboxed (many clips are vertical),
+     click swaps in a <video> playing the platform's own MP4. */
+  .facade-vid {{ background: #000; }}
+  .facade-vid img {{ object-fit: contain; }}
+  .facade-vid:hover .play {{ background: var(--accent); }}
+  .facade-vid iframe {{ position: absolute; inset: 0; width: 100%; height: 100%; border: 0; background: #000; }}
+  .facade .vplat {{
+    position: absolute; left: 10px; top: 10px; padding: 4px 7px; border-radius: 6px;
+    font: 600 10.5px/1 ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: .04em;
+    color: #fff; background: rgba(12,15,18,.74); border: 1px solid rgba(255,255,255,.18);
+  }}
+  .facade-vid.loaded .vplat {{ display: none; }}
+  .vfail-msg {{
+    position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+    padding: 16px; text-align: center; font-size: 13px; color: var(--fg-faint);
+  }}
+  .vfail-msg a {{ color: var(--accent-2); text-decoration: none; font-weight: 500; }}
+
   /* Text facade for X / LinkedIn: the post itself is readable immediately,
      the rich embed loads on click. A blocked frame never leaves a blank box. */
   .facade-text {{
@@ -575,6 +638,18 @@ document.addEventListener('keydown', function (e) {{
 }});
 
 function escapeAttr(s) {{ return String(s).replace(/"/g, '&quot;'); }}
+function escapeHtml(s) {{
+  return String(s).replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;');
+}}
+
+// Called from inside a native-video frame when no source could play.
+window.videoFailed = function (ifr) {{
+  var f = ifr && ifr.closest('.facade');
+  if (!f) return;
+  f.innerHTML = '<div class="vfail-msg"><a href="' + escapeAttr(f.getAttribute('data-url')) +
+    '" target="_blank" rel="noopener">Video could not play here. Watch on ' +
+    (f.getAttribute('data-plat') || 'the web') + ' \\u2197</a></div>';
+}};
 
 // Always leave a way through: if the frame is blocked by a tracking blocker,
 // a sandbox, or the post going private, this link still works.
@@ -599,6 +674,38 @@ function activate(f) {{
     ifr.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; picture-in-picture';
     ifr.allowFullscreen = true;
     ifr.title = 'YouTube video player';
+    f.classList.add('loaded');
+    f.innerHTML = '';
+    f.appendChild(ifr);
+    return;
+  }}
+
+  if (f.dataset.vsrc) {{
+    // The <video> lives in a same-origin srcdoc frame whose only job is to
+    // send no Referer: video.twimg.com answers 403 to any Referer that is not
+    // X's own, but serves requests without one. A page-wide no-referrer policy
+    // is not an option because YouTube embeds need the Referer.
+    var srcs = JSON.parse(f.dataset.vsrc);
+    f.removeAttribute('data-vsrc');
+    var poster = f.getAttribute('data-poster');
+    var gif = f.dataset.gif === '1';
+    var doc = '<!doctype html><meta name="referrer" content="no-referrer">' +
+      '<style>html,body{{margin:0;height:100%;background:#000;overflow:hidden}}' +
+      'video{{display:block;width:100%;height:100%}}</style>' +
+      '<video controls autoplay playsinline' + (gif ? ' loop muted' : '') +
+      (poster ? ' poster="' + escapeHtml(poster) + '"' : '') + '>' +
+      srcs.map(function (u) {{ return '<source type="video/mp4" src="' + escapeHtml(u) + '">'; }}).join('') +
+      '</video><script>' +
+      // Last <source> failing means none could play (deleted post, hotlink
+      // refused, blocker): the parent swaps in a link instead of a black box.
+      'var s=document.querySelectorAll("source");' +
+      'if(s.length)s[s.length-1].addEventListener("error",function(){{parent.videoFailed(frameElement)}});' +
+      '<\\/script>';
+    var ifr = document.createElement('iframe');
+    ifr.setAttribute('allow', 'autoplay; fullscreen; picture-in-picture');
+    ifr.allowFullscreen = true;
+    ifr.title = (f.getAttribute('data-plat') || '') + ' video';
+    ifr.srcdoc = doc;
     f.classList.add('loaded');
     f.innerHTML = '';
     f.appendChild(ifr);
@@ -698,7 +805,11 @@ def main():
         for cu, a, b in dupes:
             print(f"WARN duplicate {cu} in clusters {a} and {b}", file=sys.stderr)
 
-    out = build(data)
+    media = {}
+    if os.path.exists(MEDIA):  # optional: written by tools/fetch_media.py
+        with open(MEDIA, encoding="utf-8") as fh:
+            media = json.load(fh)
+    out = build(data, media)
     with open(OUT, "w", encoding="utf-8") as fh:
         fh.write(out)
     print(f"wrote {OUT} — {len(data.get('clusters', []))} clusters, "

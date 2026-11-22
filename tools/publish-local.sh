@@ -63,6 +63,13 @@ if git cat-file -e HEAD:data/items.json 2>/dev/null; then
 fi
 [ "$new_n" -ge "$old_n" ] || die "items.json has $new_n clusters, last commit has $old_n; refusing to shrink the site"
 
+python3 -m unittest discover -s tests -q >/dev/null 2>&1 || die "unit tests failed (python3 -m unittest discover -s tests)"
+
+# Resolve X/LinkedIn video for new posts into data/media.json. Never blocks a
+# publish: without it those cards just fall back to text.
+mout=$(python3 tools/fetch_media.py 2>&1) || log "WARN fetch_media.py failed: $(echo "$mout" | tail -n 1)"
+echo "$mout" | tail -n 1
+
 out=$(python3 build.py 2>&1); rc=$?
 echo "$out" | tail -n 3
 [ $rc -eq 0 ] || die "build.py failed (exit $rc)"

@@ -227,6 +227,15 @@ is off. Every outcome is appended to `publish.log` (`OK ...`, `WARN ...`,
 `ERROR ...`). On an `ERROR`, fix the cause if it is in the data (duplicates, bad
 JSON); otherwise report it and stop. Never force-push, never rewrite history.
 
+Before building it runs the unit tests (`tests/`) and `tools/fetch_media.py`, which
+resolves playable video for any X/LinkedIn post not yet in `data/media.json`. Those
+cards then show a poster and play the platform's own MP4 inline, like YouTube cards.
+X uses the public syndication endpoint behind X's embed widget; LinkedIn uses its
+public embed page, including posts that link a YouTube video. Posts with no video
+are cached as `novideo` and stay text cards. A failed fetch is only a `WARN`. Do not
+edit `media.json` by hand. `video.twimg.com` returns 403 to any non-X Referer, which
+is why the player sits in a no-referrer `srcdoc` frame (see `build.py`).
+
 The folder *is* the git clone (the first run of the script made it one, adopting
 the history in `first-publish.bundle`). Auth: the token in
 `.fly-connectome-gh-token` if present, else RJ's normal git credentials (gh).
