@@ -3,11 +3,17 @@
 This is the procedure the scheduled task follows. It exists in the repo so the
 scheduled task prompt can stay short and this logic stays version-controlled.
 
-Everything runs on RJ's Mac, in a **Claude Code Desktop scheduled task** with the
-working folder `/Users/rj/personal/fly-connectome-videos` (since 2026-11-22; before
-that it ran in a Cowork sandbox, which could not push to GitHub). It is a normal
-local session: a real shell, real git, RJ's own credentials. All paths below are
-relative to that folder.
+Everything runs on RJ's Mac in the folder `/Users/rj/personal/fly-connectome-videos`.
+Since 2026-11-22 a **launchd LaunchAgent** (`local.fly-connectome-daily`, installed by
+`tools/install-daily.sh`, default 07:17 local) runs `tools/daily-run.sh` once a day.
+That script runs headless `claude -p --chrome` on `TASK-PROMPT.md` with
+`--permission-mode dontAsk` and a tool allowlist, so nothing waits for a human. Logs
+go to `~/Library/Logs/fly-connectome/`, and a macOS notification reports the outcome.
+A run missed while the Mac sleeps happens on wake. It needs RJ logged in, and Chrome
+is started in the background if it is not running. Before 2026-11-22 the task ran in
+a Cowork sandbox, which could not push to GitHub. A run is a normal local session:
+a real shell, real git, RJ's own credentials. All paths below are relative to the
+folder.
 
 Browser work goes through **Claude in Chrome** (`mcp__claude-in-chrome__*`): RJ's
 real Chrome is signed in to X and LinkedIn. YouTube needs no browser at all

@@ -1,6 +1,6 @@
 Daily rebuild of RJ's fly connectome video index, published at https://honicky.github.io/fly-connectome-videos/
 
-This runs unattended on RJ's Mac as a Claude Code scheduled task, in the folder /Users/rj/personal/fly-connectome-videos. Do not ask clarifying questions — make reasonable calls and report them at the end.
+This runs unattended on RJ's Mac (launchd -> tools/daily-run.sh -> headless claude), in the folder /Users/rj/personal/fly-connectome-videos. Do not ask clarifying questions — make reasonable calls and report them at the end.
 
 STEP 1 — Read the runbook, COLLECTING.md in this folder. It is the authority on every detail below; follow it exactly.
 

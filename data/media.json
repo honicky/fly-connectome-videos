@@ -1839,5 +1839,33 @@
    9
   ],
   "fetched": "2026-11-22"
+ },
+ "x:2125210491270078906": {
+  "status": "novideo",
+  "fetched": "2026-11-25"
+ },
+ "x:2125430306584805524": {
+  "status": "ok",
+  "poster": "https://pbs.twimg.com/ext_tw_video_thumb/2125430276142612480/pu/img/SjCtZohzlQOkOb-U.jpg",
+  "sources": [
+   {
+    "url": "https://video.twimg.com/ext_tw_video/2125430276142612480/pu/vid/avc1/320x320/h7-_7mHBPc0t6c0u.mp4?tag=12",
+    "bitrate": 432000
+   },
+   {
+    "url": "https://video.twimg.com/ext_tw_video/2125430276142612480/pu/vid/avc1/540x540/XtC8p0sK-2ySNeWg.mp4?tag=12",
+    "bitrate": 832000
+   },
+   {
+    "url": "https://video.twimg.com/ext_tw_video/2125430276142612480/pu/vid/avc1/720x720/zR-3I9cgMBmtlsT_.mp4?tag=12",
+    "bitrate": 1280000
+   }
+  ],
+  "gif": false,
+  "aspect": [
+   1,
+   1
+  ],
+  "fetched": "2026-11-25"
  }
 }
