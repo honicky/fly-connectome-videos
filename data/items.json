@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-25T15:21:23+00:00",
+  "updated": "2026-11-26T15:22:26+00:00",
   "clusters": [
     {
       "id": "bad-apple-fly-brain",
@@ -2905,6 +2905,17 @@
           "published": "14 hours ago",
           "views": "4 views",
           "duration": "4:41"
+        },
+        {
+          "platform": "youtube",
+          "url": "https://www.youtube.com/watch?v=cALOrgkG3Vc",
+          "video_id": "cALOrgkG3Vc",
+          "title": "🪰 A REAL fruit fly brain lives in a tiny house — come say hi",
+          "author": "Mosky Fly Away",
+          "author_url": "https://www.youtube.com/@MoskyTheFly",
+          "published": "2026-11-11",
+          "views": "15 views",
+          "duration": "2:43:24"
         }
       ]
     },
@@ -3191,6 +3202,14 @@
           "published": "2026-10-17",
           "views": "6,287,816 views",
           "likes": "20,317 likes"
+        },
+        {
+          "platform": "x",
+          "url": "https://x.com/yoongcantaim/status/2120441208321249389",
+          "author": "@yoongcantaim",
+          "text": "We placed the fruit fly brain inside Odyssey-3, a frontier world model. The lil’ guy is now playing Fortnite and got the pirate ship token 🥰",
+          "published": "2026-11-11",
+          "likes": "492 likes"
         }
       ]
     },
@@ -3737,6 +3756,208 @@
           "published": "2026-11-21",
           "views": "9 views",
           "duration": "0:28"
+        }
+      ]
+    },
+    {
+      "id": "malecns-five-senses-spikes",
+      "track": "science",
+      "title": "Five senses arriving in the MaleCNS nervous system",
+      "commentary": "A 29-second render that starts the sensory neurons of smell, taste, touch, sound and light in turn and follows the spikes along the traced fibres as each set of neurons fires the next. The creator puts the wiring at 165,122 traced neurons from MaleCNS v1.0, of which 49,759 were drawn, and credits the mapping to HHMI Janelia with Cambridge, the MRC Laboratory of Molecular Biology and Google Research. It shows propagation through measured anatomy, not a fly perceiving anything.",
+      "first_seen": "2026-11-26",
+      "items": [
+        {
+          "platform": "youtube",
+          "url": "https://www.youtube.com/watch?v=SX0KQSBfvWY",
+          "video_id": "SX0KQSBfvWY",
+          "title": "Watch a fruit fly brain fire, spike by spike",
+          "author": "The Consciousness Research",
+          "author_url": "https://www.youtube.com/@the_consciousness_ai",
+          "published": "2026-11-21",
+          "views": "14 views",
+          "duration": "0:29"
+        }
+      ]
+    },
+    {
+      "id": "drosophila-multisensory-target-tracking",
+      "track": "science",
+      "title": "A target-tracking controller wired from connectome subgraphs",
+      "commentary": "A university course project, credited to an AI course group at NCKU and CCU, presenting a multisensory tracking system whose recurrent controller is taken from connectome wiring rather than learned from scratch. The description specifies an 8,792-neuron, 185,261-edge subgraph of MaleCNS v1.0 linking lobula columnar visual neurons, olfactory receptor neurons and Johnston's-organ wind sensors to the descending neurons that set forward speed and turning, trained by imitation on top of a frozen flyvis front end. Every figure here is the team's own.",
+      "first_seen": "2026-11-26",
+      "items": [
+        {
+          "platform": "youtube",
+          "url": "https://www.youtube.com/watch?v=Dj_BiW-q4VQ",
+          "video_id": "Dj_BiW-q4VQ",
+          "title": "A Multisensory Bio-Inspired Target Tracking System Based on Drosophila Neural Circuits",
+          "author": "F74",
+          "author_url": "https://www.youtube.com/channel/UCvYBaQMXo_YblFuAl8Lwnmg",
+          "published": "2026-11-26",
+          "views": "7 views",
+          "duration": "3:50"
+        }
+      ]
+    },
+    {
+      "id": "flyuigi-super-mario-coderun",
+      "track": "viral",
+      "title": "Flyuigi: a second fly brain put in charge of Super Mario Bros",
+      "commentary": "A separate Super Mario build from the one already in this index, by a different creator. The game state is turned into sensory input, MaleCNS v1.0 neurons fire, and that activity presses the buttons; the creator states the wiring is never touched and that evolution only tunes how strongly each sense is weighted. A browser demo and the source are both published, so the setup can be inspected. The claim of clearing World 1-1 ten times out of ten is the creator's.",
+      "first_seen": "2026-11-26",
+      "items": [
+        {
+          "platform": "youtube",
+          "url": "https://www.youtube.com/watch?v=KbBN0ZwgkIc",
+          "video_id": "KbBN0ZwgkIc",
+          "title": "I put a real fruit fly’s brain in charge of Super Mario Bros",
+          "author": "codeRun",
+          "author_url": "https://www.youtube.com/channel/UCES_TkGNpfMRtbjv1_aHxJA",
+          "published": "2026-10-28",
+          "views": "529 views",
+          "duration": "3:13"
+        }
+      ]
+    },
+    {
+      "id": "first-animal-brain-uploaded-explainer",
+      "track": "science",
+      "title": "An explainer on what the fly upload actually was",
+      "commentary": "A nine-minute explainer that walks from the C. elegans wiring diagram to the roughly 140,000-neuron fruit fly reconstruction and then asks whether a human brain could be treated the same way. Its own description says the virtual fly walks, grooms and eats, and flags a significant caveat behind that. The title's claim that the first animal brain has been uploaded and that humans are next is the video's framing, not a result.",
+      "first_seen": "2026-11-26",
+      "items": [
+        {
+          "platform": "youtube",
+          "url": "https://www.youtube.com/watch?v=RDc8XMMMsWk",
+          "video_id": "RDc8XMMMsWk",
+          "title": "Scientists Just Uploaded the First Animal Brain, and Humans Are Next",
+          "author": "Dan Grib",
+          "author_url": "https://www.youtube.com/channel/UC8wsrGnERmE2UDpH4izaTww",
+          "published": "2026-11-14",
+          "views": "7,840 views",
+          "duration": "9:13"
+        }
+      ]
+    },
+    {
+      "id": "pt-pavlo-ar-spectacles-fly",
+      "track": "viral",
+      "title": "A connectome fly loose in a real room, through AR glasses",
+      "commentary": "An augmented-reality build by Pavlo Tkachenko that places a virtual fly in a real room through Snap Spectacles. The creator describes the loop as the glasses' camera, rays and hand tracking feeding sense channels into the MaleCNS connectome, whose descending and motor neurons drive the fly's wings, legs and head. The clip shows the result, not how the sensory and motor mappings were built.",
+      "first_seen": "2026-11-26",
+      "items": [
+        {
+          "platform": "x",
+          "url": "https://x.com/pt_pavlo/status/2098834184999694678",
+          "author": "@pt_pavlo",
+          "text": "A fly that is a fly, its own connectome brain, perceiving the real room through its own senses with power of AR now have digital 🪰 Flow: Spectacles(retina + rays + hands) → (room inventory) → sense channels → MaleCNS brain → DNs + motor pools → Specstacles → wings, legs, head",
+          "published": "2026-09-12",
+          "likes": "592 likes"
+        },
+        {
+          "platform": "x",
+          "url": "https://x.com/Ronald_vanLoon/status/2125686744284569759",
+          "author": "@Ronald_vanLoon",
+          "text": "Meet the #Digital Fly: A Connectome Brain Experiencing the Real World Through #AR by @pt_pavlo",
+          "published": "2026-11-25",
+          "likes": "19 likes"
+        }
+      ]
+    },
+    {
+      "id": "malecnsfly-brain-sang",
+      "track": "viral",
+      "title": "A simulated fly brain's spikes turned into a song",
+      "commentary": "A clip from the @malecnsfly account that sets spikes from a simulated fly brain to music, with lyrics the creator writes. The creator says every note is a real spike and none is altered; the post does not say how spikes were mapped to notes, so this is a sonification, not something the fly composed.",
+      "first_seen": "2026-11-26",
+      "items": [
+        {
+          "platform": "x",
+          "url": "https://x.com/malecnsfly/status/2125188179909021917",
+          "author": "@malecnsfly",
+          "text": "last night, his brain sang. 🪰 every note is a real spike. i don't change a single one. i only write the words. first line: \"i have no voice, so i borrowed yours.\"",
+          "published": "2026-11-24",
+          "likes": "20 likes"
+        }
+      ]
+    },
+    {
+      "id": "malecns-rubiks-cube-relay",
+      "track": "viral",
+      "title": "Relaying Rubik's cube moves through a fly's visual system",
+      "commentary": "A build that shows a cube solver's moves, through the creator's own glasses, to the retina of a spiking MaleCNS v1.0 model and reads each move back out of the medulla. The creator reports 305 of 306 moves relayed and 7 of 8 scrambles solved, and states that the fly learned nothing, that the move decoding is a lookup table they built, and that its motor neurons never fired. It shows a visual signal surviving the first couple of synapses, not a fly solving a cube.",
+      "first_seen": "2026-11-26",
+      "items": [
+        {
+          "platform": "youtube",
+          "url": "https://www.youtube.com/watch?v=sxi7w7_Jumc",
+          "video_id": "sxi7w7_Jumc",
+          "title": "MaleCNS v1.0 fly brain simulation: 305 of 306 cube moves relayed",
+          "author": "Sidequest Maker",
+          "author_url": "https://www.youtube.com/@TheSidequestMaker",
+          "published": "2026-10-13",
+          "views": "110 views",
+          "duration": "5:36"
+        }
+      ]
+    },
+    {
+      "id": "theresanaiforthat-first-brain-uploaded",
+      "track": "science",
+      "title": "A long explainer on Eon's fly and the MaleCNS release",
+      "commentary": "A 17-minute explainer that runs from Eon's March 2026 claim to have uploaded a fruit fly to the September 2026 MaleCNS release, framed around AI tracing neurons from microscope images. Its description says every claim comes from published research and reporting. \"Uploaded\" is Eon's word, and the video's line that AI is starting to run brains is its framing, not a result.",
+      "first_seen": "2026-11-26",
+      "items": [
+        {
+          "platform": "youtube",
+          "url": "https://www.youtube.com/watch?v=fXmIIKqqxWw",
+          "video_id": "fXmIIKqqxWw",
+          "title": "The First Brain Was Just Uploaded To A Computer",
+          "author": "There's An AI For That",
+          "author_url": "https://www.youtube.com/@theresanaiforit",
+          "published": "2026-10-08",
+          "views": "2,247,684 views",
+          "duration": "16:46"
+        }
+      ]
+    },
+    {
+      "id": "not-hypothetical-fly-tortured",
+      "track": "science",
+      "title": "How the fly brain got out, and whether a copy can suffer",
+      "commentary": "An explainer that runs from the 302-neuron worm wired into a Lego robot, through the fly brain traced from thousands of electron-microscope slices, to the September 2026 release that people put into Minecraft, Doom and Beat Saber, and ends on whether a copied brain could feel anything. The figure that a whole-brain simulation predicted real neurons nine times out of ten is the video's summary of earlier published work.",
+      "first_seen": "2026-11-26",
+      "items": [
+        {
+          "platform": "youtube",
+          "url": "https://www.youtube.com/watch?v=N4I2CQVFmHY",
+          "video_id": "N4I2CQVFmHY",
+          "title": "This Fly Is Being Tortured Inside the Internet",
+          "author": "Not Hypothetical",
+          "author_url": "https://www.youtube.com/@NotHypothetical",
+          "published": "2026-10-09",
+          "views": "154,188 views",
+          "duration": "9:59"
+        }
+      ]
+    },
+    {
+      "id": "turaga-neuroagents-whole-body-talk",
+      "track": "science",
+      "title": "Srini Turaga on connectome-constrained whole-body fly simulation",
+      "commentary": "A workshop talk by Srini Turaga of HHMI Janelia at the NeuroAgents workshop on working toward simulations of whole-body fruit fly behaviour constrained by the connectome. It is a research talk on methods and goals, separate from his longer FlyComp2025 lecture already in this index.",
+      "first_seen": "2026-11-26",
+      "items": [
+        {
+          "platform": "youtube",
+          "url": "https://www.youtube.com/watch?v=SpkCvNzrgPM",
+          "video_id": "SpkCvNzrgPM",
+          "title": "Srini Turaga (Janelia) - Connectome-constrained simulation of whole-body fruit fly behavior",
+          "author": "NeuroAgents Workshop",
+          "author_url": "https://www.youtube.com/@NeuroAgentsWorkshop",
+          "published": "2026-03-27",
+          "views": "128 views",
+          "duration": "23:25"
         }
       ]
     }
