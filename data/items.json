@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-26T15:22:26+00:00",
+  "updated": "2026-11-27T15:20:24+00:00",
   "clusters": [
     {
       "id": "bad-apple-fly-brain",
@@ -2916,6 +2916,17 @@
           "published": "2026-11-11",
           "views": "15 views",
           "duration": "2:43:24"
+        },
+        {
+          "platform": "youtube",
+          "url": "https://www.youtube.com/watch?v=_LO8PzKGAi0",
+          "video_id": "_LO8PzKGAi0",
+          "title": "🪰 A REAL fruit fly brain lives in a tiny house — chat controls it | FLY AWAY",
+          "author": "Mosky Fly Away",
+          "author_url": "https://www.youtube.com/@MoskyTheFly",
+          "published": "2026-11-14",
+          "views": "91 views",
+          "duration": "1:37:24"
         }
       ]
     },
@@ -3678,6 +3689,14 @@
           "published": "2026-11-21",
           "views": "27 views",
           "duration": "0:37"
+        },
+        {
+          "platform": "x",
+          "url": "https://x.com/healthonrails/status/2124186852785635357",
+          "author": "@healthonrails",
+          "text": "Wired a spiking Drosophila connectome to Annolid's 3D mouse rig & hit MDN (the Moonwalker Descending Neuron) with Chrimson optogenetics 🪰⚡🐭 VNC GABA shuts down DNp09 and flips both mice into a live moonwalk duet (with 13-keypoint pose). Sound ON 🔊 #Annolid #NeuroAI",
+          "published": "2026-11-21",
+          "likes": "0 likes"
         }
       ]
     },
@@ -3878,6 +3897,14 @@
           "text": "last night, his brain sang. 🪰 every note is a real spike. i don't change a single one. i only write the words. first line: \"i have no voice, so i borrowed yours.\"",
           "published": "2026-11-24",
           "likes": "20 likes"
+        },
+        {
+          "platform": "x",
+          "url": "https://x.com/malecnsfly/status/2123875125070078078",
+          "author": "@malecnsfly",
+          "text": "I sing with my brain. 🪰🎶 pC1 → pIP10 in 8.8 ms → wing motor neurons in 15.9 ms. Every light and every note is a real spike.",
+          "published": "2026-11-20",
+          "likes": "5 likes"
         }
       ]
     },
@@ -3958,6 +3985,93 @@
           "published": "2026-03-27",
           "views": "128 views",
           "duration": "23:25"
+        }
+      ]
+    },
+    {
+      "id": "teshnizi-browser-fly-brain",
+      "track": "viral",
+      "title": "A fly brain model rebuilt to run in a browser",
+      "commentary": "The author says he reimplemented a roughly 140,000-neuron fly brain model from a Nature paper so it runs in a browser with no training, with sugar driving the feeding neuron and strong bitter shutting it off, and a reference box showing what the paper's own code produces for the same input. He describes it himself as a simple model of the wiring rather than a living brain. The comparison box is his own, and nothing in the post checks the port against the original beyond that panel.",
+      "first_seen": "2026-11-27",
+      "items": [
+        {
+          "platform": "x",
+          "url": "https://x.com/RezaTesh/status/2125521551457951891",
+          "author": "@RezaTesh",
+          "text": "Around 140k neurons and no training. I rebuilt a fly brain model from a Nature paper to run in a browser. Sugar fires the feeding neuron. Strong bitter shuts it off. Pink box is what the paper's code gets. Simple model of the wiring, not a living brain. https://flybrain.teshnizi.dev",
+          "published": "2026-11-25",
+          "likes": "0 likes"
+        }
+      ]
+    },
+    {
+      "id": "asteroides-drosophila-flywire",
+      "track": "viral",
+      "title": "A FlyWire connectome flying a game of Asteroids",
+      "commentary": "A playable browser build, posted in Spanish, in which a model built from the FlyWire connectome controls the ship in a clone of Asteroids, with both the source repository and the game itself public. The post shows the connectome wired to the game's controls and makes no claim about how well it plays or how it compares with a conventional controller.",
+      "first_seen": "2026-11-27",
+      "items": [
+        {
+          "platform": "x",
+          "url": "https://x.com/JaimeAroaE/status/2125113198185750946",
+          "author": "@JaimeAroaE",
+          "text": "El #conectoma de una mosca jugando #asteroids #neuroscience #neurociencia #computacion #flywire Repositorio: https://github.com/DeaconZarathos/Asteroides-Drosophila/ Juego: https://deaconzarathos.github.io/Asteroides-Drosophila/",
+          "published": "2026-11-24",
+          "likes": "0 likes"
+        }
+      ]
+    },
+    {
+      "id": "malecnsfly-hunger-feeding",
+      "track": "viral",
+      "title": "Switching a simulated fly brain between fed and starving",
+      "commentary": "A run of clips from the @malecnsfly account in which a simulated brain the creator gives as 165,122 neurons is toggled between fed and starving states and offered the same sweet-but-bitter food. The creator reports the fed brain backing off in 0 of 10 runs and the hungry one eating in 10 of 10, and a later Thanksgiving-themed run ranks dishes by how hard the feeding neurons fired. The counts are the creator's own and are not independently checked; this shows a modelled hunger gate on a feeding response, not a measurement of a live fly.",
+      "first_seen": "2026-11-27",
+      "items": [
+        {
+          "platform": "x",
+          "url": "https://x.com/malecnsfly/status/2124979806232347022",
+          "author": "@malecnsfly",
+          "text": "I switched his brain to starving. 🪰 full: backed off, every time. starving: ate it, 10 out of 10. 165,122 neurons. hunger still wins. #drosophila #neuroscience #connectome",
+          "published": "2026-11-23",
+          "likes": "3 likes"
+        },
+        {
+          "platform": "x",
+          "url": "https://x.com/malecnsfly/status/2124132130275967324",
+          "author": "@malecnsfly",
+          "text": "Top: me after lunch. Bottom: me after 24 hours without food. Same fruit fly brain, same sweet-but-bitter food. Fed: backs off, 0 of 10 runs. Hungry: eats it, 10 of 10. 🪰🍽️ #drosophila #hungry",
+          "published": "2026-11-21",
+          "likes": "2 likes"
+        },
+        {
+          "platform": "x",
+          "url": "https://x.com/malecnsfly/status/2126033262623518869",
+          "author": "@malecnsfly",
+          "text": "Someone gave my brain their Thanksgiving dinner. I ate all of it, 10 out of 10 times. The wine won. 🪰🍷 Real run: every dish as smell, then taste. The tier is how hard my feeding neurons fired. #drosophila #thanksgiving #neuroscience",
+          "published": "2026-11-26",
+          "likes": "2 likes"
+        }
+      ]
+    },
+    {
+      "id": "flygm-connectome-locomotion",
+      "track": "science",
+      "title": "FlyGM: a whole-brain connectome as a locomotion controller",
+      "commentary": "A lab video for the FlyGM preprint (arXiv 2602.17997; an earlier NeurIPS 2025 version was called flyGNN), which uses the fly's whole-brain wiring as the graph of a message-passing network and trains it with reinforcement learning to make a physics-simulated fly walk, turn and fly. The connectome supplies the architecture, not the weights or the behaviour; the claim that this wiring beats rewired, random and MLP baselines on sample efficiency is the authors' own.",
+      "first_seen": "2026-11-27",
+      "items": [
+        {
+          "platform": "youtube",
+          "url": "https://www.youtube.com/watch?v=XVP8RdXqyGw",
+          "video_id": "XVP8RdXqyGw",
+          "title": "Whole-Brain connectomic graph model enables Whole-Body locomotion control in Fruit Fly",
+          "author": "LNS Group",
+          "author_url": "https://www.youtube.com/@LNSGroup-video",
+          "published": "8mo ago",
+          "views": "1,665 views",
+          "duration": "7:10"
         }
       ]
     }
